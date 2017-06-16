@@ -6,7 +6,7 @@ Install the dependencies with [Yarn](https://yarnpkg.com/en/): `yarn install`
 
 Build the project for production with `npm run build:prod`
 
-Push your changes to the remote, the deploy to production with `npm run deploy:prod`
+Push your changes to the remote, then deploy to production with `npm run deploy:prod`
 
 ## Scripts
 
