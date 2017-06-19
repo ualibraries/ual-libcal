@@ -1,5 +1,11 @@
 module.exports = {
   plugins: [
-    require('autoprefixer')()
+    require('stylelint')({
+      configFile: '.stylelintrc.json'
+    }),
+    require('postcss-cssnext'),
+    require('postcss-reporter')({
+      clearMessages: true
+    })
   ]
 }

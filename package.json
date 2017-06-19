@@ -6,12 +6,10 @@
   "author": "Christopher Green",
   "license": "MIT",
   "scripts": {
-    "build:dev": "node_modules/webpack/bin/webpack.js",
-    "build:prod": "node_modules/standard/bin/cmd.js && node_modules/webpack/bin/webpack.js -p",
-    "deploy:dev": "node_modules/shipit-cli/bin/shipit dev deploy",
+    "build:dev": "node_modules/webpack/bin/webpack.js -w",
+    "build:prod": "node_modules/webpack/bin/webpack.js -p",
+    "deploy:dev": "node_modules/standard/bin/cmd.js && node_modules/shipit-cli/bin/shipit dev deploy",
     "deploy:prod": "node_modules/standard/bin/cmd.js && node_modules/shipit-cli/bin/shipit prod deploy",
-    "scary": "npm run build:dev && npm run deploy:dev",
-    "watch:dev": "node_modules/onchange/cli.js 'app/**/*.css' 'app/**/*.es6' 'app/**/*.js' -- npm run scary",
     "serve": "node ./static-server.js",
     "test": "node_modules/standard/bin/cmd.js"
   },
@@ -22,14 +20,14 @@
     "localtunnel": "^1.8.3",
     "lodash": "^4.17.4",
     "node-static": "^0.7.9",
-    "onchange": "^3.2.1",
+    "postcss-cssnext": "^2.11.0",
     "postcss-loader": "^2.0.6",
     "postcss-reporter": "^4.0.0",
     "shipit-cli": "^3.0.0",
     "shipit-deploy": "^2.4.0",
     "standard": "^10.0.2",
     "style-loader": "^0.18.2",
-    "stylelint": "^7.11.0",
+    "stylelint": "^7.11.1",
     "url-loader": "^0.5.9",
     "webpack": "^2.6.1"
   }

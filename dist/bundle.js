@@ -17293,7 +17293,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, ".hidden {\n  display: none;\n}\n", ""]);
+exports.push([module.i, ".hidden {\n  display: none;\n  color: red;\n}\n", ""]);
 
 // exports
 
