@@ -35,8 +35,6 @@ Paste the following code into 'Code Customizations' field.
 
 ## Local testing
 
-**WARNING: This might not be a good idea**
-
 Start a local static webserver by running `npm run serve`. You will then be provided
 with a script tag which you can paste into the LibCal's 'Code Customizations' field.
 The `bundle.js` file will be served from your local disk.
