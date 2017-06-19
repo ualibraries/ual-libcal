@@ -1,5 +1,8 @@
 # University of Arizona Libraries LibCal Customizations
 
+[![Build Status](https://travis-ci.org/ualibraries/ual-libcal.svg?branch=master)](https://travis-ci.org/ualibraries/ual-libcal)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 ## Getting started
 
 Install the dependencies with [Yarn](https://yarnpkg.com/en/): `yarn install`
