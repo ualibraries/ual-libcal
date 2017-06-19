@@ -49,3 +49,4 @@ The `bundle.js` file will be served from your local disk.
 * [JavaScript Standard Style](https://standardjs.com/)
 * [Shipit](https://github.com/shipitjs/shipit)
 * [Yarn](https://yarnpkg.com/en/)
+* [Travis CI](https://travis-ci.org/)
