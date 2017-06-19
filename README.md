@@ -40,3 +40,12 @@ Paste the following code into 'Code Customizations' field.
 Start a local static webserver by running `npm run serve`. You will then be provided
 with a script tag which you can paste into the LibCal's 'Code Customizations' field.
 The `bundle.js` file will be served from your local disk.
+
+## Learn more
+
+* [PostCSS](http://postcss.org/) and [PostCSS-cssnext](http://cssnext.io/)
+* [Babel](https://babeljs.io/)
+* [Webpack](https://webpack.js.org/)
+* [JavaScript Standard Style](https://standardjs.com/)
+* [Shipit](https://github.com/shipitjs/shipit)
+* [Yarn](https://yarnpkg.com/en/)
