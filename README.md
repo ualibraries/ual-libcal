@@ -17,6 +17,9 @@ Deployment is handled with [Shipit](https://github.com/shipitjs/shipit).
 Deploy for production (from the `master` branch) by running `npm run deploy:prod`,
 or for development (from the `develop` branch) by running `npm run deploy:dev`.
 
+This project uses [JavaScript Standard Style](https://standardjs.com/).
+Test it by running `npm run test`.
+
 ## LibCal settings
 
 In the LibCal dashboard, go to 'Admin' -> 'Look & Feel'.

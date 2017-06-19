@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "build:dev": "node_modules/webpack/bin/webpack.js",
-    "build:prod": "node_modules/webpack/bin/webpack.js -p",
+    "build:prod": "node_modules/standard/bin/cmd.js && node_modules/webpack/bin/webpack.js -p",
     "deploy:dev": "node_modules/shipit-cli/bin/shipit dev deploy",
-    "deploy:prod": "node_modules/shipit-cli/bin/shipit prod deploy",
+    "deploy:prod": "node_modules/standard/bin/cmd.js && node_modules/shipit-cli/bin/shipit prod deploy",
     "scary": "npm run build:dev && npm run deploy:dev",
     "watch:dev": "node_modules/onchange/cli.js 'app/**/*.css' 'app/**/*.es6' 'app/**/*.js' -- npm run scary",
     "serve": "node ./static-server.js",
