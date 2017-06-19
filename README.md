@@ -21,7 +21,7 @@ Deploy for production (from the `master` branch) by running `npm run deploy:prod
 or for development (from the `develop` branch) by running `npm run deploy:dev`.
 
 This project uses [JavaScript Standard Style](https://standardjs.com/).
-Test it by running `npm run test`.
+Test it by running `npm test`.
 
 ## LibCal settings
 
