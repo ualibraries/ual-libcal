@@ -1,11 +1,15 @@
 import './styles/main.css'
 import {debounce} from 'lodash'
-import {hideCapacity} from './components/hide-capacity'
-import {hideRoomInfo} from './components/hide-room-info'
+import {hideCapacity} from './lib/hide-capacity'
+import {hideRoomInfo} from './lib/hide-room-info'
+import {showHeader, showFooter} from './lib/template'
 
 document.addEventListener('DOMContentLoaded', () => {
-  hideCapacity()
-  hideRoomInfo()
+  // hideCapacity()
+  // hideRoomInfo()
+
+  showHeader()
+  showFooter()
 })
 
-window.addEventListener('resize', debounce(hideRoomInfo, 500))
+// window.addEventListener('resize', debounce(hideRoomInfo, 500))

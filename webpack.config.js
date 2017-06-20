@@ -78,6 +78,10 @@ module.exports = {
             loader: 'postcss-loader' // runs CSS through PostCSS
           }
         ]
+      },
+      {
+        test: /\.hbs$/,
+        loader: 'html-loader'
       }
     ]
 
@@ -94,8 +98,12 @@ module.exports = {
     ],
     // directories where to look for modules
 
-    extensions: ['.es6', '.js', '.json', '.jsx', '.css']
+    extensions: ['.es6', '.js', '.json', '.jsx', '.css', '.hbs'],
     // extensions that are used
+
+    alias: {
+      handlebars: 'handlebars/dist/handlebars.min.js'
+    }
   },
 
   performance: {
