@@ -7,7 +7,7 @@ import {hideTinyFooter} from './lib/hide-tiny-footer'
 import {showHeader, showFooter} from './lib/template'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // hideCapacity()
+  hideCapacity()
   // hideRoomInfo()
 
   showHeader()
