@@ -2,6 +2,7 @@
 @import "properties.css";
 @import "header.css";
 @import "libapps-buttons.css";
+@import "footer.css";
 
 body {
   background-color: var(--light-gray);

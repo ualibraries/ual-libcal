@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "https://bexidsojed.localtunnel.me/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -153,9 +153,20 @@ function hideRoomInfo () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = hideTinyFooter;
+function hideTinyFooter () {
+  document.getElementById('s-lc-public-footer').remove()
+}
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return showHeader; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return showFooter; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_handlebars__);
 
 
@@ -164,7 +175,7 @@ function insertAfter (newNode, referenceNode) {
 }
 
 function showHeader () {
-  const source = __webpack_require__(11)
+  const source = __webpack_require__(12)
   const template = __WEBPACK_IMPORTED_MODULE_0_handlebars__["compile"](source)
   const widgetElement = document.querySelector('body > .container')
   const bodyElement = document.querySelector('body')
@@ -177,7 +188,7 @@ function showHeader () {
 }
 
 function showFooter () {
-  const source = __webpack_require__(10)
+  const source = __webpack_require__(11)
   const template = __WEBPACK_IMPORTED_MODULE_0_handlebars__["compile"](source)
   const widgetElement = document.querySelector('body > .container')
   const bodyElement = document.querySelector('body')
@@ -193,7 +204,7 @@ function showFooter () {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17282,16 +17293,16 @@ function showFooter () {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15), __webpack_require__(16)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16), __webpack_require__(17)(module)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(7);
+var content = __webpack_require__(8);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -17299,7 +17310,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(12)(content, options);
+var update = __webpack_require__(13)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -17316,19 +17327,21 @@ if(false) {
 }
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_main_css__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_main_css__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__styles_main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_hide_capacity__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_hide_room_info__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_hide_breadcrumbs__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_template__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_hide_tiny_footer__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_template__ = __webpack_require__(4);
+
 
 
 
@@ -17340,9 +17353,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // hideCapacity()
   // hideRoomInfo()
 
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__lib_template__["a" /* showHeader */])()
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__lib_template__["b" /* showFooter */])()
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__lib_template__["a" /* showHeader */])()
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__lib_template__["b" /* showFooter */])()
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__lib_hide_breadcrumbs__["a" /* hideBreadcrumbs */])()
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__lib_hide_tiny_footer__["a" /* hideTinyFooter */])()
 
   // Adds padding to filter
   document.getElementById('s-lc-eq-navform').setAttribute('class', 'pa4')
@@ -17352,21 +17366,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(8)(undefined);
+exports = module.exports = __webpack_require__(9)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, ".s-lc-public-main {\n  padding-top: 0;\n}\n\n#s-lc-eq-navform {\n  margin-top: 0;\n  padding-bottom: 1em;\n}\n\n.ua-web-branding-banner {\n  background-color: #999999;\n}\n\n.ual-branding-wrapper {\n  border-bottom: 3px solid #40649e;\n}\n\n.ual-branding {\n  background-color: #2483bb;\n  height: 100px;\n  width: 100%;\n  padding: 20px 0 0 20px;\n}\n\n.ual-branding-image {\n  display: block;\n  width: 350px;\n  height: 55px;\n  background-image: url(" + __webpack_require__(14) + ");\n  background-position: 0 0;\n  background-repeat: no-repeat;\n  background-size: 100%;\n}\n\n/* Ask Us - Chat */\n\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button {\n  display: inline;\n  padding: 0;\n  margin: 0;\n  text-align: left;\n  white-space: normal;\n  vertical-align: baseline;\n  cursor: auto;\n  background-image: none;\n  border: none;\n  border-radius: 0;\n}\n\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_online,\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_offline {\n  background-color: transparent;\n  color: inherit;\n}\n\n.libapps-buttons {\n  background-color: #637799;\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  margin: 0;\n  padding: 0;\n}\n\n.libapps-menu {\n  list-style-type: none;\n  margin-bottom: 0;\n  padding: 0;\n}\n\n.libapps-menu-item {\n  display: inline-block;\n  text-align: center;\n  border-left: none;\n  float: none;\n  text-align: left;\n  width: auto;\n}\n\n.libapps-menu-item a {\n  color: #ffffff;\n}\n\n.libapps-buttons .libanswers-button,\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  display: inline-block;\n  padding: 0 15px;\n  height: 44px;\n  line-height: 44px;\n  width: 100%;\n  transition-property: color,background-color,border;\n  transition-duration: .2s;\n  transition-timing-function: ease;\n}\n\n.libapps-buttons .libanswers-button:hover,\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  background-color: #4f5f7a !important;\n}\n\n.libapps-buttons .libanswers-button:before,\n.libapps-buttons .libchat_online:before,\n.libapps-buttons .libchat_offline:before {\n  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2226%22%20height%3D%22108%22%20viewBox%3D%22-354%20-129.1%2026%20108%22%20enable-background%3D%22new%20-354%20-129.1%2026%20108%22%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-341-120.6c-2.6%200-4.8%201.9-4.8%205.2%200%203.3%201.8%206.7%204.8%206.7%203.2%200%204.8-3.4%204.8-6.7%200-3.3-2.2-5.2-4.8-5.2zm-4.8%2011.9c-2.6%200-4.8%202.1-4.8%204.7v2.2c0%20.2.1.2.2.2h18.5c.1%200%20.2-.1.2-.2v-2.1c0-2.7-2.1-4.8-4.8-4.8h-1.2c-.1%200-.3%200-.4.1-.9.7-2%201.1-3.1%201.1s-2.2-.3-3.1-1.1c-.1%200-.2-.2-.4-.2l-1.1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-341.2-101.7c-1.4-.9-3.1-1.1-4.4-1.1-.9%200-1.5.1-1.5.1l-.2.1v-8.8h.1s.5-.1%201.4-.1c1.3%200%203.1.2%204.6%201.1h.4c1.5-.9%203.3-1.1%204.6-1.1.8%200%201.3.1%201.4.1h.1v8.8h-.2s-.6-.1-1.4-.1c-1.2%200-3%20.2-4.4%201.1h-.1c.1-.1-.4-.1-.4-.1z%22/%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-336.2-111.4h1.3v8.5s-.6-.1-1.5-.1c-1.2%200-3%20.2-4.4%201.1h-.5c-1.4-.9-3.2-1.1-4.5-1.1-.9%200-1.4.1-1.4.1v-8.5h1.3c1.2%200%203.1.2%204.6%201h.5c1.5-.8%203.4-1%204.6-1m0-.3c-1.3%200-3.2.2-4.7%201.1h-.3c-1.5-.9-3.3-1.1-4.7-1.1-.8%200-1.4.1-1.4.1h-.2v9.1l.4-.1s.6-.1%201.4-.1c1.2%200%203%20.2%204.3%201v.1h.7l.1-.1c1.4-.8%203-1%204.3-1%20.9%200%201.4.1%201.4.1l.4.1v-9.1h-.2c-.2%200-.7-.1-1.5-.1zM-344.7-107.3l-.5-.2-.6.2v-4.1h1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-336.4-76.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm5.3%201.7c0-3-3-5.4-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3Ccircle%20fill%3D%22%236A80A4%22%20cx%3D%22-343.6%22%20cy%3D%22-41%22%20r%3D%224.4%22/%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M-336.4-40.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm-4%201.9c.1.2.1.3%200%20.5l-.8.8c-.1.2-.4.2-.5%200l-2.1-2.1-2.1%202.1c-.1.2-.4.2-.5%200l-.8-.8c-.1-.2-.1-.3%200-.5l2.1-2.1-2.1-2.1c-.1-.2-.1-.3%200-.5l.8-.8c.1-.2.4-.2.5%200l2.1%202.1%202.1-2.1c.1-.2.4-.2.5%200l.8.8c.1.2.1.3%200%20.5l-2.1%202.1%202.1%202.1zM-331.1-39c0-3-3-5.3-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3C/g%3E%3C/svg%3E');\n  background-repeat: no-repeat;\n  content: '';\n  width: 30px;\n  height: 20px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.libanswers-button:before {\n  background-position: 0 -8px;\n}\n\n.libanswers-button:hover {\n  text-decoration: none;\n}\n\n.libchat-button {\n  text-align: center;\n  width: 100%;\n}\n\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  color: #ffffff !important;\n  display: inline-block !important;\n  padding: 0 15px !important;\n  text-align: center !important;\n}\n\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  cursor: pointer !important;\n  background-color: #4f5f7a !important;\n}\n\n.libapps-buttons .libchat_online:focus,\n.libapps-buttons .libchat_offline:focus {\n  outline: 0;\n  box-shadow: none;\n}\n\n.libapps-buttons .libchat_online::before {\n  background-position: 0 -45px;\n}\n\n.libapps-buttons .libchat_offline::before {\n  background-position: 0 -81px;\n}\n\nbody {\n  background-color: #cccccc;\n}\n\n.container {\n  position: relative;\n  max-width: 1170px;\n  margin: 0 auto;\n  padding: 0;\n  background-color: #ffffff;\n}\n\n.pa4 {\n  padding: 1em;\n}\n\n/*\n * Hide visually and from screen readers\n */\n\n.hidden {\n  display: none !important;\n}\n\n/*\n * Hide only visually, but have it available for screen readers:\n * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility\n *\n * 1. For long content, line feeds are not interpreted as spaces and small width\n *    causes content to wrap 1 word per line:\n *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe\n */\n\n.visuallyhidden {\n  border: 0;\n  clip: rect(0 0 0 0);\n  -webkit-clip-path: inset(50%);\n  clip-path: inset(50%);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n  white-space: nowrap; /* 1 */\n}\n\n/*\n * Extends the .visuallyhidden class to allow the element\n * to be focusable when navigated to via the keyboard:\n * https://www.drupal.org/node/897638\n */\n\n.visuallyhidden.focusable:active,\n.visuallyhidden.focusable:focus {\n  clip: auto;\n  -webkit-clip-path: none;\n  clip-path: none;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n  white-space: inherit;\n}\n\n/*\n * Hide visually and from screen readers, but maintain layout\n */\n\n.invisible {\n  visibility: hidden;\n}\n\n/*\n * Clearfix: contain floats\n *\n * For modern browsers\n * 1. The space content is one way to avoid an Opera bug when the\n *    `contenteditable` attribute is included anywhere else in the document.\n *    Otherwise it causes space to appear at the top and bottom of elements\n *    that receive the `clearfix` class.\n * 2. The use of `table` rather than `block` is only necessary if using\n *    `:before` to contain the top-margins of child elements.\n */\n\n.clearfix:before,\n.clearfix:after {\n  content: \" \"; /* 1 */\n  display: table; /* 2 */\n}\n\n.clearfix:after {\n  clear: both;\n}\n", ""]);
+exports.push([module.i, ".s-lc-public-main {\n  padding-top: 0;\n}\n\n#s-lc-eq-navform {\n  margin-top: 0;\n  padding-bottom: 1em;\n}\n\n.ua-web-branding-banner {\n  background-color: #999999;\n}\n\n.ual-branding-wrapper {\n  border-bottom: 3px solid #40649e;\n}\n\n.ual-branding {\n  background-color: #2483bb;\n  height: 100px;\n  width: 100%;\n  padding: 20px 0 0 20px;\n}\n\n.ual-branding-image {\n  display: block;\n  width: 350px;\n  height: 55px;\n  background-image: url(" + __webpack_require__(15) + ");\n  background-position: 0 0;\n  background-repeat: no-repeat;\n  background-size: 100%;\n}\n\n/* Ask Us - Chat */\n\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button {\n  display: inline;\n  padding: 0;\n  margin: 0;\n  text-align: left;\n  white-space: normal;\n  vertical-align: baseline;\n  cursor: auto;\n  background-image: none;\n  border: none;\n  border-radius: 0;\n}\n\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_online,\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_offline {\n  background-color: transparent;\n  color: inherit;\n}\n\n.libapps-buttons {\n  background-color: #637799;\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  margin: 0;\n  padding: 0;\n}\n\n.libapps-menu {\n  list-style-type: none;\n  margin-bottom: 0;\n  padding: 0;\n}\n\n.libapps-menu-item {\n  display: inline-block;\n  text-align: center;\n  border-left: none;\n  float: none;\n  text-align: left;\n  width: auto;\n}\n\n.libapps-menu-item a {\n  color: #ffffff;\n}\n\n.libapps-buttons .libanswers-button,\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  display: inline-block;\n  padding: 0 15px;\n  height: 44px;\n  line-height: 44px;\n  width: 100%;\n  transition-property: color,background-color,border;\n  transition-duration: .2s;\n  transition-timing-function: ease;\n}\n\n.libapps-buttons .libanswers-button:hover,\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  background-color: #4f5f7a !important;\n}\n\n.libapps-buttons .libanswers-button:before,\n.libapps-buttons .libchat_online:before,\n.libapps-buttons .libchat_offline:before {\n  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2226%22%20height%3D%22108%22%20viewBox%3D%22-354%20-129.1%2026%20108%22%20enable-background%3D%22new%20-354%20-129.1%2026%20108%22%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-341-120.6c-2.6%200-4.8%201.9-4.8%205.2%200%203.3%201.8%206.7%204.8%206.7%203.2%200%204.8-3.4%204.8-6.7%200-3.3-2.2-5.2-4.8-5.2zm-4.8%2011.9c-2.6%200-4.8%202.1-4.8%204.7v2.2c0%20.2.1.2.2.2h18.5c.1%200%20.2-.1.2-.2v-2.1c0-2.7-2.1-4.8-4.8-4.8h-1.2c-.1%200-.3%200-.4.1-.9.7-2%201.1-3.1%201.1s-2.2-.3-3.1-1.1c-.1%200-.2-.2-.4-.2l-1.1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-341.2-101.7c-1.4-.9-3.1-1.1-4.4-1.1-.9%200-1.5.1-1.5.1l-.2.1v-8.8h.1s.5-.1%201.4-.1c1.3%200%203.1.2%204.6%201.1h.4c1.5-.9%203.3-1.1%204.6-1.1.8%200%201.3.1%201.4.1h.1v8.8h-.2s-.6-.1-1.4-.1c-1.2%200-3%20.2-4.4%201.1h-.1c.1-.1-.4-.1-.4-.1z%22/%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-336.2-111.4h1.3v8.5s-.6-.1-1.5-.1c-1.2%200-3%20.2-4.4%201.1h-.5c-1.4-.9-3.2-1.1-4.5-1.1-.9%200-1.4.1-1.4.1v-8.5h1.3c1.2%200%203.1.2%204.6%201h.5c1.5-.8%203.4-1%204.6-1m0-.3c-1.3%200-3.2.2-4.7%201.1h-.3c-1.5-.9-3.3-1.1-4.7-1.1-.8%200-1.4.1-1.4.1h-.2v9.1l.4-.1s.6-.1%201.4-.1c1.2%200%203%20.2%204.3%201v.1h.7l.1-.1c1.4-.8%203-1%204.3-1%20.9%200%201.4.1%201.4.1l.4.1v-9.1h-.2c-.2%200-.7-.1-1.5-.1zM-344.7-107.3l-.5-.2-.6.2v-4.1h1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-336.4-76.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm5.3%201.7c0-3-3-5.4-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3Ccircle%20fill%3D%22%236A80A4%22%20cx%3D%22-343.6%22%20cy%3D%22-41%22%20r%3D%224.4%22/%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M-336.4-40.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm-4%201.9c.1.2.1.3%200%20.5l-.8.8c-.1.2-.4.2-.5%200l-2.1-2.1-2.1%202.1c-.1.2-.4.2-.5%200l-.8-.8c-.1-.2-.1-.3%200-.5l2.1-2.1-2.1-2.1c-.1-.2-.1-.3%200-.5l.8-.8c.1-.2.4-.2.5%200l2.1%202.1%202.1-2.1c.1-.2.4-.2.5%200l.8.8c.1.2.1.3%200%20.5l-2.1%202.1%202.1%202.1zM-331.1-39c0-3-3-5.3-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3C/g%3E%3C/svg%3E');\n  background-repeat: no-repeat;\n  content: '';\n  width: 30px;\n  height: 20px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.libanswers-button:before {\n  background-position: 0 -8px;\n}\n\n.libanswers-button:hover {\n  text-decoration: none;\n}\n\n.libchat-button {\n  text-align: center;\n  width: 100%;\n}\n\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  color: #ffffff !important;\n  display: inline-block !important;\n  padding: 0 15px !important;\n  text-align: center !important;\n}\n\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  cursor: pointer !important;\n  background-color: #4f5f7a !important;\n}\n\n.libapps-buttons .libchat_online:focus,\n.libapps-buttons .libchat_offline:focus {\n  outline: 0;\n  box-shadow: none;\n}\n\n.libapps-buttons .libchat_online::before {\n  background-position: 0 -45px;\n}\n\n.libapps-buttons .libchat_offline::before {\n  background-position: 0 -81px;\n}\n\n.ual-footer-inner {\n  font-size: 1.25em;\n  padding: 15px;\n  background-color: #eeeeee;\n}\n\n.ual-footer-inner a {\n  color: #5376b6;\n}\n\n.ual-footer-inner ul {\n  list-style-type: none;\n  margin-left: 0;\n  padding-left: 0;\n}\n\n.ual-footer-inner li {\n  display: inline-block;\n  padding-right: 8px;\n  margin-right: 8px;\n}\n\n.ual-footer-inner ul:first-child li {\n  border-right: 1px solid #cccccc;\n}\n\n.ual-footer-inner ul:first-child li:last-child {\n  border: none;\n}\n\nbody {\n  background-color: #cccccc;\n}\n\n.container {\n  position: relative;\n  max-width: 1170px;\n  margin: 0 auto;\n  padding: 0;\n  background-color: #ffffff;\n}\n\n.pa4 {\n  padding: 1em;\n}\n\n/*\n * Hide visually and from screen readers\n */\n\n.hidden {\n  display: none !important;\n}\n\n/*\n * Hide only visually, but have it available for screen readers:\n * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility\n *\n * 1. For long content, line feeds are not interpreted as spaces and small width\n *    causes content to wrap 1 word per line:\n *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe\n */\n\n.visuallyhidden {\n  border: 0;\n  clip: rect(0 0 0 0);\n  -webkit-clip-path: inset(50%);\n  clip-path: inset(50%);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n  white-space: nowrap; /* 1 */\n}\n\n/*\n * Extends the .visuallyhidden class to allow the element\n * to be focusable when navigated to via the keyboard:\n * https://www.drupal.org/node/897638\n */\n\n.visuallyhidden.focusable:active,\n.visuallyhidden.focusable:focus {\n  clip: auto;\n  -webkit-clip-path: none;\n  clip-path: none;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n  white-space: inherit;\n}\n\n/*\n * Hide visually and from screen readers, but maintain layout\n */\n\n.invisible {\n  visibility: hidden;\n}\n\n/*\n * Clearfix: contain floats\n *\n * For modern browsers\n * 1. The space content is one way to avoid an Opera bug when the\n *    `contenteditable` attribute is included anywhere else in the document.\n *    Otherwise it causes space to appear at the top and bottom of elements\n *    that receive the `clearfix` class.\n * 2. The use of `table` rather than `block` is only necessary if using\n *    `:before` to contain the top-margins of child elements.\n */\n\n.clearfix:before,\n.clearfix:after {\n  content: \" \"; /* 1 */\n  display: table; /* 2 */\n}\n\n.clearfix:after {\n  clear: both;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /*
@@ -17448,7 +17462,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**!
@@ -17482,19 +17496,19 @@ THE SOFTWARE.
 var f=g.nameLookup(e,b[c],a);return d?[" && ",f]:[" != null ? ",f," : ",e]})},resolvePossibleLambda:function(){this.push([this.aliasable("container.lambda"),"(",this.popStack(),", ",this.contextName(0),")"])},pushStringParam:function(a,b){this.pushContext(),this.pushString(b),"SubExpression"!==b&&("string"==typeof a?this.pushString(a):this.pushStackLiteral(a))},emptyHash:function(a){this.trackIds&&this.push("{}"),this.stringParams&&(this.push("{}"),this.push("{}")),this.pushStackLiteral(a?"undefined":"{}")},pushHash:function(){this.hash&&this.hashes.push(this.hash),this.hash={values:[],types:[],contexts:[],ids:[]}},popHash:function(){var a=this.hash;this.hash=this.hashes.pop(),this.trackIds&&this.push(this.objectLiteral(a.ids)),this.stringParams&&(this.push(this.objectLiteral(a.contexts)),this.push(this.objectLiteral(a.types))),this.push(this.objectLiteral(a.values))},pushString:function(a){this.pushStackLiteral(this.quotedString(a))},pushLiteral:function(a){this.pushStackLiteral(a)},pushProgram:function(a){null!=a?this.pushStackLiteral(this.programExpression(a)):this.pushStackLiteral(null)},registerDecorator:function(a,b){var c=this.nameLookup("decorators",b,"decorator"),d=this.setupHelperArgs(b,a);this.decorators.push(["fn = ",this.decorators.functionCall(c,"",["fn","props","container",d])," || fn;"])},invokeHelper:function(a,b,c){var d=this.popStack(),e=this.setupHelper(a,b),f=c?[e.name," || "]:"",g=["("].concat(f,d);this.options.strict||g.push(" || ",this.aliasable("helpers.helperMissing")),g.push(")"),this.push(this.source.functionCall(g,"call",e.callParams))},invokeKnownHelper:function(a,b){var c=this.setupHelper(a,b);this.push(this.source.functionCall(c.name,"call",c.callParams))},invokeAmbiguous:function(a,b){this.useRegister("helper");var c=this.popStack();this.emptyHash();var d=this.setupHelper(0,a,b),e=this.lastHelper=this.nameLookup("helpers",a,"helper"),f=["(","(helper = ",e," || ",c,")"];this.options.strict||(f[0]="(helper = ",f.push(" != null ? helper : ",this.aliasable("helpers.helperMissing"))),this.push(["(",f,d.paramsInit?["),(",d.paramsInit]:[],"),","(typeof helper === ",this.aliasable('"function"')," ? ",this.source.functionCall("helper","call",d.callParams)," : helper))"])},invokePartial:function(a,b,c){var d=[],e=this.setupParams(b,1,d);a&&(b=this.popStack(),delete e.name),c&&(e.indent=JSON.stringify(c)),e.helpers="helpers",e.partials="partials",e.decorators="container.decorators",a?d.unshift(b):d.unshift(this.nameLookup("partials",b,"partial")),this.options.compat&&(e.depths="depths"),e=this.objectLiteral(e),d.push(e),this.push(this.source.functionCall("container.invokePartial","",d))},assignToHash:function(a){var b=this.popStack(),c=void 0,d=void 0,e=void 0;this.trackIds&&(e=this.popStack()),this.stringParams&&(d=this.popStack(),c=this.popStack());var f=this.hash;c&&(f.contexts[a]=c),d&&(f.types[a]=d),e&&(f.ids[a]=e),f.values[a]=b},pushId:function(a,b,c){"BlockParam"===a?this.pushStackLiteral("blockParams["+b[0]+"].path["+b[1]+"]"+(c?" + "+JSON.stringify("."+c):"")):"PathExpression"===a?this.pushString(b):"SubExpression"===a?this.pushStackLiteral("true"):this.pushStackLiteral("null")},compiler:e,compileChildren:function(a,b){for(var c=a.children,d=void 0,e=void 0,f=0,g=c.length;f<g;f++){d=c[f],e=new this.compiler;var h=this.matchExistingProgram(d);if(null==h){this.context.programs.push("");var i=this.context.programs.length;d.index=i,d.name="program"+i,this.context.programs[i]=e.compile(d,b,this.context,!this.precompile),this.context.decorators[i]=e.decorators,this.context.environments[i]=d,this.useDepths=this.useDepths||e.useDepths,this.useBlockParams=this.useBlockParams||e.useBlockParams,d.useDepths=this.useDepths,d.useBlockParams=this.useBlockParams}else d.index=h.index,d.name="program"+h.index,this.useDepths=this.useDepths||h.useDepths,this.useBlockParams=this.useBlockParams||h.useBlockParams}},matchExistingProgram:function(a){for(var b=0,c=this.context.environments.length;b<c;b++){var d=this.context.environments[b];if(d&&d.equals(a))return d}},programExpression:function(a){var b=this.environment.children[a],c=[b.index,"data",b.blockParams];return(this.useBlockParams||this.useDepths)&&c.push("blockParams"),this.useDepths&&c.push("depths"),"container.program("+c.join(", ")+")"},useRegister:function(a){this.registers[a]||(this.registers[a]=!0,this.registers.list.push(a))},push:function(a){return a instanceof d||(a=this.source.wrap(a)),this.inlineStack.push(a),a},pushStackLiteral:function(a){this.push(new d(a))},pushSource:function(a){this.pendingContent&&(this.source.push(this.appendToBuffer(this.source.quotedString(this.pendingContent),this.pendingLocation)),this.pendingContent=void 0),a&&this.source.push(a)},replaceStack:function(a){var b=["("],c=void 0,e=void 0,f=void 0;if(!this.isInline())throw new j["default"]("replaceStack on non-inline");var g=this.popStack(!0);if(g instanceof d)c=[g.value],b=["(",c],f=!0;else{e=!0;var h=this.incrStack();b=["((",this.push(h)," = ",g,")"],c=this.topStack()}var i=a.call(this,c);f||this.popStack(),e&&this.stackSlot--,this.push(b.concat(i,")"))},incrStack:function(){return this.stackSlot++,this.stackSlot>this.stackVars.length&&this.stackVars.push("stack"+this.stackSlot),this.topStackName()},topStackName:function(){return"stack"+this.stackSlot},flushInline:function(){var a=this.inlineStack;this.inlineStack=[];for(var b=0,c=a.length;b<c;b++){var e=a[b];if(e instanceof d)this.compileStack.push(e);else{var f=this.incrStack();this.pushSource([f," = ",e,";"]),this.compileStack.push(f)}}},isInline:function(){return this.inlineStack.length},popStack:function(a){var b=this.isInline(),c=(b?this.inlineStack:this.compileStack).pop();if(!a&&c instanceof d)return c.value;if(!b){if(!this.stackSlot)throw new j["default"]("Invalid stack pop");this.stackSlot--}return c},topStack:function(){var a=this.isInline()?this.inlineStack:this.compileStack,b=a[a.length-1];return b instanceof d?b.value:b},contextName:function(a){return this.useDepths&&a?"depths["+a+"]":"depth"+a},quotedString:function(a){return this.source.quotedString(a)},objectLiteral:function(a){return this.source.objectLiteral(a)},aliasable:function(a){var b=this.aliases[a];return b?(b.referenceCount++,b):(b=this.aliases[a]=this.source.wrap(a),b.aliasable=!0,b.referenceCount=1,b)},setupHelper:function(a,b,c){var d=[],e=this.setupHelperArgs(b,a,d,c),f=this.nameLookup("helpers",b,"helper"),g=this.aliasable(this.contextName(0)+" != null ? "+this.contextName(0)+" : (container.nullContext || {})");return{params:d,paramsInit:e,name:f,callParams:[g].concat(d)}},setupParams:function(a,b,c){var d={},e=[],f=[],g=[],h=!c,i=void 0;h&&(c=[]),d.name=this.quotedString(a),d.hash=this.popStack(),this.trackIds&&(d.hashIds=this.popStack()),this.stringParams&&(d.hashTypes=this.popStack(),d.hashContexts=this.popStack());var j=this.popStack(),k=this.popStack();(k||j)&&(d.fn=k||"container.noop",d.inverse=j||"container.noop");for(var l=b;l--;)i=this.popStack(),c[l]=i,this.trackIds&&(g[l]=this.popStack()),this.stringParams&&(f[l]=this.popStack(),e[l]=this.popStack());return h&&(d.args=this.source.generateArray(c)),this.trackIds&&(d.ids=this.source.generateArray(g)),this.stringParams&&(d.types=this.source.generateArray(f),d.contexts=this.source.generateArray(e)),this.options.data&&(d.data="data"),this.useBlockParams&&(d.blockParams="blockParams"),d},setupHelperArgs:function(a,b,c,d){var e=this.setupParams(a,b,c);return e=this.objectLiteral(e),d?(this.useRegister("options"),c.push("options"),["options=",e]):c?(c.push(e),""):e}},function(){for(var a="break else new var case finally return void catch for switch while continue function this with default if throw delete in try do instanceof typeof abstract enum int short boolean export interface static byte extends long super char final native synchronized class float package throws const goto private transient debugger implements protected volatile double import public let yield await null true false".split(" "),b=e.RESERVED_WORDS={},c=0,d=a.length;c<d;c++)b[a[c]]=!0}(),e.isValidJavaScriptVariableName=function(a){return!e.RESERVED_WORDS[a]&&/^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(a)},b["default"]=e,a.exports=b["default"]},function(a,b,c){"use strict";function d(a,b,c){if(f.isArray(a)){for(var d=[],e=0,g=a.length;e<g;e++)d.push(b.wrap(a[e],c));return d}return"boolean"==typeof a||"number"==typeof a?a+"":a}function e(a){this.srcFile=a,this.source=[]}b.__esModule=!0;var f=c(5),g=void 0;try{}catch(h){}g||(g=function(a,b,c,d){this.src="",d&&this.add(d)},g.prototype={add:function(a){f.isArray(a)&&(a=a.join("")),this.src+=a},prepend:function(a){f.isArray(a)&&(a=a.join("")),this.src=a+this.src},toStringWithSourceMap:function(){return{code:this.toString()}},toString:function(){return this.src}}),e.prototype={isEmpty:function(){return!this.source.length},prepend:function(a,b){this.source.unshift(this.wrap(a,b))},push:function(a,b){this.source.push(this.wrap(a,b))},merge:function(){var a=this.empty();return this.each(function(b){a.add(["  ",b,"\n"])}),a},each:function(a){for(var b=0,c=this.source.length;b<c;b++)a(this.source[b])},empty:function(){var a=this.currentLocation||{start:{}};return new g(a.start.line,a.start.column,this.srcFile)},wrap:function(a){var b=arguments.length<=1||void 0===arguments[1]?this.currentLocation||{start:{}}:arguments[1];return a instanceof g?a:(a=d(a,this,b),new g(b.start.line,b.start.column,this.srcFile,a))},functionCall:function(a,b,c){return c=this.generateList(c),this.wrap([a,b?"."+b+"(":"(",c,")"])},quotedString:function(a){return'"'+(a+"").replace(/\\/g,"\\\\").replace(/"/g,'\\"').replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/\u2028/g,"\\u2028").replace(/\u2029/g,"\\u2029")+'"'},objectLiteral:function(a){var b=[];for(var c in a)if(a.hasOwnProperty(c)){var e=d(a[c],this);"undefined"!==e&&b.push([this.quotedString(c),":",e])}var f=this.generateList(b);return f.prepend("{"),f.add("}"),f},generateList:function(a){for(var b=this.empty(),c=0,e=a.length;c<e;c++)c&&b.add(","),b.add(d(a[c],this));return b},generateArray:function(a){var b=this.generateList(a);return b.prepend("["),b.add("]"),b}},b["default"]=e,a.exports=b["default"]}])});
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">This is the footer</div>\n";
+module.exports = "<div class=\"container\">\n  <div class=\"ual-footer-inner\">\n    <ul>\n      <li class=\"name\">The University of Arizona Libraries</li>\n      <li>1510 E. University Blvd.</li>\n      <li>Tucson, AZ 85721-0055</li>\n      <li>Tel 520.621.6442</li>\n    </ul>\n    <ul>\n      <li><a href=\"mailto:library@arizona.edu\">library@arizona.edu</a></li>\n      <li><a href=\"http://library.arizona.edu/about/policies\">Library Policies</a></li>\n      <li><a href=\"http://www.library.arizona.edu/about/employment\">Employment</a></li>\n    </ul>\n  </div>\n</div>\n";
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container ual-branding-wrapper\">\n  <div class=\"ua-web-branding-banner\">\n    <a class=\"ua-home\" href=\"http://arizona.edu\" title=\"The University of Arizona\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"250\" height=\"25\" viewBox=\"426.49 -321.16 250 25\" enable-background=\"new 426.493 -321.163 250 25\"><style type=\"text/css\">.st2{fill:#FFFFFF;}</style><path class=\"st2\" d=\"M436.05-303.77c0 .7.06 1.23.19 1.57.12.34.33.64.63.91h-3.78c.3-.27.51-.57.63-.91.12-.34.19-.86.19-1.57v-9.98h-1.11c-.76 0-1.38.06-1.86.18-.47.12-.85.32-1.14.58l.68-2.29h9.83l-.64 2.26c-.2-.24-.47-.43-.81-.55-.33-.12-.75-.18-1.26-.18h-1.55v9.98zm7.41.33c0 .62.05 1.07.16 1.37.11.3.29.56.55.8h-3.3c.25-.23.43-.5.54-.79.11-.3.16-.75.16-1.37v-7.92c0-.62-.05-1.07-.16-1.37-.11-.29-.29-.56-.54-.79h3.3c-.26.23-.44.49-.55.79-.1.29-.16.75-.16 1.37v2.74h6.48v-2.74c0-.62-.05-1.07-.16-1.37-.11-.29-.29-.56-.55-.79h3.3c-.25.23-.43.49-.54.79-.11.29-.16.75-.16 1.37v7.92c0 .62.05 1.07.16 1.37.11.3.29.56.55.8h-3.3c.26-.23.44-.5.55-.79.11-.3.16-.75.16-1.37v-3.77h-6.48v3.77h-.01zm10.68 2.17c.25-.23.44-.5.54-.8.11-.29.17-.75.17-1.37v-7.91c0-.62-.06-1.08-.16-1.37-.11-.29-.29-.56-.54-.79h6.59v1.94c-.29-.24-.62-.41-.97-.52-.35-.1-.76-.16-1.22-.16-.24 0-.5.02-.8.06-.29.04-.63.1-1 .17v3.45h2.96v1.78c-.14-.16-.33-.28-.56-.35-.24-.07-.67-.1-1.3-.1h-1.09v4.39c.46.07.87.12 1.24.16.37.04.69.05.96.05.62 0 1.19-.08 1.74-.25.54-.17 1.08-.42 1.6-.77l-.84 2.4h-7.31v-.01zm23.77.03v-1.05c-.67.49-1.34.85-2.02 1.09-.68.24-1.37.36-2.07.36-.8 0-1.51-.13-2.14-.4s-1.16-.67-1.62-1.2c-.35-.42-.61-.91-.76-1.47-.15-.56-.23-1.31-.23-2.25v-6.55c0-.7-.06-1.22-.18-1.55-.12-.33-.33-.63-.61-.89h3.74c-.29.26-.49.56-.61.89-.12.33-.18.85-.18 1.56v6.12c0 .96.05 1.67.14 2.13.09.46.25.83.46 1.1.26.33.61.57 1.05.74.44.16.96.25 1.56.25.5 0 .97-.07 1.41-.23.43-.15.82-.37 1.15-.66.29-.24.49-.55.62-.94.12-.38.19-.91.19-1.57v-6.94c0-.73-.06-1.26-.18-1.58-.12-.32-.33-.61-.62-.87h3.77c-.29.26-.5.56-.62.91s-.19.87-.19 1.54v9.02c0 .7.06 1.22.19 1.56.13.34.33.64.63.9l-2.88-.02zm16.21-12.27c-.26.23-.44.49-.55.79-.11.29-.16.75-.16 1.36v10.37c-.42-.01-.82-.15-1.2-.41s-.85-.77-1.42-1.51l-6.22-7.96v7.44c0 .64.05 1.1.15 1.39.11.29.28.55.54.77h-2.74c.26-.23.44-.5.55-.8.11-.29.16-.75.16-1.37v-7.92c0-.61-.05-1.07-.16-1.36-.11-.29-.29-.56-.55-.79h2.45l7.13 9.19v-7.04c0-.61-.05-1.07-.16-1.36-.11-.29-.29-.56-.55-.79h2.73zm4.57 10.07c0 .62.05 1.08.16 1.37.11.3.29.56.55.8h-3.3c.26-.23.44-.5.55-.8.11-.29.16-.75.16-1.37v-7.92c0-.61-.05-1.07-.16-1.36-.11-.29-.29-.56-.55-.79h3.3c-.26.23-.44.49-.55.79-.11.29-.16.75-.16 1.36v7.92zm7.7 2.48c-.51-.13-.95-.43-1.32-.88-.36-.46-.7-1.14-1.01-2.04l-2.44-7.13c-.2-.59-.38-1.07-.56-1.44-.17-.37-.37-.72-.59-1.06l2.49.01c.01.2.03.39.06.56.03.17.07.33.11.48l2.93 8.76 2.78-7.29c.08-.22.15-.45.2-.68.05-.22.08-.43.08-.62 0-.16-.05-.34-.14-.52-.09-.19-.25-.41-.47-.69h2.76l-4.88 12.54zm5.72-.31c.25-.23.43-.5.54-.8.11-.29.16-.75.16-1.37v-7.91c0-.62-.05-1.08-.16-1.37-.11-.29-.29-.56-.54-.79h6.58v1.94c-.29-.24-.61-.41-.96-.52-.35-.1-.75-.16-1.22-.16-.23 0-.5.02-.79.06-.29.04-.63.1-1 .17v3.45h2.95v1.78c-.14-.16-.32-.28-.56-.35-.23-.07-.67-.1-1.3-.1h-1.09v4.39c.46.07.87.12 1.24.16.37.04.69.05.96.05.61 0 1.18-.08 1.72-.25.54-.17 1.07-.42 1.6-.77l-.84 2.4h-7.29v-.01zm11.57-2.17c0 .62.05 1.07.16 1.37.11.3.29.56.55.8h-3.3c.25-.23.43-.5.54-.79.11-.3.17-.75.17-1.37v-7.92c0-.62-.05-1.07-.16-1.37-.11-.29-.29-.56-.54-.79h4.17c1.19 0 2.15.29 2.88.87.73.58 1.1 1.33 1.1 2.25 0 .67-.22 1.26-.66 1.77-.44.51-1.12.96-2.05 1.35l3.13 4.24c.19.25.41.52.67.8.26.28.56.57.9.88l-.94.09h-.15c-.44 0-.86-.12-1.28-.35-.42-.23-.77-.56-1.06-.97l-3.58-5.02c1.07-.24 1.85-.57 2.34-.99.49-.42.74-.96.74-1.63 0-.62-.21-1.12-.63-1.51-.42-.39-.98-.58-1.67-.58-.16 0-.34.01-.56.04-.22.03-.47.07-.74.12v8.73h-.03zm8.12 1.89l-.58-2.22c.7.48 1.39.83 2.05 1.06.66.23 1.31.35 1.96.35.83 0 1.49-.18 2-.54.5-.36.76-.83.76-1.41 0-.16-.02-.33-.08-.49-.05-.16-.12-.32-.23-.47-.22-.34-.96-.81-2.22-1.44-.32-.15-.56-.27-.74-.36-1.17-.6-1.98-1.15-2.42-1.66-.44-.5-.66-1.1-.66-1.8 0-.99.4-1.78 1.2-2.37.8-.59 1.89-.88 3.29-.88.4 0 .84.03 1.33.08.48.05 1 .13 1.56.25v2.06c-.5-.38-1-.67-1.5-.86-.51-.19-1.04-.28-1.58-.28-.69 0-1.24.15-1.66.45-.42.3-.63.69-.63 1.17 0 .43.16.81.49 1.14.33.33 1.07.77 2.22 1.32.07.03.16.08.3.14.98.45 1.7.87 2.18 1.25.36.28.64.63.84 1.03.2.4.3.84.3 1.3 0 1.05-.47 1.94-1.42 2.67s-2.14 1.1-3.56 1.1c-.46 0-.95-.05-1.48-.15-.51-.09-1.09-.24-1.72-.44zm12.43-1.89c0 .62.05 1.08.16 1.37.11.3.29.56.55.8h-3.3c.26-.23.44-.5.55-.8.11-.29.16-.75.16-1.37v-7.92c0-.61-.05-1.07-.16-1.36-.11-.29-.29-.56-.55-.79h3.3c-.26.23-.44.49-.55.79-.11.29-.16.75-.16 1.36v7.92zm56.55-14.1l1.11 2.71 4.22 10.58c.47 1.18.84 2.33 1.99 2.92v.06h-4.16v-.06c1-.45.83-.68.29-2.12l-1.1-2.9h-5.14l-1.06 2.9c-.43 1.15-.57 1.75.41 2.12v.06h-3.74v-.06c1.18-.59 1.52-1.75 1.97-2.92l5.21-13.2v-.09zm-.24 4.47l-2.03 5.2h4.03l-2-5.2zm-25.49 12.1c-.92 0-1.78-.15-2.6-.44-.81-.3-1.51-.72-2.09-1.28-.61-.58-1.09-1.28-1.42-2.07-.33-.8-.5-1.63-.5-2.51 0-.69.11-1.35.32-2 .21-.65.52-1.25.93-1.81.63-.86 1.41-1.53 2.34-1.99.93-.47 1.94-.7 3.03-.7.94 0 1.81.15 2.63.45.81.3 1.51.73 2.09 1.28.63.59 1.1 1.28 1.43 2.08.33.8.49 1.67.49 2.6 0 .85-.19 1.69-.56 2.51-.37.82-.89 1.54-1.56 2.17-.6.57-1.29 1-2.06 1.29-.77.27-1.59.42-2.47.42zm.07-11.51c-1.34 0-2.45.47-3.32 1.4-.87.94-1.3 2.13-1.3 3.58 0 1.5.43 2.74 1.29 3.73.86.99 1.94 1.49 3.23 1.49 1.34 0 2.44-.47 3.31-1.4.87-.94 1.3-2.13 1.3-3.59 0-1.5-.43-2.74-1.29-3.72-.87-1-1.94-1.49-3.22-1.49zm10.17 9.05c0 .62.05 1.07.16 1.37.11.29.29.56.55.79h-3.31c.26-.23.44-.5.54-.79.11-.29.17-.75.17-1.37v-7.91c0-.62-.06-1.08-.16-1.37-.11-.29-.29-.56-.54-.79h6.61v1.93c-.3-.24-.62-.41-.97-.52-.35-.11-.76-.16-1.22-.16-.24 0-.51.02-.8.06-.29.04-.63.1-.99.18v3.45h2.97v1.78c-.14-.16-.33-.28-.57-.35-.24-.07-.68-.1-1.31-.1h-1.1v3.81h-.03zm25.67.01c0 .62.05 1.07.16 1.37.11.29.29.56.55.79h-3.3c.26-.23.44-.5.54-.79.11-.29.17-.75.17-1.36v-7.92c0-.62-.05-1.07-.17-1.37-.11-.29-.29-.56-.54-.79h4.17c1.19 0 2.15.29 2.88.87.73.57 1.1 1.33 1.1 2.25 0 .67-.22 1.26-.66 1.77-.44.51-1.12.96-2.05 1.35l3.13 4.24c.19.25.41.52.67.8.26.28.55.57.89.88l-.93.09h-.15c-.44 0-.87-.11-1.28-.35-.42-.23-.77-.56-1.06-.96l-3.59-5.02c1.07-.24 1.85-.57 2.35-.99.49-.42.74-.96.74-1.63 0-.62-.21-1.12-.64-1.51-.42-.39-.98-.58-1.67-.58-.16 0-.34.02-.56.04-.22.03-.47.07-.74.12v8.7zm11.17-.01c0 .62.05 1.08.16 1.37.11.29.29.56.55.79h-3.3c.26-.23.44-.5.55-.79.11-.29.16-.75.16-1.37v-7.92c0-.62-.05-1.07-.16-1.37-.11-.29-.29-.56-.55-.78h3.3c-.26.23-.44.49-.55.79-.1.29-.16.75-.16 1.37v7.91zm12.22-.12l-.88 2.29h-9.4l6.41-10.65c-.48-.12-.93-.21-1.35-.27-.42-.06-.82-.09-1.18-.09-.53 0-1.04.07-1.54.2-.49.13-1 .34-1.51.63l.83-2.05h7.82l-6.41 10.65c.71.09 1.31.14 1.8.18.48.04.91.06 1.26.06.83 0 1.59-.08 2.28-.24.68-.16 1.3-.4 1.87-.71zm6.94 2.58c-.92 0-1.79-.15-2.6-.44-.82-.3-1.51-.72-2.09-1.28-.61-.58-1.09-1.28-1.42-2.07-.33-.8-.5-1.63-.5-2.51 0-.69.1-1.35.32-2 .21-.65.52-1.25.92-1.81.63-.86 1.41-1.53 2.34-1.99.93-.47 1.94-.7 3.03-.7.94 0 1.81.15 2.62.45.81.3 1.51.73 2.1 1.28.63.59 1.1 1.28 1.43 2.08.33.8.49 1.67.49 2.6 0 .85-.18 1.69-.56 2.51-.37.82-.89 1.54-1.56 2.17-.6.57-1.29 1-2.06 1.29-.76.27-1.58.42-2.46.42zm.07-11.51c-1.35 0-2.45.47-3.32 1.4-.87.94-1.31 2.13-1.31 3.58 0 1.5.43 2.74 1.3 3.73.86.99 1.94 1.49 3.23 1.49 1.33 0 2.44-.47 3.31-1.4.87-.94 1.31-2.13 1.31-3.59 0-1.5-.43-2.74-1.29-3.72-.88-1-1.95-1.49-3.23-1.49zm19.14-1.02c-.26.23-.44.49-.55.79-.11.29-.16.75-.16 1.37v10.36c-.42-.01-.82-.15-1.2-.41s-.85-.76-1.42-1.5l-6.22-7.96v7.44c0 .64.05 1.11.16 1.39.1.28.28.54.54.77h-2.73c.25-.23.43-.5.54-.79.11-.29.17-.75.17-1.37v-7.92c0-.62-.06-1.07-.17-1.37-.11-.29-.29-.56-.54-.78h2.44l7.13 9.19v-7.04c0-.62-.06-1.07-.16-1.37-.11-.29-.29-.56-.54-.78l2.71-.02zm2.82 10.59c-.05.12-.09.25-.12.38-.02.13-.04.27-.04.41 0 .12.04.24.13.38.08.14.22.3.4.47h-2.84c.24-.16.45-.39.64-.67s.38-.68.57-1.18l3.39-8.73c.07-.17.12-.33.16-.48.03-.16.05-.3.05-.42 0-.14-.03-.27-.1-.39s-.18-.24-.33-.35h2.74l3.84 10.26c.18.47.37.84.58 1.13.21.29.47.57.8.84h-3.45l.04-.04c.32-.34.48-.59.48-.74 0-.19-.07-.46-.21-.82-.02-.06-.03-.1-.04-.13l-1.03-2.83h-4.49l-1.17 2.91zm1.63-4.16h3.55l-1.71-4.73-1.84 4.73zm-109.03-6.44l3.14 5.34 2.11-3.47c.13-.21.23-.4.29-.58.07-.17.1-.32.1-.45 0-.14-.04-.28-.13-.42-.08-.14-.21-.28-.39-.42h2.82l-4.14 6.74v3.34c0 .62.06 1.08.16 1.37.11.3.3.56.55.8h-3.32c.26-.23.44-.5.55-.8.1-.29.16-.75.16-1.37v-3.38l-2.83-4.67c-.28-.42-.5-.48-.77-.58-.29-.1-.79-.11-1.23-.11h-1.35v8.74c0 .62.05 1.08.16 1.37.11.3.29.56.55.8h-3.31c.26-.23.44-.5.55-.8.11-.29.16-.75.16-1.37v-8.74h-.97c-.67 0-1.21.05-1.63.16-.42.11-.75.28-1 .51l.6-2.01h9.17z\"/></svg>\n    <span class=\"visuallyhidden\">The University of Arizona</span>\n    </a>\n  </div>\n\n  <div class=\"ual-branding\">\n    <a class=\"ual-branding-image\" href=\"http://library.arizona.edu\" title=\"University Libraries - Home\" rel=\"home\">\n      <span class=\"visuallyhidden\">University Libraries</span>\n    </a>\n  </div>\n\n  <div class=\"libapps-buttons\">\n    <ul class=\"libapps-menu\">\n      <li class=\"libapps-menu-item\">\n        <a href=\"http://new.library.arizona.edu/contact\" class=\"libanswers-button\">Ask Us</a>\n      </li>\n      <li class=\"libapps-menu-item\">\n        <div id=\"libchat_07713bc057f66ebcdccd4dd1b4a2be3e\" class=\"libchat-button\"><button class=\"libchat_online\">Chat</button></div>\n        <script src=\"//v2.libanswers.com/load_chat.php?hash=07713bc057f66ebcdccd4dd1b4a2be3e\"></script>\n      </li>\n    </ul>\n  </div>\n</div>\n";
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -17540,7 +17554,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(13);
+var	fixUrls = __webpack_require__(14);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -17853,7 +17867,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 
@@ -17948,13 +17962,13 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/ua-libraries-logo.svg";
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 var g;
@@ -17981,7 +17995,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {

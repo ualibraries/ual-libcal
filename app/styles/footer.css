@@ -1,0 +1,29 @@
+.ual-footer-inner {
+  font-size: 1.25em;
+  padding: 15px;
+  background-color: #eeeeee;
+}
+
+.ual-footer-inner a {
+  color: var(--footer-link-color);
+}
+
+.ual-footer-inner ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.ual-footer-inner li {
+  display: inline-block;
+  padding-right: 8px;
+  margin-right: 8px;
+}
+
+.ual-footer-inner ul:first-child li {
+  border-right: 1px solid #cccccc;
+}
+
+.ual-footer-inner ul:first-child li:last-child {
+  border: none;
+}
