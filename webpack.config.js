@@ -18,7 +18,7 @@ module.exports = {
     filename: 'bundle.js', // string
     // the filename template for entry chunks
 
-    publicPath: '/', // string
+    publicPath: 'http://www.library.arizona.edu/vendor-support/libcal/current/dist/', // string
     // the url to the output directory resolved relative to the HTML page
 
     library: 'ual-libcal', // string,

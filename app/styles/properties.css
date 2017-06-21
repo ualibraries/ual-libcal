@@ -1,0 +1,10 @@
+:root {
+  --blue: #2483bb;
+  --darker-blue: #40649e;
+  --light-gray: #cccccc;
+  --gray: #eeeeee;
+  --dark-gray: #999999;
+  --med-gray: #333333;
+  --white: #ffffff;
+  --container-width: 1170px;
+}

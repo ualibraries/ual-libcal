@@ -1,0 +1,20 @@
+.ua-web-branding-banner {
+  background-color: var(--dark-gray);
+}
+
+.ual-branding {
+  background-color: var(--blue);
+  height: 100px;
+  width: 100%;
+  padding: 20px 0 0 20px;
+}
+
+.ual-branding-image {
+  display: block;
+  width: 350px;
+  height: 55px;
+  background-image: url("../images/ua-libraries-logo.svg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

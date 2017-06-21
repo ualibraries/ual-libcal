@@ -12,7 +12,8 @@ function showHeader () {
 
   let headerElement = document.createElement('header')
 
-  headerElement.innerHTML = template({widget: 'this is a test'})
+  headerElement.setAttribute('class', 'ual-header')
+  headerElement.innerHTML = template()
   bodyElement.insertBefore(headerElement, widgetElement)
 }
 
@@ -24,6 +25,7 @@ function showFooter () {
 
   let footerElement = document.createElement('footer')
 
+  footerElement.setAttribute('class', 'ual-footer')
   footerElement.innerHTML = template()
   insertAfter(footerElement, widgetElement)
 }
