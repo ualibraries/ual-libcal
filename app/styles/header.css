@@ -2,6 +2,10 @@
   background-color: var(--dark-gray);
 }
 
+.ual-branding-wrapper {
+  border-bottom: 3px solid var(--darker-blue);
+}
+
 .ual-branding {
   background-color: var(--blue);
   height: 100px;
