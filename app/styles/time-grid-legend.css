@@ -1,0 +1,40 @@
+#eq-time-grid-legend {
+  text-align: right;
+  margin: 1em 0;
+}
+
+#eq-time-grid-legend .label {
+  display: inline-block;
+  padding: .25em 1em;
+  line-height: 1.8em;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.label-eq-avail,
+.s-lc-eq-avail {
+  background-color: var(--status-avail-color) !important;
+  border: none !important;
+}
+
+.label-eq-pending,
+.s-lc-eq-pending {
+  background-color: var(--status-pending-color) !important;
+  border: none !important;
+}
+
+.label-eq-unavailable,
+.s-lc-eq-unavailable {
+  background-color: var(--status-unavailable-color) !important;
+  border: none !important;
+}
+
+.label-eq-avail,
+.label-eq-pending,
+.label-eq-unavailable {
+
+}
+
+#eq-time-grid-legend  .label-eq-filtered {
+  display: none;
+}

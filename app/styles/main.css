@@ -3,6 +3,7 @@
 @import "header.css";
 @import "libapps-buttons.css";
 @import "footer.css";
+@import "time-grid-legend.css";
 
 body {
   background-color: var(--light-gray);

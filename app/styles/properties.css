@@ -9,4 +9,7 @@
   --footer-link-color: #5376b6;
   --footer-link-hover-color: #14495b;
   --container-width: 1170px;
+  --status-avail-color: #61CA93;
+  --status-pending-color: #1F97C7;
+  --status-unavailable-color: #D2D2D2;
 }
