@@ -17531,7 +17531,7 @@ var f=g.nameLookup(e,b[c],a);return d?[" && ",f]:[" != null ? ",f," : ",e]})},re
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"ual-footer-inner\">\n    <ul>\n      <li class=\"name\">The University of Arizona Libraries</li>\n      <li>1510 E. University Blvd.</li>\n      <li>Tucson, AZ 85721-0055</li>\n      <li>(520) 621-6442</li>\n    </ul>\n    <ul>\n      <li><a href=\"mailto:library@arizona.edu\">library@arizona.edu</a></li>\n      <li><a href=\"http://new.library.arizona.edu/policies\">Policies</a></li>\n      <li><a href=\"http://new.library.arizona.edu/jobs\">Employment</a></li>\n    </ul>\n  </div>\n</div>\n";
+module.exports = "<div class=\"container\">\n  <div class=\"ual-footer-inner\">\n    <ul>\n      <li class=\"name\">The University of Arizona Libraries</li>\n      <li>1510 E. University Blvd.</li>\n      <li>Tucson, AZ 85721-0055</li>\n      <li>(520) 621-6442</li>\n    </ul>\n    <ul>\n      <li><a href=\"mailto:library@arizona.edu\">library@arizona.edu</a></li>\n      <li><a href=\"http://new.library.arizona.edu/policies\">Policies</a></li>\n      <li><a href=\"http://new.library.arizona.edu/jobs\">Job opportunities</a></li>\n    </ul>\n  </div>\n</div>\n";
 
 /***/ }),
 /* 12 */
