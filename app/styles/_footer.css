@@ -12,16 +12,31 @@
   list-style-type: none;
   margin-left: 0;
   padding-left: 0;
+  text-align: center;
+}
+
+@media (min-width: 500px) {
+  .ual-footer-inner ul {
+    text-align: left;
+  }
 }
 
 .ual-footer-inner li {
-  display: inline-block;
+  display: block;
   padding-right: 8px;
   margin-right: 8px;
 }
 
-.ual-footer-inner ul:first-child li {
-  border-right: 1px solid var(--light-gray);
+@media (min-width: 500px) {
+  .ual-footer-inner li {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 500px) {
+  .ual-footer-inner ul:first-child li {
+    border-right: 1px solid var(--light-gray);
+  }
 }
 
 .ual-footer-inner ul:first-child li:last-child {

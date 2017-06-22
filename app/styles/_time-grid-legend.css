@@ -1,14 +1,23 @@
 #eq-time-grid-legend {
-  text-align: right;
+  text-align: center;
   margin: 1em 0;
 }
 
+@media (min-width: 500px) {
+  #eq-time-grid-legend {
+    text-align: right;
+  }
+}
+
 #eq-time-grid-legend .label {
+  line-height: 1.8em;
+  font-weight: normal;
+}
+
+@media (min-width 500px) {
   display: inline-block;
   padding: .25em 1em;
-  line-height: 1.8em;
   font-size: 1em;
-  font-weight: normal;
 }
 
 .label-eq-avail,

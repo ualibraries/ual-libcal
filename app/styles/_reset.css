@@ -20,6 +20,26 @@
   margin-bottom: 0;
 }
 
+.fc .fc-toolbar>*>:first-child {
+  margin-left: 0 !important;
+}
+
+@media (max-width: 500px) {
+  .fc-header-toolbar .fc-left,
+  .fc-header-toolbar .fc-right,
+  .fc-header-toolbar .fc-center {
+    float: none;
+    display: block;
+    clear: both;
+  }
+}
+
+@media (max-width: 500px) {
+  #eq-time-grid .fc-toolbar h2 {
+    margin-bottom: .25em;
+  }
+}
+
 .fc button {
   height: auto;
   margin-left: .5em !important;
