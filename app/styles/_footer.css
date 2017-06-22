@@ -1,7 +1,7 @@
 .ual-footer-inner {
   font-size: 1.25em;
   padding: 15px;
-  background-color: #eeeeee;
+  background-color: var(--gray);
 }
 
 .ual-footer-inner a {
@@ -21,7 +21,7 @@
 }
 
 .ual-footer-inner ul:first-child li {
-  border-right: 1px solid #cccccc;
+  border-right: 1px solid var(--light-gray);
 }
 
 .ual-footer-inner ul:first-child li:last-child {

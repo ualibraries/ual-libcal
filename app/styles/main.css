@@ -1,9 +1,11 @@
-@import "reset.css";
-@import "properties.css";
-@import "header.css";
-@import "libapps-buttons.css";
-@import "footer.css";
-@import "time-grid-legend.css";
+@import "_reset.css";
+@import "_properties.css";
+@import "_header.css";
+@import "_libapps-buttons.css";
+@import "_footer.css";
+@import "_time-grid-legend.css";
+@import "_spacing.css";
+@import "_colors.css";
 
 body {
   background-color: var(--light-gray);
@@ -15,10 +17,6 @@ body {
   margin: 0 auto;
   padding: 0;
   background-color: var(--white);
-}
-
-.pa4 {
-  padding: 1em;
 }
 
 /*

@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   hideBreadcrumbs()
   hideTinyFooter()
 
-  // Adds padding to filter
-  document.getElementById('s-lc-eq-navform').setAttribute('class', 'pa4')
+  document.getElementById('s-lc-eq-navform').classList.add('pa4', 'bg-gray')
 })
 
 // window.addEventListener('resize', debounce(hideRoomInfo, 500))
