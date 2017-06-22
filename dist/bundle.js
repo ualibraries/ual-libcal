@@ -17344,7 +17344,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_hide_room_info__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_hide_breadcrumbs__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_hide_tiny_footer__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_template__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_calendar_clip__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_template__ = __webpack_require__(4);
+
 
 
 
@@ -17355,12 +17357,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 document.addEventListener('DOMContentLoaded', () => {
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__lib_hide_capacity__["a" /* hideCapacity */])()
-  // hideRoomInfo()
-
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__lib_template__["a" /* showHeader */])()
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__lib_template__["b" /* showFooter */])()
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__lib_template__["a" /* showHeader */])()
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__lib_template__["b" /* showFooter */])()
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__lib_hide_breadcrumbs__["a" /* hideBreadcrumbs */])()
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__lib_hide_tiny_footer__["a" /* hideTinyFooter */])()
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__lib_calendar_clip__["a" /* calendarClipHeight */])('250px')
 
   // Styles for filter bar
   document.getElementById('s-lc-eq-navform').classList.add('pa4', 'bg-gray')
@@ -17391,7 +17392,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('s-lc-eq-bwell').classList.remove('well')
 })
 
-// window.addEventListener('resize', debounce(hideRoomInfo, 500))
+window.addEventListener('resize', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_lodash__["debounce"])(() => {
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__lib_calendar_clip__["a" /* calendarClipHeight */])('250px')
+}, 500))
 
 
 /***/ }),
@@ -18049,6 +18052,23 @@ module.exports = function(module) {
 	}
 	return module;
 };
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = calendarClipHeight;
+function calendarClipHeight(height) {
+  if (window.innerWidth > 700)
+    return
+
+  document.querySelectorAll('.fc-body .fc-scroller-clip .fc-scroller')
+    .forEach((element) => {
+        element.style.height = height;
+    })
+}
 
 
 /***/ })

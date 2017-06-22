@@ -4,16 +4,16 @@ import {hideCapacity} from './lib/hide-capacity'
 import {hideRoomInfo} from './lib/hide-room-info'
 import {hideBreadcrumbs} from './lib/hide-breadcrumbs'
 import {hideTinyFooter} from './lib/hide-tiny-footer'
+import {calendarClipHeight} from './lib/calendar-clip'
 import {showHeader, showFooter} from './lib/template'
 
 document.addEventListener('DOMContentLoaded', () => {
   hideCapacity()
-  // hideRoomInfo()
-
   showHeader()
   showFooter()
   hideBreadcrumbs()
   hideTinyFooter()
+  calendarClipHeight('250px')
 
   // Styles for filter bar
   document.getElementById('s-lc-eq-navform').classList.add('pa4', 'bg-gray')
@@ -44,4 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('s-lc-eq-bwell').classList.remove('well')
 })
 
-// window.addEventListener('resize', debounce(hideRoomInfo, 500))
+window.addEventListener('resize', debounce(() => {
+  calendarClipHeight('250px')
+}, 500))
