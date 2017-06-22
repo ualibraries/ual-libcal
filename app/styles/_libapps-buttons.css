@@ -20,11 +20,16 @@ html #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_offline {
 
 .libapps-buttons {
   background-color: #637799;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
+}
+
+@media (min-width: 575px) {
+  .libapps-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .libapps-menu {

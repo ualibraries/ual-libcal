@@ -16,6 +16,7 @@ body {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0;
+  overflow: hidden;
   background-color: var(--white);
 }
 
