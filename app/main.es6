@@ -16,6 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
   hideTinyFooter()
 
   document.getElementById('s-lc-eq-navform').classList.add('pa4', 'bg-gray')
+
+  document.querySelector('#eq-time-grid .fc-header-toolbar').classList.add('ph4')
+  document.querySelector('#eq-time-grid .fc-view-container').classList.add('ph4')
+  document.querySelector('#eq-time-grid-legend').classList.add('ph4')
+
+  let calendarHeader = document.querySelector('#eq-time-grid .fc-header-toolbar .fc-center h2')
+  document.querySelector('#eq-time-grid .fc-header-toolbar .fc-left').appendChild(calendarHeader)
 })
 
 // window.addEventListener('resize', debounce(hideRoomInfo, 500))
