@@ -1,17 +1,18 @@
 // Starts a static server on ./dist, exposes a world-accessible domain with localtunnel (https://localtunnel.github.io/www/)
-var server = require('node-static')
-var localtunnel = require('localtunnel')
-
-var fileServer = new server.Server('./dist')
+const server = require('node-static')
+const localtunnel = require('localtunnel')
+const moment = require('moment')
+const fileServer = new server.Server('./dist')
 
 require('http').createServer(function (request, response) {
   request.addListener('end', function () {
+    let time = moment().format()
     fileServer.serve(request, response)
-    console.log(request.url)
+    console.log(`${time} ${request.headers['x-real-ip']} ${request.url}`)
   }).resume()
 }).listen(8000)
 
-var tunnel = localtunnel(8000, function (err, tunnel) {
+const tunnel = localtunnel(8000, function (err, tunnel) {
   if (err) {
     console.error(err)
   }
