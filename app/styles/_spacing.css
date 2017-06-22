@@ -238,3 +238,5 @@
   margin-left: var(--spacing-extra-extra-extra-large);
   margin-right: var(--spacing-extra-extra-extra-large);
 }
+
+.bn { border-style: none; border-width: 0; }

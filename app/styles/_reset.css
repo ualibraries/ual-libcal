@@ -10,3 +10,19 @@
 .img-thumbnail {
   border: 0;
 }
+
+#time_grid_cont {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.fc-toolbar.fc-header-toolbar {
+  margin-bottom: 0;
+}
+
+.fc button {
+  height: auto;
+  margin-left: .5em !important;
+  padding: .75em !important;
+  font-size: 1.25em;
+}
