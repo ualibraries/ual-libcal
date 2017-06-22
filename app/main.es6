@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Styles for calendar legend
   document.querySelector('#eq-time-grid-legend').classList.add('ph4')
+
+  // Styles for 'Reservation details'
+  document.getElementById('s-lc-eq-bwell').classList.remove('well')
 })
 
 // window.addEventListener('resize', debounce(hideRoomInfo, 500))

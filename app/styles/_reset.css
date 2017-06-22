@@ -26,3 +26,24 @@
   padding: .75em !important;
   font-size: 1.25em;
 }
+
+#s-lc-eq-form-box {
+  padding: 2em;
+  background-color: color(var(--gray) tint(35%));
+}
+
+#s-lc-eq-bwell .btn.btn-default {
+  margin-left: .5em !important;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 4px !important;
+  border: 0;
+}
+
+#eq_cart {
+  display: none !important;
+}
+
+#s-lc-eq-bform legend {
+  border-bottom: 0;
+}
