@@ -6,7 +6,7 @@
 @import "_time-grid-legend.css";
 @import "_spacing.css";
 @import "_colors.css";
-@import "_max-widths.css"
+@import "_max-widths.css";
 
 body {
   background-color: var(--light-gray);
