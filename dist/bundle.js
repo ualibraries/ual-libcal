@@ -43,9 +43,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -73,142 +70,667 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "http://www.library.arizona.edu/vendor-support/libcal/current/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = hideBreadcrumbs;
-// Hides the breadcrumbs
-function hideBreadcrumbs () {
-  document.getElementById('s-lc-public-bc').remove()
-}
 
+
+var _main = __webpack_require__(1);
+
+var _main2 = _interopRequireDefault(_main);
+
+var _lodash = __webpack_require__(7);
+
+var _hideCapacity = __webpack_require__(10);
+
+var _hideRoomInfo = __webpack_require__(11);
+
+var _hideBreadcrumbs = __webpack_require__(12);
+
+var _hideTinyFooter = __webpack_require__(13);
+
+var _calendarClip = __webpack_require__(14);
+
+var _roomInfoModal = __webpack_require__(15);
+
+var _template = __webpack_require__(16);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+document.addEventListener('DOMContentLoaded', function () {
+  (0, _hideCapacity.hideCapacity)();
+  (0, _template.showHeader)();
+  (0, _template.showFooter)();
+  (0, _hideBreadcrumbs.hideBreadcrumbs)();
+  (0, _hideTinyFooter.hideTinyFooter)();
+  (0, _calendarClip.calendarClipHeight)('250px');
+  (0, _roomInfoModal.roomInfoModal)();
+
+  // Styles for filter bar
+  document.getElementById('s-lc-eq-navform').classList.add('pa4', 'bg-gray');
+
+  // Styles for calendar header/toolbar
+  document.querySelector('#time_grid_cont').removeAttribute('style');
+  document.querySelector('#eq-time-grid .fc-header-toolbar').classList.add('ph4', 'pv3');
+  // Move the calendar title into the left column,
+  var calendarHeader = document.querySelector('#eq-time-grid .fc-header-toolbar .fc-center h2');
+  document.querySelector('#eq-time-grid .fc-header-toolbar .fc-left').appendChild(calendarHeader);
+  calendarHeader.classList.add('pt2');
+
+  // Styles for calendar toolbar buttons
+  document.querySelector('#eq-time-grid .fc-header-toolbar .fc-goToDate-button').classList.add('white', 'bg-blue', 'bn');
+  document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button').forEach(function (element) {
+    element.classList.add('white', 'bg-blue', 'bn');
+  });
+
+  // Styles for calendar
+  document.querySelector('#eq-time-grid .fc-view-container').classList.add('ph4');
+
+  // Styles for calendar legend
+  document.querySelector('#eq-time-grid-legend').classList.add('ph4');
+
+  // Styles for 'Reservation details'
+  document.getElementById('s-lc-eq-bwell').classList.remove('well');
+});
+
+window.addEventListener('resize', (0, _lodash.debounce)(function () {
+  (0, _calendarClip.calendarClipHeight)('250px');
+}, 500));
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = hideCapacity;
-function hideCapacity () {
-  // Hide the 'Capacity column'
-  document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header')[1].remove()
+// style-loader: Adds some css to the DOM by adding a <style> tag
 
-  document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[1].remove()
+// load the styles
+var content = __webpack_require__(2);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
 
-  let rows = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr')
-
-  for (let i = 0; i < rows.length; i++) {
-    if (rows[i].children.length > 1) {
-      rows[i].children[1].remove()
-    }
-  }
-
-  document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[1].remove()
-
-  // Hide the 'Capacity' filter
-  document.querySelectorAll('#s-lc-eq-navform .form-inline .form-group')[2].remove()
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(5)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/postcss-loader/lib/index.js!./main.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/postcss-loader/lib/index.js!./main.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
 }
-
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* unused harmony export hideRoomInfo */
-function hideRoomInfo () {
-  if (window.innerWidth < 450) {
-    // hide header cells
-    document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header')[0].classList.add('hidden')
-    document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[0].style.width = 'auto'
+exports = module.exports = __webpack_require__(3)(undefined);
+// imports
 
-    // hide body cells
-    let rows = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr')
 
-    for (let i = 0; i < rows.length; i++) {
-      rows[i].children[0].classList.add('hidden')
-    }
+// module
+exports.push([module.i, ".s-lc-public-main {\n  padding: 0;\n}\n\n#s-lc-eq-navform {\n  margin-top: 0;\n  padding-bottom: 2em;\n}\n\n.img-thumbnail {\n  border: 0;\n}\n\n#time_grid_cont {\n  padding-top: 0;\n  margin-top: 0;\n}\n\n.fc-toolbar.fc-header-toolbar {\n  margin-bottom: 0;\n}\n\n.fc .fc-toolbar>*>:first-child {\n  margin-left: 0 !important;\n}\n\n@media (max-width: 500px) {\n  .fc-header-toolbar .fc-left,\n  .fc-header-toolbar .fc-right,\n  .fc-header-toolbar .fc-center {\n    float: none;\n    display: block;\n    clear: both;\n  }\n}\n\n@media (max-width: 500px) {\n  #eq-time-grid .fc-toolbar h2 {\n    margin-bottom: .25em;\n  }\n}\n\n.fc button {\n  height: auto;\n  margin-left: .5em !important;\n  padding: .75em !important;\n  font-size: 1.25em;\n}\n\n#s-lc-eq-form-box {\n  padding: 2em;\n  background-color: rgb(244, 244, 244);\n}\n\n#s-lc-eq-bwell .btn.btn-default {\n  margin-left: .5em !important;\n  background-color: #2483bb;\n  color: #ffffff;\n  border-radius: 4px !important;\n  border: 0;\n}\n\n#eq_cart {\n  display: none !important;\n}\n\n#s-lc-eq-bform legend {\n  border-bottom: 0;\n}\n\n.ua-web-branding-banner {\n  background-color: #999999;\n}\n\n.ual-branding-wrapper {\n  border-bottom: 3px solid #40649e;\n}\n\n.ual-branding {\n  background-color: #2483bb;\n  height: 100px;\n  width: 100%;\n  padding: 20px 0 0 20px;\n}\n\n.ual-branding-image {\n  display: block;\n  width: 350px;\n  height: 50px;\n  background-image: url(" + __webpack_require__(4) + ");\n  background-position: 0 0;\n  background-repeat: no-repeat;\n  background-size: 80%;\n}\n\n@media (min-width: 575px) {\n  .ual-branding-image {\n    height: 60px;\n    background-size: contain;\n  }\n}\n\n/* Ask Us - Chat */\n\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button {\n  display: inline;\n  padding: 0;\n  margin: 0;\n  text-align: left;\n  white-space: normal;\n  vertical-align: baseline;\n  cursor: auto;\n  background-image: none;\n  border: none;\n  border-radius: 0;\n}\n\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_online,\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_offline {\n  background-color: transparent;\n  color: inherit;\n}\n\n.libapps-buttons {\n  background-color: #637799;\n}\n\n@media (min-width: 575px) {\n  .libapps-buttons {\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 0;\n    padding: 0;\n  }\n}\n\n.libapps-menu {\n  list-style-type: none;\n  margin-bottom: 0;\n  padding: 0;\n}\n\n.libapps-menu-item {\n  display: inline-block;\n  text-align: center;\n  border-left: none;\n  float: none;\n  text-align: left;\n  width: auto;\n}\n\n.libapps-menu-item a {\n  color: #ffffff;\n}\n\n.libapps-buttons .libanswers-button,\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  display: inline-block;\n  padding: 0 15px;\n  height: 44px;\n  line-height: 44px;\n  width: 100%;\n  transition-property: color,background-color,border;\n  transition-duration: .2s;\n  transition-timing-function: ease;\n}\n\n.libapps-buttons .libanswers-button:hover,\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  background-color: #4f5f7a !important;\n}\n\n.libapps-buttons .libanswers-button:before,\n.libapps-buttons .libchat_online:before,\n.libapps-buttons .libchat_offline:before {\n  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2226%22%20height%3D%22108%22%20viewBox%3D%22-354%20-129.1%2026%20108%22%20enable-background%3D%22new%20-354%20-129.1%2026%20108%22%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-341-120.6c-2.6%200-4.8%201.9-4.8%205.2%200%203.3%201.8%206.7%204.8%206.7%203.2%200%204.8-3.4%204.8-6.7%200-3.3-2.2-5.2-4.8-5.2zm-4.8%2011.9c-2.6%200-4.8%202.1-4.8%204.7v2.2c0%20.2.1.2.2.2h18.5c.1%200%20.2-.1.2-.2v-2.1c0-2.7-2.1-4.8-4.8-4.8h-1.2c-.1%200-.3%200-.4.1-.9.7-2%201.1-3.1%201.1s-2.2-.3-3.1-1.1c-.1%200-.2-.2-.4-.2l-1.1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-341.2-101.7c-1.4-.9-3.1-1.1-4.4-1.1-.9%200-1.5.1-1.5.1l-.2.1v-8.8h.1s.5-.1%201.4-.1c1.3%200%203.1.2%204.6%201.1h.4c1.5-.9%203.3-1.1%204.6-1.1.8%200%201.3.1%201.4.1h.1v8.8h-.2s-.6-.1-1.4-.1c-1.2%200-3%20.2-4.4%201.1h-.1c.1-.1-.4-.1-.4-.1z%22/%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-336.2-111.4h1.3v8.5s-.6-.1-1.5-.1c-1.2%200-3%20.2-4.4%201.1h-.5c-1.4-.9-3.2-1.1-4.5-1.1-.9%200-1.4.1-1.4.1v-8.5h1.3c1.2%200%203.1.2%204.6%201h.5c1.5-.8%203.4-1%204.6-1m0-.3c-1.3%200-3.2.2-4.7%201.1h-.3c-1.5-.9-3.3-1.1-4.7-1.1-.8%200-1.4.1-1.4.1h-.2v9.1l.4-.1s.6-.1%201.4-.1c1.2%200%203%20.2%204.3%201v.1h.7l.1-.1c1.4-.8%203-1%204.3-1%20.9%200%201.4.1%201.4.1l.4.1v-9.1h-.2c-.2%200-.7-.1-1.5-.1zM-344.7-107.3l-.5-.2-.6.2v-4.1h1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-336.4-76.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm5.3%201.7c0-3-3-5.4-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3Ccircle%20fill%3D%22%236A80A4%22%20cx%3D%22-343.6%22%20cy%3D%22-41%22%20r%3D%224.4%22/%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M-336.4-40.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm-4%201.9c.1.2.1.3%200%20.5l-.8.8c-.1.2-.4.2-.5%200l-2.1-2.1-2.1%202.1c-.1.2-.4.2-.5%200l-.8-.8c-.1-.2-.1-.3%200-.5l2.1-2.1-2.1-2.1c-.1-.2-.1-.3%200-.5l.8-.8c.1-.2.4-.2.5%200l2.1%202.1%202.1-2.1c.1-.2.4-.2.5%200l.8.8c.1.2.1.3%200%20.5l-2.1%202.1%202.1%202.1zM-331.1-39c0-3-3-5.3-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3C/g%3E%3C/svg%3E');\n  background-repeat: no-repeat;\n  content: '';\n  width: 30px;\n  height: 20px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.libanswers-button:before {\n  background-position: 0 -8px;\n}\n\n.libanswers-button:hover {\n  text-decoration: none;\n}\n\n.libchat-button {\n  text-align: center;\n  width: 100%;\n}\n\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  color: #ffffff !important;\n  display: inline-block !important;\n  padding: 0 15px !important;\n  text-align: center !important;\n}\n\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  cursor: pointer !important;\n  background-color: #4f5f7a !important;\n}\n\n.libapps-buttons .libchat_online:focus,\n.libapps-buttons .libchat_offline:focus {\n  outline: 0;\n  box-shadow: none;\n}\n\n.libapps-buttons .libchat_online::before {\n  background-position: 0 -45px;\n}\n\n.libapps-buttons .libchat_offline::before {\n  background-position: 0 -81px;\n}\n\n.ual-footer-inner {\n  font-size: 1.25em;\n  padding: 15px;\n  background-color: #eeeeee;\n}\n\n.ual-footer-inner a {\n  color: #5376b6;\n}\n\n.ual-footer-inner ul {\n  list-style-type: none;\n  margin-left: 0;\n  padding-left: 0;\n  text-align: center;\n}\n\n@media (min-width: 500px) {\n  .ual-footer-inner ul {\n    text-align: left;\n  }\n}\n\n.ual-footer-inner li {\n  display: block;\n  padding-right: 8px;\n  margin-right: 8px;\n}\n\n@media (min-width: 500px) {\n  .ual-footer-inner li {\n    display: inline-block;\n  }\n}\n\n@media (min-width: 500px) {\n  .ual-footer-inner ul:first-child li {\n    border-right: 1px solid #cccccc;\n  }\n}\n\n.ual-footer-inner ul:first-child li:last-child {\n  border: none;\n}\n\n#eq-time-grid-legend {\n  text-align: center;\n  margin: 1em 0;\n}\n\n#eq-time-grid-legend .label {\n  line-height: 1.8em;\n  font-weight: normal;\n}\n\n@media (min-width: 500px) {\n  #eq-time-grid-legend {\n    text-align: right;\n  }\n\n  #eq-time-grid-legend .label {\n    display: inline-block;\n    padding: .25em 1em;\n    font-size: 1em;\n  }\n}\n\n.label-eq-avail,\n.s-lc-eq-avail {\n  background-color: #61CA93 !important;\n  border: none !important;\n}\n\n.label-eq-pending,\n.s-lc-eq-pending {\n  background-color: #1F97C7 !important;\n  border: none !important;\n}\n\n.label-eq-unavailable,\n.s-lc-eq-unavailable {\n  background-color: #D2D2D2 !important;\n  border: none !important;\n}\n\n#eq-time-grid-legend  .label-eq-filtered {\n  display: none;\n}\n\n.pa0 { padding: 0; }\n\n.pa1 { padding: .25em; }\n\n.pa2 { padding: .5em; }\n\n.pa3 { padding: 1em; }\n\n.pa4 { padding: 2em; }\n\n.pa5 { padding: 4em; }\n\n.pa6 { padding: 8em; }\n\n.pa7 { padding: 16em; }\n\n.pl0 { padding-left: 0; }\n\n.pl1 { padding-left: .25em; }\n\n.pl2 { padding-left: .5em; }\n\n.pl3 { padding-left: 1em; }\n\n.pl4 { padding-left: 2em; }\n\n.pl5 { padding-left: 4em; }\n\n.pl6 { padding-left: 8em; }\n\n.pl7 { padding-left: 16em; }\n\n.pr0 { padding-right: 0; }\n\n.pr1 { padding-right: .25em; }\n\n.pr2 { padding-right: .5em; }\n\n.pr3 { padding-right: 1em; }\n\n.pr4 { padding-right: 2em; }\n\n.pr5 { padding-right: 4em; }\n\n.pr6 { padding-right: 8em; }\n\n.pr7 { padding-right: 16em; }\n\n.pb0 { padding-bottom: 0; }\n\n.pb1 { padding-bottom: .25em; }\n\n.pb2 { padding-bottom: .5em; }\n\n.pb3 { padding-bottom: 1em; }\n\n.pb4 { padding-bottom: 2em; }\n\n.pb5 { padding-bottom: 4em; }\n\n.pb6 { padding-bottom: 8em; }\n\n.pb7 { padding-bottom: 16em; }\n\n.pt0 { padding-top: 0; }\n\n.pt1 { padding-top: .25em; }\n\n.pt2 { padding-top: .5em; }\n\n.pt3 { padding-top: 1em; }\n\n.pt4 { padding-top: 2em; }\n\n.pt5 { padding-top: 4em; }\n\n.pt6 { padding-top: 8em; }\n\n.pt7 { padding-top: 16em; }\n\n.pv0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.pv1 {\n  padding-top: .25em;\n  padding-bottom: .25em;\n}\n\n.pv2 {\n  padding-top: .5em;\n  padding-bottom: .5em;\n}\n\n.pv3 {\n  padding-top: 1em;\n  padding-bottom: 1em;\n}\n\n.pv4 {\n  padding-top: 2em;\n  padding-bottom: 2em;\n}\n\n.pv5 {\n  padding-top: 4em;\n  padding-bottom: 4em;\n}\n\n.pv6 {\n  padding-top: 8em;\n  padding-bottom: 8em;\n}\n\n.pv7 {\n  padding-top: 16em;\n  padding-bottom: 16em;\n}\n\n.ph0 {\n  padding-left: 0;\n  padding-right: 0;\n}\n\n.ph1 {\n  padding-left: .25em;\n  padding-right: .25em;\n}\n\n.ph2 {\n  padding-left: .5em;\n  padding-right: .5em;\n}\n\n.ph3 {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n\n.ph4 {\n  padding-left: 2em;\n  padding-right: 2em;\n}\n\n.ph5 {\n  padding-left: 4em;\n  padding-right: 4em;\n}\n\n.ph6 {\n  padding-left: 8em;\n  padding-right: 8em;\n}\n\n.ph7 {\n  padding-left: 16em;\n  padding-right: 16em;\n}\n\n.ma0  {  margin: 0; }\n\n.ma1 {  margin: .25em; }\n\n.ma2  {  margin: .5em; }\n\n.ma3  {  margin: 1em; }\n\n.ma4  {  margin: 2em; }\n\n.ma5  {  margin: 4em; }\n\n.ma6 {  margin: 8em; }\n\n.ma7 { margin: 16em; }\n\n.ml0  {  margin-left: 0; }\n\n.ml1 {  margin-left: .25em; }\n\n.ml2  {  margin-left: .5em; }\n\n.ml3  {  margin-left: 1em; }\n\n.ml4  {  margin-left: 2em; }\n\n.ml5  {  margin-left: 4em; }\n\n.ml6 {  margin-left: 8em; }\n\n.ml7 { margin-left: 16em; }\n\n.mr0  {  margin-right: 0; }\n\n.mr1 {  margin-right: .25em; }\n\n.mr2  {  margin-right: .5em; }\n\n.mr3  {  margin-right: 1em; }\n\n.mr4  {  margin-right: 2em; }\n\n.mr5  {  margin-right: 4em; }\n\n.mr6 {  margin-right: 8em; }\n\n.mr7 { margin-right: 16em; }\n\n.mb0  {  margin-bottom: 0; }\n\n.mb1 {  margin-bottom: .25em; }\n\n.mb2  {  margin-bottom: .5em; }\n\n.mb3  {  margin-bottom: 1em; }\n\n.mb4  {  margin-bottom: 2em; }\n\n.mb5  {  margin-bottom: 4em; }\n\n.mb6 {  margin-bottom: 8em; }\n\n.mb7 { margin-bottom: 16em; }\n\n.mt0  {  margin-top: 0; }\n\n.mt1 {  margin-top: .25em; }\n\n.mt2  {  margin-top: .5em; }\n\n.mt3  {  margin-top: 1em; }\n\n.mt4  {  margin-top: 2em; }\n\n.mt5  {  margin-top: 4em; }\n\n.mt6 {  margin-top: 8em; }\n\n.mt7 { margin-top: 16em; }\n\n.mv0   {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.mv1  {\n  margin-top: .25em;\n  margin-bottom: .25em;\n}\n\n.mv2   {\n  margin-top: .5em;\n  margin-bottom: .5em;\n}\n\n.mv3   {\n  margin-top: 1em;\n  margin-bottom: 1em;\n}\n\n.mv4   {\n  margin-top: 2em;\n  margin-bottom: 2em;\n}\n\n.mv5   {\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n\n.mv6  {\n  margin-top: 8em;\n  margin-bottom: 8em;\n}\n\n.mv7  {\n  margin-top: 16em;\n  margin-bottom: 16em;\n}\n\n.mh0   {\n  margin-left: 0;\n  margin-right: 0;\n}\n\n.mh1   {\n  margin-left: .25em;\n  margin-right: .25em;\n}\n\n.mh2   {\n  margin-left: .5em;\n  margin-right: .5em;\n}\n\n.mh3   {\n  margin-left: 1em;\n  margin-right: 1em;\n}\n\n.mh4   {\n  margin-left: 2em;\n  margin-right: 2em;\n}\n\n.mh5   {\n  margin-left: 4em;\n  margin-right: 4em;\n}\n\n.mh6  {\n  margin-left: 8em;\n  margin-right: 8em;\n}\n\n.mh7  {\n  margin-left: 16em;\n  margin-right: 16em;\n}\n\n.bn { border-style: none; border-width: 0; }\n\n.white {\n  color: #ffffff;\n}\n\n.bg-gray {\n  background-color: #eeeeee;\n}\n\n.bg-blue {\n  background-color: #2483bb;\n}\n\n.container {\n  position: relative;\n  max-width: 1170px;\n  margin: 0 auto;\n  padding: 0;\n  overflow: hidden;\n  background-color: #ffffff;\n}\n\n/*\n * Hide visually and from screen readers\n */\n\n.hidden {\n  display: none !important;\n}\n\n/*\n * Hide only visually, but have it available for screen readers:\n * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility\n *\n * 1. For long content, line feeds are not interpreted as spaces and small width\n *    causes content to wrap 1 word per line:\n *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe\n */\n\n.visuallyhidden {\n  border: 0;\n  clip: rect(0 0 0 0);\n  -webkit-clip-path: inset(50%);\n  clip-path: inset(50%);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n  white-space: nowrap; /* 1 */\n}\n\n/*\n * Extends the .visuallyhidden class to allow the element\n * to be focusable when navigated to via the keyboard:\n * https://www.drupal.org/node/897638\n */\n\n.visuallyhidden.focusable:active,\n.visuallyhidden.focusable:focus {\n  clip: auto;\n  -webkit-clip-path: none;\n  clip-path: none;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n  white-space: inherit;\n}\n\n/*\n * Hide visually and from screen readers, but maintain layout\n */\n\n.invisible {\n  visibility: hidden;\n}\n\n/*\n * Clearfix: contain floats\n *\n * For modern browsers\n * 1. The space content is one way to avoid an Opera bug when the\n *    `contenteditable` attribute is included anywhere else in the document.\n *    Otherwise it causes space to appear at the top and bottom of elements\n *    that receive the `clearfix` class.\n * 2. The use of `table` rather than `block` is only necessary if using\n *    `:before` to contain the top-margins of child elements.\n */\n\n.clearfix:before,\n.clearfix:after {\n  content: \" \"; /* 1 */\n  display: table; /* 2 */\n}\n\n.clearfix:after {\n  clear: both;\n}\n", ""]);
 
-    document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[0].style.width = 'auto'
-  } else {
-    // show header cells
-    document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header')[0].classList.remove('hidden')
-    document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[0].style.width = '12%'
-
-    // show body cells
-    let rows = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr')
-
-    for (let i = 0; i < rows.length; i++) {
-      rows[i].children[0].classList.remove('hidden')
-    }
-
-    document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[0].style.width = '12%'
-  }
-}
+// exports
 
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = hideTinyFooter;
-function hideTinyFooter () {
-  document.getElementById('s-lc-public-footer').remove()
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
 }
 
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return showHeader; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return showFooter; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_handlebars___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_handlebars__);
-
-
-function insertAfter (newNode, referenceNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
-
-function showHeader () {
-  const source = __webpack_require__(12)
-  const template = __WEBPACK_IMPORTED_MODULE_0_handlebars__["compile"](source)
-  const widgetElement = document.querySelector('body > .container')
-  const bodyElement = document.querySelector('body')
-
-  let headerElement = document.createElement('header')
-
-  headerElement.setAttribute('class', 'ual-header')
-  headerElement.innerHTML = template()
-  bodyElement.insertBefore(headerElement, widgetElement)
-}
-
-function showFooter () {
-  const source = __webpack_require__(11)
-  const template = __WEBPACK_IMPORTED_MODULE_0_handlebars__["compile"](source)
-  const widgetElement = document.querySelector('body > .container')
-  const bodyElement = document.querySelector('body')
-
-  let footerElement = document.createElement('footer')
-
-  footerElement.setAttribute('class', 'ual-footer')
-  footerElement.innerHTML = template()
-  insertAfter(footerElement, widgetElement)
-}
-
-
-
+module.exports = __webpack_require__.p + "assets/ua-libraries-logo.svg";
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(selector) {
+		if (typeof memo[selector] === "undefined") {
+			memo[selector] = fn.call(this, selector);
+		}
+
+		return memo[selector]
+	};
+})(function (target) {
+	return document.querySelector(target)
+});
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(6);
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton) options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+	if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	options.attrs.type = "text/css";
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = options.transform(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17297,204 +17819,284 @@ function showFooter () {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16), __webpack_require__(17)(module)))
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(8);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/postcss-loader/lib/index.js!./main.css", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/postcss-loader/lib/index.js!./main.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 7 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_main_css__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__styles_main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_hide_capacity__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_hide_room_info__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_hide_breadcrumbs__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_hide_tiny_footer__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_calendar_clip__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_template__ = __webpack_require__(4);
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__lib_hide_capacity__["a" /* hideCapacity */])()
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__lib_template__["a" /* showHeader */])()
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__lib_template__["b" /* showFooter */])()
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__lib_hide_breadcrumbs__["a" /* hideBreadcrumbs */])()
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__lib_hide_tiny_footer__["a" /* hideTinyFooter */])()
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__lib_calendar_clip__["a" /* calendarClipHeight */])('250px')
-
-  // Styles for filter bar
-  document.getElementById('s-lc-eq-navform').classList.add('pa4', 'bg-gray')
-
-  // Styles for calendar header/toolbar
-  document.querySelector('#time_grid_cont').removeAttribute('style')
-  document.querySelector('#eq-time-grid .fc-header-toolbar').classList.add('ph4', 'pv3')
-  // Move the calendar title into the left column,
-  let calendarHeader = document.querySelector('#eq-time-grid .fc-header-toolbar .fc-center h2')
-  document.querySelector('#eq-time-grid .fc-header-toolbar .fc-left').appendChild(calendarHeader)
-  calendarHeader.classList.add('pt2')
-
-  // Styles for calendar toolbar buttons
-  document.querySelector('#eq-time-grid .fc-header-toolbar .fc-goToDate-button')
-    .classList.add('white', 'bg-blue', 'bn')
-  document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button')
-    .forEach((element) => {
-      element.classList.add('white', 'bg-blue', 'bn')
-    })
-
-  // Styles for calendar
-  document.querySelector('#eq-time-grid .fc-view-container').classList.add('ph4')
-
-  // Styles for calendar legend
-  document.querySelector('#eq-time-grid-legend').classList.add('ph4')
-
-  // Styles for 'Reservation details'
-  document.getElementById('s-lc-eq-bwell').classList.remove('well')
-})
-
-window.addEventListener('resize', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_lodash__["debounce"])(() => {
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__lib_calendar_clip__["a" /* calendarClipHeight */])('250px')
-}, 500))
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(9)(module)))
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(9)(undefined);
-// imports
+var g;
 
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
 
-// module
-exports.push([module.i, ".s-lc-public-main {\n  padding: 0;\n}\n\n#s-lc-eq-navform {\n  margin-top: 0;\n  padding-bottom: 2em;\n}\n\n.img-thumbnail {\n  border: 0;\n}\n\n#time_grid_cont {\n  padding-top: 0;\n  margin-top: 0;\n}\n\n.fc-toolbar.fc-header-toolbar {\n  margin-bottom: 0;\n}\n\n.fc .fc-toolbar>*>:first-child {\n  margin-left: 0 !important;\n}\n\n@media (max-width: 500px) {\n  .fc-header-toolbar .fc-left,\n  .fc-header-toolbar .fc-right,\n  .fc-header-toolbar .fc-center {\n    float: none;\n    display: block;\n    clear: both;\n  }\n}\n\n@media (max-width: 500px) {\n  #eq-time-grid .fc-toolbar h2 {\n    margin-bottom: .25em;\n  }\n}\n\n.fc button {\n  height: auto;\n  margin-left: .5em !important;\n  padding: .75em !important;\n  font-size: 1.25em;\n}\n\n#s-lc-eq-form-box {\n  padding: 2em;\n  background-color: rgb(244, 244, 244);\n}\n\n#s-lc-eq-bwell .btn.btn-default {\n  margin-left: .5em !important;\n  background-color: #2483bb;\n  color: #ffffff;\n  border-radius: 4px !important;\n  border: 0;\n}\n\n#eq_cart {\n  display: none !important;\n}\n\n#s-lc-eq-bform legend {\n  border-bottom: 0;\n}\n\n.ua-web-branding-banner {\n  background-color: #999999;\n}\n\n.ual-branding-wrapper {\n  border-bottom: 3px solid #40649e;\n}\n\n.ual-branding {\n  background-color: #2483bb;\n  height: 100px;\n  width: 100%;\n  padding: 20px 0 0 20px;\n}\n\n.ual-branding-image {\n  display: block;\n  width: 350px;\n  height: 50px;\n  background-image: url(" + __webpack_require__(15) + ");\n  background-position: 0 0;\n  background-repeat: no-repeat;\n  background-size: 80%;\n}\n\n@media (min-width: 575px) {\n  .ual-branding-image {\n    height: 60px;\n    background-size: contain;\n  }\n}\n\n/* Ask Us - Chat */\n\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button {\n  display: inline;\n  padding: 0;\n  margin: 0;\n  text-align: left;\n  white-space: normal;\n  vertical-align: baseline;\n  cursor: auto;\n  background-image: none;\n  border: none;\n  border-radius: 0;\n}\n\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_online,\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_offline {\n  background-color: transparent;\n  color: inherit;\n}\n\n.libapps-buttons {\n  background-color: #637799;\n}\n\n@media (min-width: 575px) {\n  .libapps-buttons {\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 0;\n    padding: 0;\n  }\n}\n\n.libapps-menu {\n  list-style-type: none;\n  margin-bottom: 0;\n  padding: 0;\n}\n\n.libapps-menu-item {\n  display: inline-block;\n  text-align: center;\n  border-left: none;\n  float: none;\n  text-align: left;\n  width: auto;\n}\n\n.libapps-menu-item a {\n  color: #ffffff;\n}\n\n.libapps-buttons .libanswers-button,\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  display: inline-block;\n  padding: 0 15px;\n  height: 44px;\n  line-height: 44px;\n  width: 100%;\n  transition-property: color,background-color,border;\n  transition-duration: .2s;\n  transition-timing-function: ease;\n}\n\n.libapps-buttons .libanswers-button:hover,\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  background-color: #4f5f7a !important;\n}\n\n.libapps-buttons .libanswers-button:before,\n.libapps-buttons .libchat_online:before,\n.libapps-buttons .libchat_offline:before {\n  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2226%22%20height%3D%22108%22%20viewBox%3D%22-354%20-129.1%2026%20108%22%20enable-background%3D%22new%20-354%20-129.1%2026%20108%22%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-341-120.6c-2.6%200-4.8%201.9-4.8%205.2%200%203.3%201.8%206.7%204.8%206.7%203.2%200%204.8-3.4%204.8-6.7%200-3.3-2.2-5.2-4.8-5.2zm-4.8%2011.9c-2.6%200-4.8%202.1-4.8%204.7v2.2c0%20.2.1.2.2.2h18.5c.1%200%20.2-.1.2-.2v-2.1c0-2.7-2.1-4.8-4.8-4.8h-1.2c-.1%200-.3%200-.4.1-.9.7-2%201.1-3.1%201.1s-2.2-.3-3.1-1.1c-.1%200-.2-.2-.4-.2l-1.1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-341.2-101.7c-1.4-.9-3.1-1.1-4.4-1.1-.9%200-1.5.1-1.5.1l-.2.1v-8.8h.1s.5-.1%201.4-.1c1.3%200%203.1.2%204.6%201.1h.4c1.5-.9%203.3-1.1%204.6-1.1.8%200%201.3.1%201.4.1h.1v8.8h-.2s-.6-.1-1.4-.1c-1.2%200-3%20.2-4.4%201.1h-.1c.1-.1-.4-.1-.4-.1z%22/%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-336.2-111.4h1.3v8.5s-.6-.1-1.5-.1c-1.2%200-3%20.2-4.4%201.1h-.5c-1.4-.9-3.2-1.1-4.5-1.1-.9%200-1.4.1-1.4.1v-8.5h1.3c1.2%200%203.1.2%204.6%201h.5c1.5-.8%203.4-1%204.6-1m0-.3c-1.3%200-3.2.2-4.7%201.1h-.3c-1.5-.9-3.3-1.1-4.7-1.1-.8%200-1.4.1-1.4.1h-.2v9.1l.4-.1s.6-.1%201.4-.1c1.2%200%203%20.2%204.3%201v.1h.7l.1-.1c1.4-.8%203-1%204.3-1%20.9%200%201.4.1%201.4.1l.4.1v-9.1h-.2c-.2%200-.7-.1-1.5-.1zM-344.7-107.3l-.5-.2-.6.2v-4.1h1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-336.4-76.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm5.3%201.7c0-3-3-5.4-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3Ccircle%20fill%3D%22%236A80A4%22%20cx%3D%22-343.6%22%20cy%3D%22-41%22%20r%3D%224.4%22/%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M-336.4-40.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm-4%201.9c.1.2.1.3%200%20.5l-.8.8c-.1.2-.4.2-.5%200l-2.1-2.1-2.1%202.1c-.1.2-.4.2-.5%200l-.8-.8c-.1-.2-.1-.3%200-.5l2.1-2.1-2.1-2.1c-.1-.2-.1-.3%200-.5l.8-.8c.1-.2.4-.2.5%200l2.1%202.1%202.1-2.1c.1-.2.4-.2.5%200l.8.8c.1.2.1.3%200%20.5l-2.1%202.1%202.1%202.1zM-331.1-39c0-3-3-5.3-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3C/g%3E%3C/svg%3E');\n  background-repeat: no-repeat;\n  content: '';\n  width: 30px;\n  height: 20px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.libanswers-button:before {\n  background-position: 0 -8px;\n}\n\n.libanswers-button:hover {\n  text-decoration: none;\n}\n\n.libchat-button {\n  text-align: center;\n  width: 100%;\n}\n\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  color: #ffffff !important;\n  display: inline-block !important;\n  padding: 0 15px !important;\n  text-align: center !important;\n}\n\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  cursor: pointer !important;\n  background-color: #4f5f7a !important;\n}\n\n.libapps-buttons .libchat_online:focus,\n.libapps-buttons .libchat_offline:focus {\n  outline: 0;\n  box-shadow: none;\n}\n\n.libapps-buttons .libchat_online::before {\n  background-position: 0 -45px;\n}\n\n.libapps-buttons .libchat_offline::before {\n  background-position: 0 -81px;\n}\n\n.ual-footer-inner {\n  font-size: 1.25em;\n  padding: 15px;\n  background-color: #eeeeee;\n}\n\n.ual-footer-inner a {\n  color: #5376b6;\n}\n\n.ual-footer-inner ul {\n  list-style-type: none;\n  margin-left: 0;\n  padding-left: 0;\n  text-align: center;\n}\n\n@media (min-width: 500px) {\n  .ual-footer-inner ul {\n    text-align: left;\n  }\n}\n\n.ual-footer-inner li {\n  display: block;\n  padding-right: 8px;\n  margin-right: 8px;\n}\n\n@media (min-width: 500px) {\n  .ual-footer-inner li {\n    display: inline-block;\n  }\n}\n\n@media (min-width: 500px) {\n  .ual-footer-inner ul:first-child li {\n    border-right: 1px solid #cccccc;\n  }\n}\n\n.ual-footer-inner ul:first-child li:last-child {\n  border: none;\n}\n\n#eq-time-grid-legend {\n  text-align: center;\n  margin: 1em 0;\n}\n\n#eq-time-grid-legend .label {\n  line-height: 1.8em;\n  font-weight: normal;\n}\n\n@media (min-width: 500px) {\n  #eq-time-grid-legend {\n    text-align: right;\n  }\n\n  #eq-time-grid-legend .label {\n    display: inline-block;\n    padding: .25em 1em;\n    font-size: 1em;\n  }\n}\n\n.label-eq-avail,\n.s-lc-eq-avail {\n  background-color: #61CA93 !important;\n  border: none !important;\n}\n\n.label-eq-pending,\n.s-lc-eq-pending {\n  background-color: #1F97C7 !important;\n  border: none !important;\n}\n\n.label-eq-unavailable,\n.s-lc-eq-unavailable {\n  background-color: #D2D2D2 !important;\n  border: none !important;\n}\n\n#eq-time-grid-legend  .label-eq-filtered {\n  display: none;\n}\n\n.pa0 { padding: 0; }\n\n.pa1 { padding: .25em; }\n\n.pa2 { padding: .5em; }\n\n.pa3 { padding: 1em; }\n\n.pa4 { padding: 2em; }\n\n.pa5 { padding: 4em; }\n\n.pa6 { padding: 8em; }\n\n.pa7 { padding: 16em; }\n\n.pl0 { padding-left: 0; }\n\n.pl1 { padding-left: .25em; }\n\n.pl2 { padding-left: .5em; }\n\n.pl3 { padding-left: 1em; }\n\n.pl4 { padding-left: 2em; }\n\n.pl5 { padding-left: 4em; }\n\n.pl6 { padding-left: 8em; }\n\n.pl7 { padding-left: 16em; }\n\n.pr0 { padding-right: 0; }\n\n.pr1 { padding-right: .25em; }\n\n.pr2 { padding-right: .5em; }\n\n.pr3 { padding-right: 1em; }\n\n.pr4 { padding-right: 2em; }\n\n.pr5 { padding-right: 4em; }\n\n.pr6 { padding-right: 8em; }\n\n.pr7 { padding-right: 16em; }\n\n.pb0 { padding-bottom: 0; }\n\n.pb1 { padding-bottom: .25em; }\n\n.pb2 { padding-bottom: .5em; }\n\n.pb3 { padding-bottom: 1em; }\n\n.pb4 { padding-bottom: 2em; }\n\n.pb5 { padding-bottom: 4em; }\n\n.pb6 { padding-bottom: 8em; }\n\n.pb7 { padding-bottom: 16em; }\n\n.pt0 { padding-top: 0; }\n\n.pt1 { padding-top: .25em; }\n\n.pt2 { padding-top: .5em; }\n\n.pt3 { padding-top: 1em; }\n\n.pt4 { padding-top: 2em; }\n\n.pt5 { padding-top: 4em; }\n\n.pt6 { padding-top: 8em; }\n\n.pt7 { padding-top: 16em; }\n\n.pv0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.pv1 {\n  padding-top: .25em;\n  padding-bottom: .25em;\n}\n\n.pv2 {\n  padding-top: .5em;\n  padding-bottom: .5em;\n}\n\n.pv3 {\n  padding-top: 1em;\n  padding-bottom: 1em;\n}\n\n.pv4 {\n  padding-top: 2em;\n  padding-bottom: 2em;\n}\n\n.pv5 {\n  padding-top: 4em;\n  padding-bottom: 4em;\n}\n\n.pv6 {\n  padding-top: 8em;\n  padding-bottom: 8em;\n}\n\n.pv7 {\n  padding-top: 16em;\n  padding-bottom: 16em;\n}\n\n.ph0 {\n  padding-left: 0;\n  padding-right: 0;\n}\n\n.ph1 {\n  padding-left: .25em;\n  padding-right: .25em;\n}\n\n.ph2 {\n  padding-left: .5em;\n  padding-right: .5em;\n}\n\n.ph3 {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n\n.ph4 {\n  padding-left: 2em;\n  padding-right: 2em;\n}\n\n.ph5 {\n  padding-left: 4em;\n  padding-right: 4em;\n}\n\n.ph6 {\n  padding-left: 8em;\n  padding-right: 8em;\n}\n\n.ph7 {\n  padding-left: 16em;\n  padding-right: 16em;\n}\n\n.ma0  {  margin: 0; }\n\n.ma1 {  margin: .25em; }\n\n.ma2  {  margin: .5em; }\n\n.ma3  {  margin: 1em; }\n\n.ma4  {  margin: 2em; }\n\n.ma5  {  margin: 4em; }\n\n.ma6 {  margin: 8em; }\n\n.ma7 { margin: 16em; }\n\n.ml0  {  margin-left: 0; }\n\n.ml1 {  margin-left: .25em; }\n\n.ml2  {  margin-left: .5em; }\n\n.ml3  {  margin-left: 1em; }\n\n.ml4  {  margin-left: 2em; }\n\n.ml5  {  margin-left: 4em; }\n\n.ml6 {  margin-left: 8em; }\n\n.ml7 { margin-left: 16em; }\n\n.mr0  {  margin-right: 0; }\n\n.mr1 {  margin-right: .25em; }\n\n.mr2  {  margin-right: .5em; }\n\n.mr3  {  margin-right: 1em; }\n\n.mr4  {  margin-right: 2em; }\n\n.mr5  {  margin-right: 4em; }\n\n.mr6 {  margin-right: 8em; }\n\n.mr7 { margin-right: 16em; }\n\n.mb0  {  margin-bottom: 0; }\n\n.mb1 {  margin-bottom: .25em; }\n\n.mb2  {  margin-bottom: .5em; }\n\n.mb3  {  margin-bottom: 1em; }\n\n.mb4  {  margin-bottom: 2em; }\n\n.mb5  {  margin-bottom: 4em; }\n\n.mb6 {  margin-bottom: 8em; }\n\n.mb7 { margin-bottom: 16em; }\n\n.mt0  {  margin-top: 0; }\n\n.mt1 {  margin-top: .25em; }\n\n.mt2  {  margin-top: .5em; }\n\n.mt3  {  margin-top: 1em; }\n\n.mt4  {  margin-top: 2em; }\n\n.mt5  {  margin-top: 4em; }\n\n.mt6 {  margin-top: 8em; }\n\n.mt7 { margin-top: 16em; }\n\n.mv0   {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.mv1  {\n  margin-top: .25em;\n  margin-bottom: .25em;\n}\n\n.mv2   {\n  margin-top: .5em;\n  margin-bottom: .5em;\n}\n\n.mv3   {\n  margin-top: 1em;\n  margin-bottom: 1em;\n}\n\n.mv4   {\n  margin-top: 2em;\n  margin-bottom: 2em;\n}\n\n.mv5   {\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n\n.mv6  {\n  margin-top: 8em;\n  margin-bottom: 8em;\n}\n\n.mv7  {\n  margin-top: 16em;\n  margin-bottom: 16em;\n}\n\n.mh0   {\n  margin-left: 0;\n  margin-right: 0;\n}\n\n.mh1   {\n  margin-left: .25em;\n  margin-right: .25em;\n}\n\n.mh2   {\n  margin-left: .5em;\n  margin-right: .5em;\n}\n\n.mh3   {\n  margin-left: 1em;\n  margin-right: 1em;\n}\n\n.mh4   {\n  margin-left: 2em;\n  margin-right: 2em;\n}\n\n.mh5   {\n  margin-left: 4em;\n  margin-right: 4em;\n}\n\n.mh6  {\n  margin-left: 8em;\n  margin-right: 8em;\n}\n\n.mh7  {\n  margin-left: 16em;\n  margin-right: 16em;\n}\n\n.bn { border-style: none; border-width: 0; }\n\n.white {\n  color: #ffffff;\n}\n\n.bg-gray {\n  background-color: #eeeeee;\n}\n\n.bg-blue {\n  background-color: #2483bb;\n}\n\nbody {\n  background-color: #cccccc;\n}\n\n.container {\n  position: relative;\n  max-width: 1170px;\n  margin: 0 auto;\n  padding: 0;\n  overflow: hidden;\n  background-color: #ffffff;\n}\n\n/*\n * Hide visually and from screen readers\n */\n\n.hidden {\n  display: none !important;\n}\n\n/*\n * Hide only visually, but have it available for screen readers:\n * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility\n *\n * 1. For long content, line feeds are not interpreted as spaces and small width\n *    causes content to wrap 1 word per line:\n *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe\n */\n\n.visuallyhidden {\n  border: 0;\n  clip: rect(0 0 0 0);\n  -webkit-clip-path: inset(50%);\n  clip-path: inset(50%);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n  white-space: nowrap; /* 1 */\n}\n\n/*\n * Extends the .visuallyhidden class to allow the element\n * to be focusable when navigated to via the keyboard:\n * https://www.drupal.org/node/897638\n */\n\n.visuallyhidden.focusable:active,\n.visuallyhidden.focusable:focus {\n  clip: auto;\n  -webkit-clip-path: none;\n  clip-path: none;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n  white-space: inherit;\n}\n\n/*\n * Hide visually and from screen readers, but maintain layout\n */\n\n.invisible {\n  visibility: hidden;\n}\n\n/*\n * Clearfix: contain floats\n *\n * For modern browsers\n * 1. The space content is one way to avoid an Opera bug when the\n *    `contenteditable` attribute is included anywhere else in the document.\n *    Otherwise it causes space to appear at the top and bottom of elements\n *    that receive the `clearfix` class.\n * 2. The use of `table` rather than `block` is only necessary if using\n *    `:before` to contain the top-margins of child elements.\n */\n\n.clearfix:before,\n.clearfix:after {\n  content: \" \"; /* 1 */\n  display: table; /* 2 */\n}\n\n.clearfix:after {\n  clear: both;\n}\n", ""]);
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
 
-// exports
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
 			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
 		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
 	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
+	return module;
+};
 
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hideCapacity = hideCapacity;
+function hideCapacity() {
+  // Hide the 'Capacity column'
+  document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header')[1].remove();
+
+  document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[1].remove();
+
+  var rows = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr');
+
+  for (var i = 0; i < rows.length; i++) {
+    if (rows[i].children.length > 1) {
+      rows[i].children[1].remove();
+    }
+  }
+
+  document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[1].remove();
+
+  // Hide the 'Capacity' filter
+  document.querySelectorAll('#s-lc-eq-navform .form-inline .form-group')[2].remove();
+}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hideRoomInfo = hideRoomInfo;
+function hideRoomInfo() {
+  if (window.innerWidth < 450) {
+    // hide header cells
+    document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header')[0].classList.add('hidden');
+    document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[0].style.width = 'auto';
+
+    // hide body cells
+    var rows = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr');
+
+    for (var i = 0; i < rows.length; i++) {
+      rows[i].children[0].classList.add('hidden');
+    }
+
+    document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[0].style.width = 'auto';
+  } else {
+    // show header cells
+    document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header')[0].classList.remove('hidden');
+    document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[0].style.width = '12%';
+
+    // show body cells
+    var _rows = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr');
+
+    for (var _i = 0; _i < _rows.length; _i++) {
+      _rows[_i].children[0].classList.remove('hidden');
+    }
+
+    document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[0].style.width = '12%';
+  }
+}
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hideBreadcrumbs = hideBreadcrumbs;
+// Hides the breadcrumbs
+function hideBreadcrumbs() {
+  document.getElementById('s-lc-public-bc').remove();
+}
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hideTinyFooter = hideTinyFooter;
+function hideTinyFooter() {
+  document.getElementById('s-lc-public-footer').remove();
+}
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.calendarClipHeight = calendarClipHeight;
+function calendarClipHeight(height) {
+  if (window.innerWidth > 700) return;
+
+  document.querySelectorAll('.fc-body .fc-scroller-clip .fc-scroller').forEach(function (element) {
+    element.style.height = height;
+  });
+}
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.roomInfoModal = roomInfoModal;
+// Sets width of 'Room info' dialog modals
+function setWidth(nodes) {
+  if (!nodes.length) {
+    return;
+  }
+
+  if (!nodes[0].classList.contains('modal')) {
+    return;
+  }
+
+  var modal = nodes[0].children[0];
+  modal.style.width = "";
+  modal.classList.add('mw5');
+}
+
+function roomInfoModal() {
+  var target = document.querySelector('body');
+
+  var observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.type == 'childList') {
+        setWidth(mutation.addedNodes);
+      }
+    });
+  });
+
+  var config = {
+    attributes: true,
+    childList: true,
+    characterData: true
+  };
+
+  observer.observe(target, config);
+}
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.showFooter = exports.showHeader = undefined;
+
+var _handlebars = __webpack_require__(17);
+
+var Handlebars = _interopRequireWildcard(_handlebars);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function insertAfter(newNode, referenceNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function showHeader() {
+  var source = __webpack_require__(18);
+  var template = Handlebars.compile(source);
+  var widgetElement = document.querySelector('body > .container');
+  var bodyElement = document.querySelector('body');
+
+  var headerElement = document.createElement('header');
+
+  headerElement.setAttribute('class', 'ual-header');
+  headerElement.innerHTML = template();
+  bodyElement.insertBefore(headerElement, widgetElement);
+}
+
+function showFooter() {
+  var source = __webpack_require__(19);
+  var template = Handlebars.compile(source);
+  var widgetElement = document.querySelector('body > .container');
+  var bodyElement = document.querySelector('body');
+
+  var footerElement = document.createElement('footer');
+
+  footerElement.setAttribute('class', 'ual-footer');
+  footerElement.innerHTML = template();
+  insertAfter(footerElement, widgetElement);
+}
+
+exports.showHeader = showHeader;
+exports.showFooter = showFooter;
+
+/***/ }),
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**!
@@ -17528,548 +18130,16 @@ THE SOFTWARE.
 var f=g.nameLookup(e,b[c],a);return d?[" && ",f]:[" != null ? ",f," : ",e]})},resolvePossibleLambda:function(){this.push([this.aliasable("container.lambda"),"(",this.popStack(),", ",this.contextName(0),")"])},pushStringParam:function(a,b){this.pushContext(),this.pushString(b),"SubExpression"!==b&&("string"==typeof a?this.pushString(a):this.pushStackLiteral(a))},emptyHash:function(a){this.trackIds&&this.push("{}"),this.stringParams&&(this.push("{}"),this.push("{}")),this.pushStackLiteral(a?"undefined":"{}")},pushHash:function(){this.hash&&this.hashes.push(this.hash),this.hash={values:[],types:[],contexts:[],ids:[]}},popHash:function(){var a=this.hash;this.hash=this.hashes.pop(),this.trackIds&&this.push(this.objectLiteral(a.ids)),this.stringParams&&(this.push(this.objectLiteral(a.contexts)),this.push(this.objectLiteral(a.types))),this.push(this.objectLiteral(a.values))},pushString:function(a){this.pushStackLiteral(this.quotedString(a))},pushLiteral:function(a){this.pushStackLiteral(a)},pushProgram:function(a){null!=a?this.pushStackLiteral(this.programExpression(a)):this.pushStackLiteral(null)},registerDecorator:function(a,b){var c=this.nameLookup("decorators",b,"decorator"),d=this.setupHelperArgs(b,a);this.decorators.push(["fn = ",this.decorators.functionCall(c,"",["fn","props","container",d])," || fn;"])},invokeHelper:function(a,b,c){var d=this.popStack(),e=this.setupHelper(a,b),f=c?[e.name," || "]:"",g=["("].concat(f,d);this.options.strict||g.push(" || ",this.aliasable("helpers.helperMissing")),g.push(")"),this.push(this.source.functionCall(g,"call",e.callParams))},invokeKnownHelper:function(a,b){var c=this.setupHelper(a,b);this.push(this.source.functionCall(c.name,"call",c.callParams))},invokeAmbiguous:function(a,b){this.useRegister("helper");var c=this.popStack();this.emptyHash();var d=this.setupHelper(0,a,b),e=this.lastHelper=this.nameLookup("helpers",a,"helper"),f=["(","(helper = ",e," || ",c,")"];this.options.strict||(f[0]="(helper = ",f.push(" != null ? helper : ",this.aliasable("helpers.helperMissing"))),this.push(["(",f,d.paramsInit?["),(",d.paramsInit]:[],"),","(typeof helper === ",this.aliasable('"function"')," ? ",this.source.functionCall("helper","call",d.callParams)," : helper))"])},invokePartial:function(a,b,c){var d=[],e=this.setupParams(b,1,d);a&&(b=this.popStack(),delete e.name),c&&(e.indent=JSON.stringify(c)),e.helpers="helpers",e.partials="partials",e.decorators="container.decorators",a?d.unshift(b):d.unshift(this.nameLookup("partials",b,"partial")),this.options.compat&&(e.depths="depths"),e=this.objectLiteral(e),d.push(e),this.push(this.source.functionCall("container.invokePartial","",d))},assignToHash:function(a){var b=this.popStack(),c=void 0,d=void 0,e=void 0;this.trackIds&&(e=this.popStack()),this.stringParams&&(d=this.popStack(),c=this.popStack());var f=this.hash;c&&(f.contexts[a]=c),d&&(f.types[a]=d),e&&(f.ids[a]=e),f.values[a]=b},pushId:function(a,b,c){"BlockParam"===a?this.pushStackLiteral("blockParams["+b[0]+"].path["+b[1]+"]"+(c?" + "+JSON.stringify("."+c):"")):"PathExpression"===a?this.pushString(b):"SubExpression"===a?this.pushStackLiteral("true"):this.pushStackLiteral("null")},compiler:e,compileChildren:function(a,b){for(var c=a.children,d=void 0,e=void 0,f=0,g=c.length;f<g;f++){d=c[f],e=new this.compiler;var h=this.matchExistingProgram(d);if(null==h){this.context.programs.push("");var i=this.context.programs.length;d.index=i,d.name="program"+i,this.context.programs[i]=e.compile(d,b,this.context,!this.precompile),this.context.decorators[i]=e.decorators,this.context.environments[i]=d,this.useDepths=this.useDepths||e.useDepths,this.useBlockParams=this.useBlockParams||e.useBlockParams,d.useDepths=this.useDepths,d.useBlockParams=this.useBlockParams}else d.index=h.index,d.name="program"+h.index,this.useDepths=this.useDepths||h.useDepths,this.useBlockParams=this.useBlockParams||h.useBlockParams}},matchExistingProgram:function(a){for(var b=0,c=this.context.environments.length;b<c;b++){var d=this.context.environments[b];if(d&&d.equals(a))return d}},programExpression:function(a){var b=this.environment.children[a],c=[b.index,"data",b.blockParams];return(this.useBlockParams||this.useDepths)&&c.push("blockParams"),this.useDepths&&c.push("depths"),"container.program("+c.join(", ")+")"},useRegister:function(a){this.registers[a]||(this.registers[a]=!0,this.registers.list.push(a))},push:function(a){return a instanceof d||(a=this.source.wrap(a)),this.inlineStack.push(a),a},pushStackLiteral:function(a){this.push(new d(a))},pushSource:function(a){this.pendingContent&&(this.source.push(this.appendToBuffer(this.source.quotedString(this.pendingContent),this.pendingLocation)),this.pendingContent=void 0),a&&this.source.push(a)},replaceStack:function(a){var b=["("],c=void 0,e=void 0,f=void 0;if(!this.isInline())throw new j["default"]("replaceStack on non-inline");var g=this.popStack(!0);if(g instanceof d)c=[g.value],b=["(",c],f=!0;else{e=!0;var h=this.incrStack();b=["((",this.push(h)," = ",g,")"],c=this.topStack()}var i=a.call(this,c);f||this.popStack(),e&&this.stackSlot--,this.push(b.concat(i,")"))},incrStack:function(){return this.stackSlot++,this.stackSlot>this.stackVars.length&&this.stackVars.push("stack"+this.stackSlot),this.topStackName()},topStackName:function(){return"stack"+this.stackSlot},flushInline:function(){var a=this.inlineStack;this.inlineStack=[];for(var b=0,c=a.length;b<c;b++){var e=a[b];if(e instanceof d)this.compileStack.push(e);else{var f=this.incrStack();this.pushSource([f," = ",e,";"]),this.compileStack.push(f)}}},isInline:function(){return this.inlineStack.length},popStack:function(a){var b=this.isInline(),c=(b?this.inlineStack:this.compileStack).pop();if(!a&&c instanceof d)return c.value;if(!b){if(!this.stackSlot)throw new j["default"]("Invalid stack pop");this.stackSlot--}return c},topStack:function(){var a=this.isInline()?this.inlineStack:this.compileStack,b=a[a.length-1];return b instanceof d?b.value:b},contextName:function(a){return this.useDepths&&a?"depths["+a+"]":"depth"+a},quotedString:function(a){return this.source.quotedString(a)},objectLiteral:function(a){return this.source.objectLiteral(a)},aliasable:function(a){var b=this.aliases[a];return b?(b.referenceCount++,b):(b=this.aliases[a]=this.source.wrap(a),b.aliasable=!0,b.referenceCount=1,b)},setupHelper:function(a,b,c){var d=[],e=this.setupHelperArgs(b,a,d,c),f=this.nameLookup("helpers",b,"helper"),g=this.aliasable(this.contextName(0)+" != null ? "+this.contextName(0)+" : (container.nullContext || {})");return{params:d,paramsInit:e,name:f,callParams:[g].concat(d)}},setupParams:function(a,b,c){var d={},e=[],f=[],g=[],h=!c,i=void 0;h&&(c=[]),d.name=this.quotedString(a),d.hash=this.popStack(),this.trackIds&&(d.hashIds=this.popStack()),this.stringParams&&(d.hashTypes=this.popStack(),d.hashContexts=this.popStack());var j=this.popStack(),k=this.popStack();(k||j)&&(d.fn=k||"container.noop",d.inverse=j||"container.noop");for(var l=b;l--;)i=this.popStack(),c[l]=i,this.trackIds&&(g[l]=this.popStack()),this.stringParams&&(f[l]=this.popStack(),e[l]=this.popStack());return h&&(d.args=this.source.generateArray(c)),this.trackIds&&(d.ids=this.source.generateArray(g)),this.stringParams&&(d.types=this.source.generateArray(f),d.contexts=this.source.generateArray(e)),this.options.data&&(d.data="data"),this.useBlockParams&&(d.blockParams="blockParams"),d},setupHelperArgs:function(a,b,c,d){var e=this.setupParams(a,b,c);return e=this.objectLiteral(e),d?(this.useRegister("options"),c.push("options"),["options=",e]):c?(c.push(e),""):e}},function(){for(var a="break else new var case finally return void catch for switch while continue function this with default if throw delete in try do instanceof typeof abstract enum int short boolean export interface static byte extends long super char final native synchronized class float package throws const goto private transient debugger implements protected volatile double import public let yield await null true false".split(" "),b=e.RESERVED_WORDS={},c=0,d=a.length;c<d;c++)b[a[c]]=!0}(),e.isValidJavaScriptVariableName=function(a){return!e.RESERVED_WORDS[a]&&/^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(a)},b["default"]=e,a.exports=b["default"]},function(a,b,c){"use strict";function d(a,b,c){if(f.isArray(a)){for(var d=[],e=0,g=a.length;e<g;e++)d.push(b.wrap(a[e],c));return d}return"boolean"==typeof a||"number"==typeof a?a+"":a}function e(a){this.srcFile=a,this.source=[]}b.__esModule=!0;var f=c(5),g=void 0;try{}catch(h){}g||(g=function(a,b,c,d){this.src="",d&&this.add(d)},g.prototype={add:function(a){f.isArray(a)&&(a=a.join("")),this.src+=a},prepend:function(a){f.isArray(a)&&(a=a.join("")),this.src=a+this.src},toStringWithSourceMap:function(){return{code:this.toString()}},toString:function(){return this.src}}),e.prototype={isEmpty:function(){return!this.source.length},prepend:function(a,b){this.source.unshift(this.wrap(a,b))},push:function(a,b){this.source.push(this.wrap(a,b))},merge:function(){var a=this.empty();return this.each(function(b){a.add(["  ",b,"\n"])}),a},each:function(a){for(var b=0,c=this.source.length;b<c;b++)a(this.source[b])},empty:function(){var a=this.currentLocation||{start:{}};return new g(a.start.line,a.start.column,this.srcFile)},wrap:function(a){var b=arguments.length<=1||void 0===arguments[1]?this.currentLocation||{start:{}}:arguments[1];return a instanceof g?a:(a=d(a,this,b),new g(b.start.line,b.start.column,this.srcFile,a))},functionCall:function(a,b,c){return c=this.generateList(c),this.wrap([a,b?"."+b+"(":"(",c,")"])},quotedString:function(a){return'"'+(a+"").replace(/\\/g,"\\\\").replace(/"/g,'\\"').replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/\u2028/g,"\\u2028").replace(/\u2029/g,"\\u2029")+'"'},objectLiteral:function(a){var b=[];for(var c in a)if(a.hasOwnProperty(c)){var e=d(a[c],this);"undefined"!==e&&b.push([this.quotedString(c),":",e])}var f=this.generateList(b);return f.prepend("{"),f.add("}"),f},generateList:function(a){for(var b=this.empty(),c=0,e=a.length;c<e;c++)c&&b.add(","),b.add(d(a[c],this));return b},generateArray:function(a){var b=this.generateList(a);return b.prepend("["),b.add("]"),b}},b["default"]=e,a.exports=b["default"]}])});
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\n  <div class=\"ual-footer-inner\">\n    <ul>\n      <li class=\"name\">The University of Arizona Libraries</li>\n      <li>1510 E. University Blvd.</li>\n      <li>Tucson, AZ 85721-0055</li>\n      <li>(520) 621-6442</li>\n    </ul>\n    <ul>\n      <li><a href=\"mailto:library@arizona.edu\">library@arizona.edu</a></li>\n      <li><a href=\"http://new.library.arizona.edu/policies\">Policies</a></li>\n      <li><a href=\"http://new.library.arizona.edu/jobs\">Job opportunities</a></li>\n    </ul>\n  </div>\n</div>\n";
-
-/***/ }),
-/* 12 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container ual-branding-wrapper\">\n  <div class=\"ua-web-branding-banner\">\n    <a class=\"ua-home\" href=\"http://arizona.edu\" title=\"The University of Arizona\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"250\" height=\"25\" viewBox=\"426.49 -321.16 250 25\" enable-background=\"new 426.493 -321.163 250 25\"><style type=\"text/css\">.st2{fill:#FFFFFF;}</style><path class=\"st2\" d=\"M436.05-303.77c0 .7.06 1.23.19 1.57.12.34.33.64.63.91h-3.78c.3-.27.51-.57.63-.91.12-.34.19-.86.19-1.57v-9.98h-1.11c-.76 0-1.38.06-1.86.18-.47.12-.85.32-1.14.58l.68-2.29h9.83l-.64 2.26c-.2-.24-.47-.43-.81-.55-.33-.12-.75-.18-1.26-.18h-1.55v9.98zm7.41.33c0 .62.05 1.07.16 1.37.11.3.29.56.55.8h-3.3c.25-.23.43-.5.54-.79.11-.3.16-.75.16-1.37v-7.92c0-.62-.05-1.07-.16-1.37-.11-.29-.29-.56-.54-.79h3.3c-.26.23-.44.49-.55.79-.1.29-.16.75-.16 1.37v2.74h6.48v-2.74c0-.62-.05-1.07-.16-1.37-.11-.29-.29-.56-.55-.79h3.3c-.25.23-.43.49-.54.79-.11.29-.16.75-.16 1.37v7.92c0 .62.05 1.07.16 1.37.11.3.29.56.55.8h-3.3c.26-.23.44-.5.55-.79.11-.3.16-.75.16-1.37v-3.77h-6.48v3.77h-.01zm10.68 2.17c.25-.23.44-.5.54-.8.11-.29.17-.75.17-1.37v-7.91c0-.62-.06-1.08-.16-1.37-.11-.29-.29-.56-.54-.79h6.59v1.94c-.29-.24-.62-.41-.97-.52-.35-.1-.76-.16-1.22-.16-.24 0-.5.02-.8.06-.29.04-.63.1-1 .17v3.45h2.96v1.78c-.14-.16-.33-.28-.56-.35-.24-.07-.67-.1-1.3-.1h-1.09v4.39c.46.07.87.12 1.24.16.37.04.69.05.96.05.62 0 1.19-.08 1.74-.25.54-.17 1.08-.42 1.6-.77l-.84 2.4h-7.31v-.01zm23.77.03v-1.05c-.67.49-1.34.85-2.02 1.09-.68.24-1.37.36-2.07.36-.8 0-1.51-.13-2.14-.4s-1.16-.67-1.62-1.2c-.35-.42-.61-.91-.76-1.47-.15-.56-.23-1.31-.23-2.25v-6.55c0-.7-.06-1.22-.18-1.55-.12-.33-.33-.63-.61-.89h3.74c-.29.26-.49.56-.61.89-.12.33-.18.85-.18 1.56v6.12c0 .96.05 1.67.14 2.13.09.46.25.83.46 1.1.26.33.61.57 1.05.74.44.16.96.25 1.56.25.5 0 .97-.07 1.41-.23.43-.15.82-.37 1.15-.66.29-.24.49-.55.62-.94.12-.38.19-.91.19-1.57v-6.94c0-.73-.06-1.26-.18-1.58-.12-.32-.33-.61-.62-.87h3.77c-.29.26-.5.56-.62.91s-.19.87-.19 1.54v9.02c0 .7.06 1.22.19 1.56.13.34.33.64.63.9l-2.88-.02zm16.21-12.27c-.26.23-.44.49-.55.79-.11.29-.16.75-.16 1.36v10.37c-.42-.01-.82-.15-1.2-.41s-.85-.77-1.42-1.51l-6.22-7.96v7.44c0 .64.05 1.1.15 1.39.11.29.28.55.54.77h-2.74c.26-.23.44-.5.55-.8.11-.29.16-.75.16-1.37v-7.92c0-.61-.05-1.07-.16-1.36-.11-.29-.29-.56-.55-.79h2.45l7.13 9.19v-7.04c0-.61-.05-1.07-.16-1.36-.11-.29-.29-.56-.55-.79h2.73zm4.57 10.07c0 .62.05 1.08.16 1.37.11.3.29.56.55.8h-3.3c.26-.23.44-.5.55-.8.11-.29.16-.75.16-1.37v-7.92c0-.61-.05-1.07-.16-1.36-.11-.29-.29-.56-.55-.79h3.3c-.26.23-.44.49-.55.79-.11.29-.16.75-.16 1.36v7.92zm7.7 2.48c-.51-.13-.95-.43-1.32-.88-.36-.46-.7-1.14-1.01-2.04l-2.44-7.13c-.2-.59-.38-1.07-.56-1.44-.17-.37-.37-.72-.59-1.06l2.49.01c.01.2.03.39.06.56.03.17.07.33.11.48l2.93 8.76 2.78-7.29c.08-.22.15-.45.2-.68.05-.22.08-.43.08-.62 0-.16-.05-.34-.14-.52-.09-.19-.25-.41-.47-.69h2.76l-4.88 12.54zm5.72-.31c.25-.23.43-.5.54-.8.11-.29.16-.75.16-1.37v-7.91c0-.62-.05-1.08-.16-1.37-.11-.29-.29-.56-.54-.79h6.58v1.94c-.29-.24-.61-.41-.96-.52-.35-.1-.75-.16-1.22-.16-.23 0-.5.02-.79.06-.29.04-.63.1-1 .17v3.45h2.95v1.78c-.14-.16-.32-.28-.56-.35-.23-.07-.67-.1-1.3-.1h-1.09v4.39c.46.07.87.12 1.24.16.37.04.69.05.96.05.61 0 1.18-.08 1.72-.25.54-.17 1.07-.42 1.6-.77l-.84 2.4h-7.29v-.01zm11.57-2.17c0 .62.05 1.07.16 1.37.11.3.29.56.55.8h-3.3c.25-.23.43-.5.54-.79.11-.3.17-.75.17-1.37v-7.92c0-.62-.05-1.07-.16-1.37-.11-.29-.29-.56-.54-.79h4.17c1.19 0 2.15.29 2.88.87.73.58 1.1 1.33 1.1 2.25 0 .67-.22 1.26-.66 1.77-.44.51-1.12.96-2.05 1.35l3.13 4.24c.19.25.41.52.67.8.26.28.56.57.9.88l-.94.09h-.15c-.44 0-.86-.12-1.28-.35-.42-.23-.77-.56-1.06-.97l-3.58-5.02c1.07-.24 1.85-.57 2.34-.99.49-.42.74-.96.74-1.63 0-.62-.21-1.12-.63-1.51-.42-.39-.98-.58-1.67-.58-.16 0-.34.01-.56.04-.22.03-.47.07-.74.12v8.73h-.03zm8.12 1.89l-.58-2.22c.7.48 1.39.83 2.05 1.06.66.23 1.31.35 1.96.35.83 0 1.49-.18 2-.54.5-.36.76-.83.76-1.41 0-.16-.02-.33-.08-.49-.05-.16-.12-.32-.23-.47-.22-.34-.96-.81-2.22-1.44-.32-.15-.56-.27-.74-.36-1.17-.6-1.98-1.15-2.42-1.66-.44-.5-.66-1.1-.66-1.8 0-.99.4-1.78 1.2-2.37.8-.59 1.89-.88 3.29-.88.4 0 .84.03 1.33.08.48.05 1 .13 1.56.25v2.06c-.5-.38-1-.67-1.5-.86-.51-.19-1.04-.28-1.58-.28-.69 0-1.24.15-1.66.45-.42.3-.63.69-.63 1.17 0 .43.16.81.49 1.14.33.33 1.07.77 2.22 1.32.07.03.16.08.3.14.98.45 1.7.87 2.18 1.25.36.28.64.63.84 1.03.2.4.3.84.3 1.3 0 1.05-.47 1.94-1.42 2.67s-2.14 1.1-3.56 1.1c-.46 0-.95-.05-1.48-.15-.51-.09-1.09-.24-1.72-.44zm12.43-1.89c0 .62.05 1.08.16 1.37.11.3.29.56.55.8h-3.3c.26-.23.44-.5.55-.8.11-.29.16-.75.16-1.37v-7.92c0-.61-.05-1.07-.16-1.36-.11-.29-.29-.56-.55-.79h3.3c-.26.23-.44.49-.55.79-.11.29-.16.75-.16 1.36v7.92zm56.55-14.1l1.11 2.71 4.22 10.58c.47 1.18.84 2.33 1.99 2.92v.06h-4.16v-.06c1-.45.83-.68.29-2.12l-1.1-2.9h-5.14l-1.06 2.9c-.43 1.15-.57 1.75.41 2.12v.06h-3.74v-.06c1.18-.59 1.52-1.75 1.97-2.92l5.21-13.2v-.09zm-.24 4.47l-2.03 5.2h4.03l-2-5.2zm-25.49 12.1c-.92 0-1.78-.15-2.6-.44-.81-.3-1.51-.72-2.09-1.28-.61-.58-1.09-1.28-1.42-2.07-.33-.8-.5-1.63-.5-2.51 0-.69.11-1.35.32-2 .21-.65.52-1.25.93-1.81.63-.86 1.41-1.53 2.34-1.99.93-.47 1.94-.7 3.03-.7.94 0 1.81.15 2.63.45.81.3 1.51.73 2.09 1.28.63.59 1.1 1.28 1.43 2.08.33.8.49 1.67.49 2.6 0 .85-.19 1.69-.56 2.51-.37.82-.89 1.54-1.56 2.17-.6.57-1.29 1-2.06 1.29-.77.27-1.59.42-2.47.42zm.07-11.51c-1.34 0-2.45.47-3.32 1.4-.87.94-1.3 2.13-1.3 3.58 0 1.5.43 2.74 1.29 3.73.86.99 1.94 1.49 3.23 1.49 1.34 0 2.44-.47 3.31-1.4.87-.94 1.3-2.13 1.3-3.59 0-1.5-.43-2.74-1.29-3.72-.87-1-1.94-1.49-3.22-1.49zm10.17 9.05c0 .62.05 1.07.16 1.37.11.29.29.56.55.79h-3.31c.26-.23.44-.5.54-.79.11-.29.17-.75.17-1.37v-7.91c0-.62-.06-1.08-.16-1.37-.11-.29-.29-.56-.54-.79h6.61v1.93c-.3-.24-.62-.41-.97-.52-.35-.11-.76-.16-1.22-.16-.24 0-.51.02-.8.06-.29.04-.63.1-.99.18v3.45h2.97v1.78c-.14-.16-.33-.28-.57-.35-.24-.07-.68-.1-1.31-.1h-1.1v3.81h-.03zm25.67.01c0 .62.05 1.07.16 1.37.11.29.29.56.55.79h-3.3c.26-.23.44-.5.54-.79.11-.29.17-.75.17-1.36v-7.92c0-.62-.05-1.07-.17-1.37-.11-.29-.29-.56-.54-.79h4.17c1.19 0 2.15.29 2.88.87.73.57 1.1 1.33 1.1 2.25 0 .67-.22 1.26-.66 1.77-.44.51-1.12.96-2.05 1.35l3.13 4.24c.19.25.41.52.67.8.26.28.55.57.89.88l-.93.09h-.15c-.44 0-.87-.11-1.28-.35-.42-.23-.77-.56-1.06-.96l-3.59-5.02c1.07-.24 1.85-.57 2.35-.99.49-.42.74-.96.74-1.63 0-.62-.21-1.12-.64-1.51-.42-.39-.98-.58-1.67-.58-.16 0-.34.02-.56.04-.22.03-.47.07-.74.12v8.7zm11.17-.01c0 .62.05 1.08.16 1.37.11.29.29.56.55.79h-3.3c.26-.23.44-.5.55-.79.11-.29.16-.75.16-1.37v-7.92c0-.62-.05-1.07-.16-1.37-.11-.29-.29-.56-.55-.78h3.3c-.26.23-.44.49-.55.79-.1.29-.16.75-.16 1.37v7.91zm12.22-.12l-.88 2.29h-9.4l6.41-10.65c-.48-.12-.93-.21-1.35-.27-.42-.06-.82-.09-1.18-.09-.53 0-1.04.07-1.54.2-.49.13-1 .34-1.51.63l.83-2.05h7.82l-6.41 10.65c.71.09 1.31.14 1.8.18.48.04.91.06 1.26.06.83 0 1.59-.08 2.28-.24.68-.16 1.3-.4 1.87-.71zm6.94 2.58c-.92 0-1.79-.15-2.6-.44-.82-.3-1.51-.72-2.09-1.28-.61-.58-1.09-1.28-1.42-2.07-.33-.8-.5-1.63-.5-2.51 0-.69.1-1.35.32-2 .21-.65.52-1.25.92-1.81.63-.86 1.41-1.53 2.34-1.99.93-.47 1.94-.7 3.03-.7.94 0 1.81.15 2.62.45.81.3 1.51.73 2.1 1.28.63.59 1.1 1.28 1.43 2.08.33.8.49 1.67.49 2.6 0 .85-.18 1.69-.56 2.51-.37.82-.89 1.54-1.56 2.17-.6.57-1.29 1-2.06 1.29-.76.27-1.58.42-2.46.42zm.07-11.51c-1.35 0-2.45.47-3.32 1.4-.87.94-1.31 2.13-1.31 3.58 0 1.5.43 2.74 1.3 3.73.86.99 1.94 1.49 3.23 1.49 1.33 0 2.44-.47 3.31-1.4.87-.94 1.31-2.13 1.31-3.59 0-1.5-.43-2.74-1.29-3.72-.88-1-1.95-1.49-3.23-1.49zm19.14-1.02c-.26.23-.44.49-.55.79-.11.29-.16.75-.16 1.37v10.36c-.42-.01-.82-.15-1.2-.41s-.85-.76-1.42-1.5l-6.22-7.96v7.44c0 .64.05 1.11.16 1.39.1.28.28.54.54.77h-2.73c.25-.23.43-.5.54-.79.11-.29.17-.75.17-1.37v-7.92c0-.62-.06-1.07-.17-1.37-.11-.29-.29-.56-.54-.78h2.44l7.13 9.19v-7.04c0-.62-.06-1.07-.16-1.37-.11-.29-.29-.56-.54-.78l2.71-.02zm2.82 10.59c-.05.12-.09.25-.12.38-.02.13-.04.27-.04.41 0 .12.04.24.13.38.08.14.22.3.4.47h-2.84c.24-.16.45-.39.64-.67s.38-.68.57-1.18l3.39-8.73c.07-.17.12-.33.16-.48.03-.16.05-.3.05-.42 0-.14-.03-.27-.1-.39s-.18-.24-.33-.35h2.74l3.84 10.26c.18.47.37.84.58 1.13.21.29.47.57.8.84h-3.45l.04-.04c.32-.34.48-.59.48-.74 0-.19-.07-.46-.21-.82-.02-.06-.03-.1-.04-.13l-1.03-2.83h-4.49l-1.17 2.91zm1.63-4.16h3.55l-1.71-4.73-1.84 4.73zm-109.03-6.44l3.14 5.34 2.11-3.47c.13-.21.23-.4.29-.58.07-.17.1-.32.1-.45 0-.14-.04-.28-.13-.42-.08-.14-.21-.28-.39-.42h2.82l-4.14 6.74v3.34c0 .62.06 1.08.16 1.37.11.3.3.56.55.8h-3.32c.26-.23.44-.5.55-.8.1-.29.16-.75.16-1.37v-3.38l-2.83-4.67c-.28-.42-.5-.48-.77-.58-.29-.1-.79-.11-1.23-.11h-1.35v8.74c0 .62.05 1.08.16 1.37.11.3.29.56.55.8h-3.31c.26-.23.44-.5.55-.8.11-.29.16-.75.16-1.37v-8.74h-.97c-.67 0-1.21.05-1.63.16-.42.11-.75.28-1 .51l.6-2.01h9.17z\"/></svg>\n    <span class=\"visuallyhidden\">The University of Arizona</span>\n    </a>\n  </div>\n\n  <div class=\"ual-branding\">\n    <a class=\"ual-branding-image\" href=\"http://library.arizona.edu\" title=\"University Libraries - Home\" rel=\"home\">\n      <span class=\"visuallyhidden\">University Libraries</span>\n    </a>\n  </div>\n\n  <div class=\"libapps-buttons\">\n    <ul class=\"libapps-menu\">\n      <li class=\"libapps-menu-item\">\n        <a href=\"http://new.library.arizona.edu/contact\" class=\"libanswers-button\">Ask Us</a>\n      </li>\n      <li class=\"libapps-menu-item\">\n        <div id=\"libchat_07713bc057f66ebcdccd4dd1b4a2be3e\"></div>\n      </li>\n    </ul>\n  </div>\n</div>\n";
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(selector) {
-		if (typeof memo[selector] === "undefined") {
-			memo[selector] = fn.call(this, selector);
-		}
-
-		return memo[selector]
-	};
-})(function (target) {
-	return document.querySelector(target)
-});
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(14);
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-	if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else {
-		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	options.attrs.type = "text/css";
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	options.attrs.type = "text/css";
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-/* 14 */
+/* 19 */
 /***/ (function(module, exports) {
 
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/ua-libraries-logo.svg";
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = calendarClipHeight;
-function calendarClipHeight(height) {
-  if (window.innerWidth > 700)
-    return
-
-  document.querySelectorAll('.fc-body .fc-scroller-clip .fc-scroller')
-    .forEach((element) => {
-        element.style.height = height;
-    })
-}
-
+module.exports = "<div class=\"container\">\n  <div class=\"ual-footer-inner\">\n    <ul>\n      <li class=\"name\">The University of Arizona Libraries</li>\n      <li>1510 E. University Blvd.</li>\n      <li>Tucson, AZ 85721-0055</li>\n      <li>(520) 621-6442</li>\n    </ul>\n    <ul>\n      <li><a href=\"mailto:library@arizona.edu\">library@arizona.edu</a></li>\n      <li><a href=\"http://new.library.arizona.edu/policies\">Policies</a></li>\n      <li><a href=\"http://new.library.arizona.edu/jobs\">Job opportunities</a></li>\n    </ul>\n  </div>\n</div>\n";
 
 /***/ })
 /******/ ]);

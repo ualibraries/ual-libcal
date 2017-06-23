@@ -5,6 +5,7 @@ import {hideRoomInfo} from './lib/hide-room-info'
 import {hideBreadcrumbs} from './lib/hide-breadcrumbs'
 import {hideTinyFooter} from './lib/hide-tiny-footer'
 import {calendarClipHeight} from './lib/calendar-clip'
+import {roomInfoModal} from './lib/room-info-modal'
 import {showHeader, showFooter} from './lib/template'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   hideBreadcrumbs()
   hideTinyFooter()
   calendarClipHeight('250px')
+  roomInfoModal()
 
   // Styles for filter bar
   document.getElementById('s-lc-eq-navform').classList.add('pa4', 'bg-gray')
