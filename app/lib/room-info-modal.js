@@ -1,3 +1,5 @@
+/* global MutationObserver */
+
 // Sets width of 'Room info' dialog modals
 function setWidth (nodes) {
   if (!nodes.length) {
@@ -9,7 +11,7 @@ function setWidth (nodes) {
   }
 
   let modal = nodes[0].children[0]
-  modal.style.width = ""
+  modal.style.width = ''
   modal.classList.add('mw5')
 }
 
@@ -18,7 +20,7 @@ export function roomInfoModal () {
 
   let observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.type == 'childList') {
+      if (mutation.type === 'childList') {
         setWidth(mutation.addedNodes)
       }
     })

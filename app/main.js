@@ -1,7 +1,6 @@
-import css from './styles/main.css'
+import './styles/main.css'
 import {debounce} from 'lodash'
 import {hideCapacity} from './lib/hide-capacity'
-import {hideRoomInfo} from './lib/hide-room-info'
 import {hideBreadcrumbs} from './lib/hide-breadcrumbs'
 import {hideTinyFooter} from './lib/hide-tiny-footer'
 import {calendarClipHeight} from './lib/calendar-clip'
