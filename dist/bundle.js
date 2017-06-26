@@ -17962,8 +17962,12 @@ function setWidth(nodes) {
   }
 
   var modal = nodes[0].children[0];
-  modal.style.width = '';
-  modal.classList.add('mw5');
+
+  if (window.innerWidth < 700) {
+    modal.style.width = '80%';
+    modal.style.marginLeft = 'auto';
+    modal.style.marginRight = 'auto';
+  }
 }
 
 function roomInfoModal() {
