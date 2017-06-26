@@ -7,6 +7,7 @@ import {calendarClipHeight} from './lib/calendar-clip'
 import {roomInfoModal} from './lib/room-info-modal'
 import {showHeader, showFooter} from './lib/template'
 import {setMiscStyles} from './lib/set-styles'
+import {bookingConfirmationBackButton} from './lib/booking-confirmation-back-button'
 
 document.addEventListener('DOMContentLoaded', () => {
   hideCapacity()
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   calendarClipHeight('250px')
   roomInfoModal()
   setMiscStyles()
+  bookingConfirmationBackButton()
 })
 
 window.addEventListener('resize', debounce(() => {
