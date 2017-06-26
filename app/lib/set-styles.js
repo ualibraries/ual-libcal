@@ -65,6 +65,17 @@ function cancelBookingTitleStyles () {
   document.querySelector('body > .container > h1').classList.add('ml2')
 }
 
+// Room reservations table styles
+function roomReservationsTableStyles () {
+  let element = document.getElementById('s-lc-space-nick-tb')
+
+  if (!element) {
+    return
+  }
+
+  element.style.width = '100%'
+}
+
 // Sets miscelaneous styles
 export function setMiscStyles () {
   filterBarStyles()
@@ -72,4 +83,5 @@ export function setMiscStyles () {
   reservationDetailStyles()
   bookingPageTitleStyles()
   cancelBookingTitleStyles()
+  roomReservationsTableStyles()
 }
