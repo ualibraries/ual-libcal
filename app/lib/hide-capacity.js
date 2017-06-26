@@ -1,5 +1,10 @@
 export function hideCapacity () {
-  // Hide the 'Capacity column'
+  // Early return if the 'Capacity' column doesn't exist
+  if (!document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header').length) {
+    return
+  }
+
+  // Hide the 'Capacity' column
   document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header')[1].remove()
 
   document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[1].remove()

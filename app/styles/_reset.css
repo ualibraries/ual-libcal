@@ -73,7 +73,14 @@
   border-bottom: 0;
 }
 
+/* Add margin around bootstrap alerts */
 .alert {
+  margin-right: 1em !important;
+  margin-left: 1em !important;
+}
+
+/* Add margin around bootstrap panels */
+.panel {
   margin-right: 1em !important;
   margin-left: 1em !important;
 }
