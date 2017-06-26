@@ -52,6 +52,10 @@
   background-color: color(var(--gray) tint(35%));
 }
 
+#s-lc-eq-bwell {
+  outline: none;
+}
+
 #s-lc-eq-bwell .btn.btn-default {
   margin-left: .5em !important;
   background-color: var(--blue);
@@ -66,4 +70,9 @@
 
 #s-lc-eq-bform legend {
   border-bottom: 0;
+}
+
+.alert {
+  margin-right: 1em !important;
+  margin-left: 1em !important;
 }
