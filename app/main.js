@@ -8,6 +8,7 @@ import {roomInfoModal} from './lib/room-info-modal'
 import {showHeader, showFooter} from './lib/template'
 import {setMiscStyles} from './lib/set-styles'
 import {bookingConfirmationBackButton} from './lib/booking-confirmation-back-button'
+import {a11y} from './lib/a11y'
 
 document.addEventListener('DOMContentLoaded', () => {
   hideCapacity()
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   roomInfoModal()
   setMiscStyles()
   bookingConfirmationBackButton()
+  a11y()
 })
 
 window.addEventListener('resize', debounce(() => {

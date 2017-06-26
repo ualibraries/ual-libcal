@@ -100,6 +100,8 @@ var _setStyles = __webpack_require__(19);
 
 var _bookingConfirmationBackButton = __webpack_require__(20);
 
+var _a11y = __webpack_require__(21);
+
 document.addEventListener('DOMContentLoaded', function () {
   (0, _hideCapacity.hideCapacity)();
   (0, _template.showHeader)();
@@ -110,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (0, _roomInfoModal.roomInfoModal)();
   (0, _setStyles.setMiscStyles)();
   (0, _bookingConfirmationBackButton.bookingConfirmationBackButton)();
+  (0, _a11y.a11y)();
 });
 
 window.addEventListener('resize', (0, _lodash.debounce)(function () {
@@ -18186,6 +18189,33 @@ function bookingConfirmationBackButton() {
   backButton.classList.add('btn', 'btn-default', 'ml3', 'mt3');
   backButton.setAttribute('onclick', 'window.history.back()');
   parentNode.insertBefore(backButton, document.getElementById('s-lc-public-nick-h1'));
+}
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.a11y = a11y;
+function srTextNextPrevButtons() {
+  if (!document.getElementById('eq-time-grid')) {
+    return;
+  }
+
+  var prevButton = document.querySelector('#eq-time-grid .fc-button-group .fc-prev-button');
+  var nextButton = document.querySelector('#eq-time-grid .fc-button-group .fc-next-button');
+
+  prevButton.innerHTML += '<span class="sr-only">Previous dates</span>';
+  nextButton.innerHTML += '<span class="sr-only">Next dates</span>';
+}
+
+function a11y() {
+  srTextNextPrevButtons();
 }
 
 /***/ })
