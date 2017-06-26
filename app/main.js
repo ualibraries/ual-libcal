@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Styles for 'Reservation details'
   document.getElementById('s-lc-eq-bwell').classList.remove('well')
-
 })
 
 window.addEventListener('resize', debounce(() => {
