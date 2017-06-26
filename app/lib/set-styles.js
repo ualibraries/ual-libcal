@@ -1,5 +1,5 @@
 function calendarStyles () {
-  if (! document.querySelector('#time_grid_cont')) {
+  if (!document.querySelector('#time_grid_cont')) {
     return
   }
 

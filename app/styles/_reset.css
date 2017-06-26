@@ -73,6 +73,20 @@
   border-bottom: 0;
 }
 
+/* 'Search for room reservation' page form control button fix */
+@media (max-width: 1200px) {
+  #s-lc-eq-navform .form-group:last-child {
+    margin-top: 1em;
+  }
+}
+
+/* Ibid */
+@media (max-width: 768px) {
+  #s-lc-eq-navform .form-group:last-child .btn {
+    margin-top: 1em;
+  }
+}
+
 /* Add margin around bootstrap alerts */
 .alert {
   margin-right: 1em !important;
