@@ -87,6 +87,13 @@
   }
 }
 
+/* Makes 'Cancel your Equipment Booking' question responsive */
+#canceleq {
+  width: 100% !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
 /* Add margin around bootstrap alerts */
 .alert {
   margin-right: 1em !important;

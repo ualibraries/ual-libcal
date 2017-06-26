@@ -57,10 +57,19 @@ function bookingPageTitleStyles () {
   element.classList.add('pa2')
 }
 
+function cancelBookingTitleStyles () {
+  if (!document.getElementById('cancel_eqb_php')) {
+    return
+  }
+
+  document.querySelector('body > .container > h1').classList.add('ml2')
+}
+
 // Sets miscelaneous styles
 export function setMiscStyles () {
   filterBarStyles()
   calendarStyles()
   reservationDetailStyles()
   bookingPageTitleStyles()
+  cancelBookingTitleStyles()
 }
