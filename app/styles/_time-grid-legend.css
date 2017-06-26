@@ -1,3 +1,9 @@
+:root {
+  --status-avail-color: #4BA36A;
+  --status-pending-color: #1F97C7;
+  --status-unavailable-color: #9C9C9C;
+}
+
 #eq-time-grid-legend {
   text-align: center;
   margin: 1em 0;
@@ -33,7 +39,8 @@
 }
 
 .label-eq-unavailable,
-.s-lc-eq-unavailable {
+.s-lc-eq-unavailable,
+.s-lc-eq-checkout {
   background-color: var(--status-unavailable-color) !important;
   border: none !important;
 }
