@@ -28,7 +28,7 @@ function setWidth (nodes) {
     let rightColumn = modal.querySelector('.col-md-8')
     rightColumn.classList.remove('col-md-8')
     rightColumn.classList.add('col-md-7')
-  }, 500)
+  }, 1000)
 }
 
 export function roomInfoModal () {
