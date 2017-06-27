@@ -17973,6 +17973,18 @@ function setWidth(nodes) {
     modal.style.marginLeft = 'auto';
     modal.style.marginRight = 'auto';
   }
+
+  // Change the modal grid layout from 4/8 to 5/7
+  setTimeout(function () {
+    // this is weird
+    var leftColumn = modal.querySelector('.col-md-4');
+    leftColumn.classList.remove('col-md-4');
+    leftColumn.classList.add('col-md-5');
+
+    var rightColumn = modal.querySelector('.col-md-8');
+    rightColumn.classList.remove('col-md-8');
+    rightColumn.classList.add('col-md-7');
+  }, 500);
 }
 
 function roomInfoModal() {
