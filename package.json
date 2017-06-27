@@ -11,7 +11,7 @@
     "deploy:dev": "npm test && node_modules/shipit-cli/bin/shipit dev deploy",
     "deploy:prod": "npm test && node_modules/shipit-cli/bin/shipit prod deploy",
     "serve": "node ./static-server.js",
-    "test": "node_modules/standard/bin/cmd.js"
+    "test": "node_modules/standard/bin/cmd.js && node_modules/stylelint/bin/stylelint.js \"app/styles/*.css\""
   },
   "dependencies": {
     "babel": "^6.23.0",

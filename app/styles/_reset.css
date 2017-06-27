@@ -64,7 +64,7 @@
   border: 0;
 }
 
-// Hide add equipment to cart button
+/* Hide add equipment to cart button */
 #eq_cart {
   display: none !important;
 }
