@@ -5,7 +5,7 @@
 
 ## Getting started
 
-Install the dependencies with [Yarn](https://yarnpkg.com/en/): `yarn install`
+Install the dependencies: `npm install`
 
 Build the project for production with `npm run build:prod`
 
@@ -47,5 +47,4 @@ The `bundle.js` file will be served from your local disk.
 * [Webpack](https://webpack.js.org/)
 * [JavaScript Standard Style](https://standardjs.com/)
 * [Shipit](https://github.com/shipitjs/shipit)
-* [Yarn](https://yarnpkg.com/en/)
 * [Travis CI](https://travis-ci.org/)
