@@ -1,3 +1,4 @@
+/* Prevents zooming on iOS when selecting form controls */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   select,
   textarea,
@@ -124,8 +125,16 @@
   color: var(--white)
 }
 
+/* Make the cells in the datepicker table larger */
 .datepicker td,
 .datepicker th {
   width: 40px !important;
   height: 40px !important;
+}
+
+/* Prevent the 'View all room reservations' button from floating on small screens */
+@media (max-width: 1000px) {
+  .pull-right {
+    float: none !important;
+  }
 }
