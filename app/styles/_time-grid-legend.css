@@ -1,12 +1,22 @@
+/* The colors tell you which rooms are available vs booked etc. */
 :root {
-  --status-avail-color: #4BA36A;
-  --status-pending-color: #1F97C7;
-  --status-unavailable-color: #9C9C9C;
+  --status-avail-color: #67D199;
+  --status-avail-color-in-legend: #58C189;
+  --status-pending-color: #2483bb;
+  --status-unavailable-color: #E5E5E5;
+  --status-unavailable-color-in-legend: #CDCDCD;
 }
 
+/* Colors for the time legend */
 #eq-time-grid-legend {
   text-align: center;
   margin: 1em 0;
+}
+
+@media (min-width: 500px) {
+  #eq-time-grid-legend {
+    text-align: right;
+  }
 }
 
 #eq-time-grid-legend .label {
@@ -14,11 +24,19 @@
   font-weight: normal;
 }
 
-@media (min-width: 500px) {
-  #eq-time-grid-legend {
-    text-align: right;
-  }
+#eq-time-grid-legend .label.label-eq-avail {
+  background-color: var(--status-avail-color-in-legend) !important;
+}
 
+#eq-time-grid-legend .label.label-eq-pending {
+  background-color: var(--status-pending-color) !important;
+}
+
+#eq-time-grid-legend .label.label-eq-unavailable {
+  background-color: var(--status-unavailable-color-in-legend) !important;
+}
+
+@media (min-width: 500px) {
   #eq-time-grid-legend .label {
     display: inline-block;
     padding: .25em 1em;
@@ -26,25 +44,23 @@
   }
 }
 
-.label-eq-avail,
-.s-lc-eq-avail {
+#eq-time-grid-legend .label.label-eq-filtered {
+  display: none;
+}
+
+/* Colors for the time calendar */
+#eq-time-grid .s-lc-eq-avail {
   background-color: var(--status-avail-color) !important;
   border: none !important;
 }
 
-.label-eq-pending,
-.s-lc-eq-pending {
+#eq-time-grid .s-lc-eq-pending {
   background-color: var(--status-pending-color) !important;
   border: none !important;
 }
 
-.label-eq-unavailable,
-.s-lc-eq-unavailable,
-.s-lc-eq-checkout {
+#eq-time-grid .s-lc-eq-unavailable,
+#eq-time-grid .s-lc-eq-checkout {
   background-color: var(--status-unavailable-color) !important;
   border: none !important;
-}
-
-#eq-time-grid-legend  .label-eq-filtered {
-  display: none;
 }
