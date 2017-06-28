@@ -2,7 +2,6 @@ import './styles/main.css'
 import {debounce} from 'lodash'
 import {hideCapacity} from './lib/hide-capacity'
 import {hideBreadcrumbs} from './lib/hide-breadcrumbs'
-import {hideTinyFooter} from './lib/hide-tiny-footer'
 import {calendarClipHeight} from './lib/calendar-clip'
 import {roomInfoModal, roomInfoButtonStyle} from './lib/room-info-modal'
 import {showHeader, showFooter} from './lib/template'
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showHeader()
   showFooter()
   hideBreadcrumbs()
-  hideTinyFooter()
+  // hideTinyFooter()
   calendarClipHeight('250px')
   roomInfoModal()
   roomInfoButtonStyle()

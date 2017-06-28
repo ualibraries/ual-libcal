@@ -29,4 +29,8 @@ function showFooter () {
   insertAfter(footerElement, widgetElement)
 }
 
-export {showHeader, showFooter}
+function hideTinyFooter () {
+  document.getElementById('s-lc-public-footer').remove()
+}
+
+export {showHeader, showFooter, hideTinyFooter}
