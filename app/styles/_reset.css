@@ -1,3 +1,11 @@
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px !important;
+  }
+}
+
 .s-lc-public-main {
   padding: 0;
 }
