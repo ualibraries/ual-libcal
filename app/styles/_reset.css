@@ -138,3 +138,8 @@
     float: none !important;
   }
 }
+
+.fc-timeline-event .fc-bg {
+  opacity: 0 !important;
+}
+

@@ -4,7 +4,7 @@
   --status-avail-color-in-legend: #58C189;
   --status-pending-color: #2483bb;
   --status-unavailable-color: #E5E5E5;
-  --status-unavailable-color-in-legend: #CDCDCD;
+  --status-unavailable-color-in-legend: #E5E5E5;
 }
 
 /* Colors for the time legend */
@@ -34,6 +34,7 @@
 
 #eq-time-grid-legend .label.label-eq-unavailable {
   background-color: var(--status-unavailable-color-in-legend) !important;
+  color: var(--med-gray);
 }
 
 @media (min-width: 500px) {
