@@ -83,19 +83,16 @@ function roomInfoButtonStyle () {
       attributes: true,
       childList: true,
       characterData: true,
-      subtree: true // I like the way that sounds
+      subtree: true
     }
 
     // OK, here we go...
-    let rows = []
     let target = document.getElementById('s-lc-space-nick-tb')
     let observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-          rows = mutation.addedNodes
-
           mutation.addedNodes.forEach((element) => {
-            if (element.nodeType == 1 && element.querySelector('i.fa')) {
+            if (element.nodeType === 1 && element.querySelector('i.fa')) {
               let infoLink = element.children[3].querySelector('a')
               let icon = element.children[3].querySelector('i.fa')
 

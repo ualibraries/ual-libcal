@@ -4,7 +4,7 @@ import {hideCapacity} from './lib/hide-capacity'
 import {hideBreadcrumbs} from './lib/hide-breadcrumbs'
 import {calendarClipHeight} from './lib/calendar-clip'
 import {roomInfoModal, roomInfoButtonStyle} from './lib/room-info'
-import {showHeader, showFooter} from './lib/template'
+import {showHeader, showFooter, hideTinyFooter} from './lib/template'
 import {setMiscStyles} from './lib/set-styles'
 import {bookingConfirmationBackButton} from './lib/booking-confirmation-back-button'
 import {a11y} from './lib/a11y'
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showHeader()
   showFooter()
   hideBreadcrumbs()
-  // hideTinyFooter()
+  hideTinyFooter()
   calendarClipHeight('250px')
   roomInfoModal()
   roomInfoButtonStyle()
