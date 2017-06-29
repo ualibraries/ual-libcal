@@ -6,9 +6,9 @@
   "author": "Christopher Green",
   "license": "MIT",
   "scripts": {
-    "build:dev": "npm test && node_modules/webpack/bin/webpack.js -w --verbose",
+    "build:dev": "node_modules/webpack/bin/webpack.js -w --verbose",
     "build:prod": "npm test && node_modules/webpack/bin/webpack.js -p",
-    "deploy:dev": "npm test && node_modules/shipit-cli/bin/shipit dev deploy",
+    "deploy:dev": "node_modules/shipit-cli/bin/shipit dev deploy",
     "deploy:prod": "npm test && node_modules/shipit-cli/bin/shipit prod deploy",
     "serve": "node ./static-server.js",
     "test": "node_modules/standard/bin/cmd.js && node_modules/stylelint/bin/stylelint.js \"app/styles/*.css\""
