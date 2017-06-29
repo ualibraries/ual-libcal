@@ -15,10 +15,10 @@ function calendarStyles () {
 
   // Styles for calendar toolbar buttons
   document.querySelector('#eq-time-grid .fc-header-toolbar .fc-goToDate-button')
-    .classList.add('white', 'bg-blue', 'bn')
+    .classList.add('white', 'bg-blue', 'btn')
 
   forEach(document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button'), (element) => {
-    element.classList.add('white', 'bg-blue', 'bn')
+    element.classList.add('white', 'bg-blue', 'btn')
   })
 
   // Styles for calendar
