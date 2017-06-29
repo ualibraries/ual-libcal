@@ -70,643 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "http://www.library.arizona.edu/vendor-support/libcal/current/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(1);
-
-var _lodash = __webpack_require__(7);
-
-var _hideCapacity = __webpack_require__(10);
-
-var _hideBreadcrumbs = __webpack_require__(11);
-
-var _calendarClip = __webpack_require__(12);
-
-var _roomInfo = __webpack_require__(13);
-
-var _template = __webpack_require__(14);
-
-var _setStyles = __webpack_require__(18);
-
-var _bookingConfirmationBackButton = __webpack_require__(19);
-
-var _a11y = __webpack_require__(20);
-
-document.addEventListener('DOMContentLoaded', function () {
-  (0, _hideCapacity.hideCapacity)();
-  (0, _template.showHeader)();
-  (0, _template.showFooter)();
-  (0, _hideBreadcrumbs.hideBreadcrumbs)();
-  (0, _template.hideTinyFooter)();
-  (0, _calendarClip.calendarClipHeight)('250px');
-  (0, _roomInfo.roomInfoModal)();
-  (0, _roomInfo.roomInfoButtonStyle)();
-  (0, _setStyles.setMiscStyles)();
-  (0, _bookingConfirmationBackButton.bookingConfirmationBackButton)();
-  (0, _a11y.a11y)();
-});
-
-window.addEventListener('resize', (0, _lodash.debounce)(function () {
-  (0, _calendarClip.calendarClipHeight)('250px');
-}, 500));
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(2);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(5)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/postcss-loader/lib/index.js!./main.css", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/postcss-loader/lib/index.js!./main.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "/* Prevents zooming on iOS when selecting form controls */\n@media screen and (-webkit-min-device-pixel-ratio: 0) {\n  select,\n  textarea,\n  input {\n    font-size: 16px !important;\n  }\n}\n.s-lc-public-main {\n  padding: 0;\n}\n#s-lc-eq-navform {\n  margin-top: 0;\n  padding-bottom: 2em;\n}\n.img-thumbnail {\n  border: 0;\n}\n#time_grid_cont {\n  padding-top: 0;\n  margin-top: 0;\n}\n.fc-toolbar.fc-header-toolbar {\n  margin-bottom: 0;\n}\n.fc .fc-toolbar>*>:first-child {\n  margin-left: 0 !important;\n}\n@media (max-width: 500px) {\n  .fc-header-toolbar .fc-left,\n  .fc-header-toolbar .fc-right,\n  .fc-header-toolbar .fc-center {\n    float: none;\n    display: block;\n    clear: both;\n  }\n}\n@media (max-width: 500px) {\n  #eq-time-grid .fc-toolbar h2 {\n    margin-bottom: .25em;\n  }\n}\n.fc button {\n  height: auto;\n  margin-left: .5em !important;\n  padding: .75em !important;\n  font-size: 1.25em;\n}\n#s-lc-eq-form-box {\n  padding: 2em;\n  background-color: rgb(244, 244, 244);\n}\n#s-lc-eq-bwell {\n  outline: none;\n}\n#s-lc-eq-bwell .btn.btn-default {\n  margin-left: .5em !important;\n  background-color: #2483bb;\n  color: #ffffff;\n  border-radius: 4px !important;\n  border: 0;\n}\n/* Hide add equipment to cart button */\n#eq_cart {\n  display: none !important;\n}\n#s-lc-eq-bform legend {\n  border-bottom: 0;\n}\n/* 'Search for room reservation' page form control button fix */\n@media (max-width: 1200px) {\n  #s-lc-eq-navform .form-group:last-child {\n    margin-top: 1em;\n  }\n}\n/* Ibid */\n@media (max-width: 768px) {\n  #s-lc-eq-navform .form-group:last-child .btn {\n    margin-top: 1em;\n  }\n}\n/* Makes 'Cancel your Equipment Booking' question responsive */\n#canceleq {\n  width: 100% !important;\n  border: none !important;\n  padding: 0 !important;\n}\n/* Add margin around bootstrap alerts */\n.alert {\n  margin-right: 1em !important;\n  margin-left: 1em !important;\n}\n/* Add margin around bootstrap panels */\n.panel {\n  margin-right: 1em !important;\n  margin-left: 1em !important;\n}\n/* Room info bubble */\n.info-bubble {\n  display: inline-block;\n  padding: 2px 4px;\n  background-color: #2483bb;\n  border-radius: 2px;\n  font-size: 9px;\n  color: #ffffff\n}\n@media (min-width: 500px) {\n  .info-bubble {\n    font-size: 10px;\n  }\n}\n/* Make the cells in the datepicker table larger */\n.datepicker td,\n.datepicker th {\n  width: 40px !important;\n  height: 40px !important;\n}\n/* Prevent the 'View all room reservations' button from floating on small screens */\n@media (max-width: 1000px) {\n  .pull-right {\n    float: none !important;\n  }\n}\n.fc-timeline-event .fc-bg {\n  opacity: 0 !important;\n}\n/* Info column */\n.fc-resource-area col {\n  min-width: 35px !important;\n}\n.ua-web-branding-banner {\n  background-color: #999999;\n}\n.ual-branding-wrapper {\n  border-bottom: 3px solid #40649e;\n}\n.ual-branding {\n  background-color: #2483bb;\n  height: 100px;\n  width: 100%;\n  padding: 20px 0 0 20px;\n}\n.ual-branding-image {\n  display: block;\n  width: 350px;\n  height: 50px;\n  background-image: url(" + __webpack_require__(4) + ");\n  background-position: 0 0;\n  background-repeat: no-repeat;\n  background-size: 80%;\n}\n@media (min-width: 575px) {\n  .ual-branding-image {\n    height: 60px;\n    background-size: contain;\n  }\n}\n/* Ask Us - Chat */\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button {\n  display: inline;\n  padding: 0;\n  margin: 0;\n  text-align: left;\n  white-space: normal;\n  vertical-align: baseline;\n  cursor: auto;\n  background-image: none;\n  border: none;\n  border-radius: 0;\n}\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_online,\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_offline {\n  background-color: transparent;\n  color: inherit;\n}\n.libapps-buttons {\n  background-color: #637799;\n}\n@media (min-width: 575px) {\n  .libapps-buttons {\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 0;\n    padding: 0;\n  }\n}\n.libapps-menu {\n  list-style-type: none;\n  margin-bottom: 0;\n  padding: 0;\n}\n.libapps-menu-item {\n  display: inline-block;\n  text-align: center;\n  border-left: none;\n  float: none;\n  text-align: left;\n  width: auto;\n}\n.libapps-menu-item a {\n  color: #ffffff;\n}\n.libapps-buttons .libanswers-button,\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  display: inline-block;\n  padding: 0 15px;\n  height: 44px;\n  line-height: 44px;\n  width: 100%;\n  transition-property: color,background-color,border;\n  transition-duration: .2s;\n  transition-timing-function: ease;\n}\n.libapps-buttons .libanswers-button:hover,\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  background-color: #4f5f7a !important;\n}\n.libapps-buttons .libanswers-button:before,\n.libapps-buttons .libchat_online:before,\n.libapps-buttons .libchat_offline:before {\n  background-image: url(\"data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2226%22%20height%3D%22108%22%20viewBox%3D%22-354%20-129.1%2026%20108%22%20enable-background%3D%22new%20-354%20-129.1%2026%20108%22%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-341-120.6c-2.6%200-4.8%201.9-4.8%205.2%200%203.3%201.8%206.7%204.8%206.7%203.2%200%204.8-3.4%204.8-6.7%200-3.3-2.2-5.2-4.8-5.2zm-4.8%2011.9c-2.6%200-4.8%202.1-4.8%204.7v2.2c0%20.2.1.2.2.2h18.5c.1%200%20.2-.1.2-.2v-2.1c0-2.7-2.1-4.8-4.8-4.8h-1.2c-.1%200-.3%200-.4.1-.9.7-2%201.1-3.1%201.1s-2.2-.3-3.1-1.1c-.1%200-.2-.2-.4-.2l-1.1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-341.2-101.7c-1.4-.9-3.1-1.1-4.4-1.1-.9%200-1.5.1-1.5.1l-.2.1v-8.8h.1s.5-.1%201.4-.1c1.3%200%203.1.2%204.6%201.1h.4c1.5-.9%203.3-1.1%204.6-1.1.8%200%201.3.1%201.4.1h.1v8.8h-.2s-.6-.1-1.4-.1c-1.2%200-3%20.2-4.4%201.1h-.1c.1-.1-.4-.1-.4-.1z%22/%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-336.2-111.4h1.3v8.5s-.6-.1-1.5-.1c-1.2%200-3%20.2-4.4%201.1h-.5c-1.4-.9-3.2-1.1-4.5-1.1-.9%200-1.4.1-1.4.1v-8.5h1.3c1.2%200%203.1.2%204.6%201h.5c1.5-.8%203.4-1%204.6-1m0-.3c-1.3%200-3.2.2-4.7%201.1h-.3c-1.5-.9-3.3-1.1-4.7-1.1-.8%200-1.4.1-1.4.1h-.2v9.1l.4-.1s.6-.1%201.4-.1c1.2%200%203%20.2%204.3%201v.1h.7l.1-.1c1.4-.8%203-1%204.3-1%20.9%200%201.4.1%201.4.1l.4.1v-9.1h-.2c-.2%200-.7-.1-1.5-.1zM-344.7-107.3l-.5-.2-.6.2v-4.1h1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-336.4-76.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm5.3%201.7c0-3-3-5.4-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3Ccircle%20fill%3D%22%236A80A4%22%20cx%3D%22-343.6%22%20cy%3D%22-41%22%20r%3D%224.4%22/%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M-336.4-40.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm-4%201.9c.1.2.1.3%200%20.5l-.8.8c-.1.2-.4.2-.5%200l-2.1-2.1-2.1%202.1c-.1.2-.4.2-.5%200l-.8-.8c-.1-.2-.1-.3%200-.5l2.1-2.1-2.1-2.1c-.1-.2-.1-.3%200-.5l.8-.8c.1-.2.4-.2.5%200l2.1%202.1%202.1-2.1c.1-.2.4-.2.5%200l.8.8c.1.2.1.3%200%20.5l-2.1%202.1%202.1%202.1zM-331.1-39c0-3-3-5.3-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3C/g%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  content: \"\";\n  width: 30px;\n  height: 20px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.libanswers-button:before {\n  background-position: 0 -8px;\n}\n.libanswers-button:hover {\n  text-decoration: none;\n}\n.libchat-button {\n  text-align: center;\n  width: 100%;\n}\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  color: #ffffff !important;\n  display: inline-block !important;\n  padding: 0 15px !important;\n  text-align: center !important;\n}\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  cursor: pointer !important;\n  background-color: #4f5f7a !important;\n}\n.libapps-buttons .libchat_online:focus,\n.libapps-buttons .libchat_offline:focus {\n  outline: 0;\n  box-shadow: none;\n}\n.libapps-buttons .libchat_online::before {\n  background-position: 0 -45px;\n}\n.libapps-buttons .libchat_offline::before {\n  background-position: 0 -81px;\n}\n.ual-footer-inner {\n  font-size: 1.25em;\n  padding: 15px;\n  background-color: #eeeeee;\n}\n.ual-footer-inner a {\n  color: #5376b6;\n}\n.ual-footer-inner ul {\n  list-style-type: none;\n  margin-left: 0;\n  padding-left: 0;\n  text-align: center;\n}\n@media (min-width: 500px) {\n  .ual-footer-inner ul {\n    text-align: left;\n  }\n}\n.ual-footer-inner li {\n  display: block;\n  padding-right: 8px;\n  margin-right: 8px;\n}\n@media (min-width: 500px) {\n  .ual-footer-inner li {\n    display: inline-block;\n  }\n}\n@media (min-width: 500px) {\n  .ual-footer-inner ul:first-child li {\n    border-right: 1px solid #cccccc;\n  }\n}\n.ual-footer-inner ul:first-child li:last-child {\n  border: none;\n}\n/* The colors tell you which rooms are available vs booked etc. */\n/* Colors for the time legend */\n#eq-time-grid-legend {\n  text-align: center;\n  margin: 1em 0;\n}\n@media (min-width: 500px) {\n  #eq-time-grid-legend {\n    text-align: right;\n  }\n}\n#eq-time-grid-legend .label {\n  line-height: 1.8em;\n  font-weight: normal;\n}\n#eq-time-grid-legend .label.label-eq-avail {\n  background-color: #58C189 !important;\n}\n#eq-time-grid-legend .label.label-eq-pending {\n  background-color: #2483bb !important;\n}\n#eq-time-grid-legend .label.label-eq-unavailable {\n  background-color: #E5E5E5 !important;\n  color: #333333;\n}\n@media (min-width: 500px) {\n  #eq-time-grid-legend .label {\n    display: inline-block;\n    padding: .25em 1em;\n    font-size: 1em;\n  }\n}\n#eq-time-grid-legend .label.label-eq-filtered {\n  display: none;\n}\n/* Colors for the time calendar */\n#eq-time-grid .s-lc-eq-avail {\n  background-color: #67D199 !important;\n  border: none !important;\n}\n#eq-time-grid .s-lc-eq-pending {\n  background-color: #2483bb !important;\n  border: none !important;\n}\n#eq-time-grid .s-lc-eq-unavailable,\n#eq-time-grid .s-lc-eq-checkout {\n  background-color: #E5E5E5 !important;\n  border: none !important;\n}\n.pa0 { padding: 0; }\n.pa1 { padding: .25em; }\n.pa2 { padding: .5em; }\n.pa3 { padding: 1em; }\n.pa4 { padding: 2em; }\n.pa5 { padding: 4em; }\n.pa6 { padding: 8em; }\n.pa7 { padding: 16em; }\n.pl0 { padding-left: 0; }\n.pl1 { padding-left: .25em; }\n.pl2 { padding-left: .5em; }\n.pl3 { padding-left: 1em; }\n.pl4 { padding-left: 2em; }\n.pl5 { padding-left: 4em; }\n.pl6 { padding-left: 8em; }\n.pl7 { padding-left: 16em; }\n.pr0 { padding-right: 0; }\n.pr1 { padding-right: .25em; }\n.pr2 { padding-right: .5em; }\n.pr3 { padding-right: 1em; }\n.pr4 { padding-right: 2em; }\n.pr5 { padding-right: 4em; }\n.pr6 { padding-right: 8em; }\n.pr7 { padding-right: 16em; }\n.pb0 { padding-bottom: 0; }\n.pb1 { padding-bottom: .25em; }\n.pb2 { padding-bottom: .5em; }\n.pb3 { padding-bottom: 1em; }\n.pb4 { padding-bottom: 2em; }\n.pb5 { padding-bottom: 4em; }\n.pb6 { padding-bottom: 8em; }\n.pb7 { padding-bottom: 16em; }\n.pt0 { padding-top: 0; }\n.pt1 { padding-top: .25em; }\n.pt2 { padding-top: .5em; }\n.pt3 { padding-top: 1em; }\n.pt4 { padding-top: 2em; }\n.pt5 { padding-top: 4em; }\n.pt6 { padding-top: 8em; }\n.pt7 { padding-top: 16em; }\n.pv0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.pv1 {\n  padding-top: .25em;\n  padding-bottom: .25em;\n}\n.pv2 {\n  padding-top: .5em;\n  padding-bottom: .5em;\n}\n.pv3 {\n  padding-top: 1em;\n  padding-bottom: 1em;\n}\n.pv4 {\n  padding-top: 2em;\n  padding-bottom: 2em;\n}\n.pv5 {\n  padding-top: 4em;\n  padding-bottom: 4em;\n}\n.pv6 {\n  padding-top: 8em;\n  padding-bottom: 8em;\n}\n.pv7 {\n  padding-top: 16em;\n  padding-bottom: 16em;\n}\n.ph0 {\n  padding-left: 0;\n  padding-right: 0;\n}\n.ph1 {\n  padding-left: .25em;\n  padding-right: .25em;\n}\n.ph2 {\n  padding-left: .5em;\n  padding-right: .5em;\n}\n.ph3 {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n.ph4 {\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.ph5 {\n  padding-left: 4em;\n  padding-right: 4em;\n}\n.ph6 {\n  padding-left: 8em;\n  padding-right: 8em;\n}\n.ph7 {\n  padding-left: 16em;\n  padding-right: 16em;\n}\n.ma0  {  margin: 0; }\n.ma1 {  margin: .25em; }\n.ma2  {  margin: .5em; }\n.ma3  {  margin: 1em; }\n.ma4  {  margin: 2em; }\n.ma5  {  margin: 4em; }\n.ma6 {  margin: 8em; }\n.ma7 { margin: 16em; }\n.ml0  {  margin-left: 0; }\n.ml1 {  margin-left: .25em; }\n.ml2  {  margin-left: .5em; }\n.ml3  {  margin-left: 1em; }\n.ml4  {  margin-left: 2em; }\n.ml5  {  margin-left: 4em; }\n.ml6 {  margin-left: 8em; }\n.ml7 { margin-left: 16em; }\n.mr0  {  margin-right: 0; }\n.mr1 {  margin-right: .25em; }\n.mr2  {  margin-right: .5em; }\n.mr3  {  margin-right: 1em; }\n.mr4  {  margin-right: 2em; }\n.mr5  {  margin-right: 4em; }\n.mr6 {  margin-right: 8em; }\n.mr7 { margin-right: 16em; }\n.mb0  {  margin-bottom: 0; }\n.mb1 {  margin-bottom: .25em; }\n.mb2  {  margin-bottom: .5em; }\n.mb3  {  margin-bottom: 1em; }\n.mb4  {  margin-bottom: 2em; }\n.mb5  {  margin-bottom: 4em; }\n.mb6 {  margin-bottom: 8em; }\n.mb7 { margin-bottom: 16em; }\n.mt0  {  margin-top: 0; }\n.mt1 {  margin-top: .25em; }\n.mt2  {  margin-top: .5em; }\n.mt3  {  margin-top: 1em; }\n.mt4  {  margin-top: 2em; }\n.mt5  {  margin-top: 4em; }\n.mt6 {  margin-top: 8em; }\n.mt7 { margin-top: 16em; }\n.mv0   {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n.mv1  {\n  margin-top: .25em;\n  margin-bottom: .25em;\n}\n.mv2   {\n  margin-top: .5em;\n  margin-bottom: .5em;\n}\n.mv3   {\n  margin-top: 1em;\n  margin-bottom: 1em;\n}\n.mv4   {\n  margin-top: 2em;\n  margin-bottom: 2em;\n}\n.mv5   {\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n.mv6  {\n  margin-top: 8em;\n  margin-bottom: 8em;\n}\n.mv7  {\n  margin-top: 16em;\n  margin-bottom: 16em;\n}\n.mh0   {\n  margin-left: 0;\n  margin-right: 0;\n}\n.mh1   {\n  margin-left: .25em;\n  margin-right: .25em;\n}\n.mh2   {\n  margin-left: .5em;\n  margin-right: .5em;\n}\n.mh3   {\n  margin-left: 1em;\n  margin-right: 1em;\n}\n.mh4   {\n  margin-left: 2em;\n  margin-right: 2em;\n}\n.mh5   {\n  margin-left: 4em;\n  margin-right: 4em;\n}\n.mh6  {\n  margin-left: 8em;\n  margin-right: 8em;\n}\n.mh7  {\n  margin-left: 16em;\n  margin-right: 16em;\n}\n.bn { border-style: none; border-width: 0; }\n.white {\n  color: #ffffff;\n}\n.bg-gray {\n  background-color: #eeeeee;\n}\n.bg-blue {\n  background-color: #2483bb;\n}\n/* Max Width Percentages */\n.mw-100  { max-width: 100%; }\n/* Max Width Scale */\n.mw1  {  max-width: 1em; }\n.mw2  {  max-width: 2em; }\n.mw3  {  max-width: 4em; }\n.mw4  {  max-width: 8em; }\n.mw5  {  max-width: 16em; }\n.mw6  {  max-width: 32em; }\n.mw7  {  max-width: 48em; }\n.mw8  {  max-width: 64em; }\n.mw9  {  max-width: 96em; }\nbody {\n  background-color: #cccccc;\n}\n.container {\n  position: relative;\n  max-width: 1170px;\n  margin: 0 auto;\n  padding: 0;\n  overflow: hidden;\n  background-color: #ffffff;\n}\n/*\n * Hide visually and from screen readers\n */\n.hidden {\n  display: none !important;\n}\n/*\n * Hide only visually, but have it available for screen readers:\n * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility\n *\n * 1. For long content, line feeds are not interpreted as spaces and small width\n *    causes content to wrap 1 word per line:\n *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe\n */\n.visuallyhidden {\n  border: 0;\n  clip: rect(0 0 0 0);\n  -webkit-clip-path: inset(50%);\n  clip-path: inset(50%);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n  white-space: nowrap; /* 1 */\n}\n/*\n * Extends the .visuallyhidden class to allow the element\n * to be focusable when navigated to via the keyboard:\n * https://www.drupal.org/node/897638\n */\n.visuallyhidden.focusable:active,\n.visuallyhidden.focusable:focus {\n  clip: auto;\n  -webkit-clip-path: none;\n  clip-path: none;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n  white-space: inherit;\n}\n/*\n * Hide visually and from screen readers, but maintain layout\n */\n.invisible {\n  visibility: hidden;\n}\n/*\n * Clearfix: contain floats\n *\n * For modern browsers\n * 1. The space content is one way to avoid an Opera bug when the\n *    `contenteditable` attribute is included anywhere else in the document.\n *    Otherwise it causes space to appear at the top and bottom of elements\n *    that receive the `clearfix` class.\n * 2. The use of `table` rather than `block` is only necessary if using\n *    `:before` to contain the top-margins of child elements.\n */\n.clearfix:before,\n.clearfix:after {\n  content: \" \"; /* 1 */\n  display: table; /* 2 */\n}\n.clearfix:after {\n  clear: both;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/ua-libraries-logo.svg";
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(selector) {
-		if (typeof memo[selector] === "undefined") {
-			memo[selector] = fn.call(this, selector);
-		}
-
-		return memo[selector]
-	};
-})(function (target) {
-	return document.querySelector(target)
-});
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(6);
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-	if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else {
-		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	options.attrs.type = "text/css";
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	options.attrs.type = "text/css";
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
-
-/***/ }),
-/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17798,6 +17166,646 @@ module.exports = function (css) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(9)(module)))
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(2);
+
+var _lodash = __webpack_require__(0);
+
+var _hideCapacity = __webpack_require__(10);
+
+var _hideBreadcrumbs = __webpack_require__(11);
+
+var _calendarClip = __webpack_require__(12);
+
+var _roomInfo = __webpack_require__(13);
+
+var _template = __webpack_require__(14);
+
+var _setStyles = __webpack_require__(18);
+
+var _bookingConfirmationBackButton = __webpack_require__(19);
+
+var _a11y = __webpack_require__(20);
+
+if (!('remove' in Element.prototype)) {
+  Element.prototype.remove = function () {
+    if (this.parentNode) {
+      this.parentNode.removeChild(this);
+    }
+  };
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  (0, _hideCapacity.hideCapacity)();
+  (0, _template.showHeader)();
+  (0, _template.showFooter)();
+  (0, _hideBreadcrumbs.hideBreadcrumbs)();
+  (0, _template.hideTinyFooter)();
+  (0, _calendarClip.calendarClipHeight)('250px');
+  (0, _roomInfo.roomInfoModal)();
+  (0, _roomInfo.roomInfoButtonStyle)();
+  (0, _setStyles.setMiscStyles)();
+  (0, _bookingConfirmationBackButton.bookingConfirmationBackButton)();
+  (0, _a11y.a11y)();
+});
+
+window.addEventListener('resize', (0, _lodash.debounce)(function () {
+  (0, _calendarClip.calendarClipHeight)('250px');
+}, 500));
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(3);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(6)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/postcss-loader/lib/index.js!./main.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/postcss-loader/lib/index.js!./main.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/* Prevents zooming on iOS when selecting form controls */\n@media screen and (-webkit-min-device-pixel-ratio: 0) {\n  select,\n  textarea,\n  input {\n    font-size: 16px !important;\n  }\n}\n.s-lc-public-main {\n  padding: 0;\n}\n#s-lc-eq-navform {\n  margin-top: 0;\n  padding-bottom: 2em;\n}\n.img-thumbnail {\n  border: 0;\n}\n#time_grid_cont {\n  padding-top: 0;\n  margin-top: 0;\n}\n.fc-toolbar.fc-header-toolbar {\n  margin-bottom: 0;\n}\n.fc .fc-toolbar>*>:first-child {\n  margin-left: 0 !important;\n}\n@media (max-width: 500px) {\n  .fc-header-toolbar .fc-left,\n  .fc-header-toolbar .fc-right,\n  .fc-header-toolbar .fc-center {\n    float: none;\n    display: block;\n    clear: both;\n  }\n}\n@media (max-width: 500px) {\n  #eq-time-grid .fc-toolbar h2 {\n    margin-bottom: .25em;\n  }\n}\n.fc button {\n  height: auto;\n  margin-left: .5em !important;\n  padding: .75em !important;\n  font-size: 1.25em;\n}\n#s-lc-eq-form-box {\n  padding: 2em;\n  background-color: rgb(244, 244, 244);\n}\n#s-lc-eq-bwell {\n  outline: none;\n}\n#s-lc-eq-bwell .btn.btn-default {\n  margin-left: .5em !important;\n  background-color: #2483bb;\n  color: #ffffff;\n  border-radius: 4px !important;\n  border: 0;\n}\n/* Hide add equipment to cart button */\n#eq_cart {\n  display: none !important;\n}\n#s-lc-eq-bform legend {\n  border-bottom: 0;\n}\n/* 'Search for room reservation' page form control button fix */\n@media (max-width: 1200px) {\n  #s-lc-eq-navform .form-group:last-child {\n    margin-top: 1em;\n  }\n}\n/* Ibid */\n@media (max-width: 768px) {\n  #s-lc-eq-navform .form-group:last-child .btn {\n    margin-top: 1em;\n  }\n}\n/* Makes 'Cancel your Equipment Booking' question responsive */\n#canceleq {\n  width: 100% !important;\n  border: none !important;\n  padding: 0 !important;\n}\n/* Add margin around bootstrap alerts */\n.alert {\n  margin-right: 1em !important;\n  margin-left: 1em !important;\n}\n/* Add margin around bootstrap panels */\n.panel {\n  margin-right: 1em !important;\n  margin-left: 1em !important;\n}\n/* Room info bubble */\n.info-bubble {\n  display: inline-block;\n  padding: 2px 4px;\n  background-color: #2483bb;\n  border-radius: 2px;\n  font-size: 9px;\n  color: #ffffff\n}\n@media (min-width: 500px) {\n  .info-bubble {\n    font-size: 10px;\n  }\n}\n/* Make the cells in the datepicker table larger */\n.datepicker td,\n.datepicker th {\n  width: 40px !important;\n  height: 40px !important;\n}\n/* Prevent the 'View all room reservations' button from floating on small screens */\n@media (max-width: 1000px) {\n  .pull-right {\n    float: none !important;\n  }\n}\n.fc-timeline-event .fc-bg {\n  opacity: 0 !important;\n}\n/* Info column */\n.fc-resource-area col {\n  min-width: 35px !important;\n}\n.ua-web-branding-banner {\n  background-color: #999999;\n}\n.ual-branding-wrapper {\n  border-bottom: 3px solid #40649e;\n}\n.ual-branding {\n  background-color: #2483bb;\n  height: 100px;\n  width: 100%;\n  padding: 20px 0 0 20px;\n}\n.ual-branding-image {\n  display: block;\n  width: 350px;\n  height: 50px;\n  background-image: url(" + __webpack_require__(5) + ");\n  background-position: 0 0;\n  background-repeat: no-repeat;\n  background-size: 80%;\n}\n@media (min-width: 575px) {\n  .ual-branding-image {\n    height: 60px;\n    background-size: contain;\n  }\n}\n/* Ask Us - Chat */\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button {\n  display: inline;\n  padding: 0;\n  margin: 0;\n  text-align: left;\n  white-space: normal;\n  vertical-align: baseline;\n  cursor: auto;\n  background-image: none;\n  border: none;\n  border-radius: 0;\n}\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_online,\nhtml #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button.libchat_offline {\n  background-color: transparent;\n  color: inherit;\n}\n.libapps-buttons {\n  background-color: #637799;\n}\n@media (min-width: 575px) {\n  .libapps-buttons {\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 0;\n    padding: 0;\n  }\n}\n.libapps-menu {\n  list-style-type: none;\n  margin-bottom: 0;\n  padding: 0;\n}\n.libapps-menu-item {\n  display: inline-block;\n  text-align: center;\n  border-left: none;\n  float: none;\n  text-align: left;\n  width: auto;\n}\n.libapps-menu-item a {\n  color: #ffffff;\n}\n.libapps-buttons .libanswers-button,\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  display: inline-block;\n  padding: 0 15px;\n  height: 44px;\n  line-height: 44px;\n  width: 100%;\n  transition-property: color,background-color,border;\n  transition-duration: .2s;\n  transition-timing-function: ease;\n}\n.libapps-buttons .libanswers-button:hover,\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  background-color: #4f5f7a !important;\n}\n.libapps-buttons .libanswers-button:before,\n.libapps-buttons .libchat_online:before,\n.libapps-buttons .libchat_offline:before {\n  background-image: url(\"data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2226%22%20height%3D%22108%22%20viewBox%3D%22-354%20-129.1%2026%20108%22%20enable-background%3D%22new%20-354%20-129.1%2026%20108%22%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-341-120.6c-2.6%200-4.8%201.9-4.8%205.2%200%203.3%201.8%206.7%204.8%206.7%203.2%200%204.8-3.4%204.8-6.7%200-3.3-2.2-5.2-4.8-5.2zm-4.8%2011.9c-2.6%200-4.8%202.1-4.8%204.7v2.2c0%20.2.1.2.2.2h18.5c.1%200%20.2-.1.2-.2v-2.1c0-2.7-2.1-4.8-4.8-4.8h-1.2c-.1%200-.3%200-.4.1-.9.7-2%201.1-3.1%201.1s-2.2-.3-3.1-1.1c-.1%200-.2-.2-.4-.2l-1.1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-341.2-101.7c-1.4-.9-3.1-1.1-4.4-1.1-.9%200-1.5.1-1.5.1l-.2.1v-8.8h.1s.5-.1%201.4-.1c1.3%200%203.1.2%204.6%201.1h.4c1.5-.9%203.3-1.1%204.6-1.1.8%200%201.3.1%201.4.1h.1v8.8h-.2s-.6-.1-1.4-.1c-1.2%200-3%20.2-4.4%201.1h-.1c.1-.1-.4-.1-.4-.1z%22/%3E%3Cpath%20fill%3D%22%23ddd%22%20d%3D%22M-336.2-111.4h1.3v8.5s-.6-.1-1.5-.1c-1.2%200-3%20.2-4.4%201.1h-.5c-1.4-.9-3.2-1.1-4.5-1.1-.9%200-1.4.1-1.4.1v-8.5h1.3c1.2%200%203.1.2%204.6%201h.5c1.5-.8%203.4-1%204.6-1m0-.3c-1.3%200-3.2.2-4.7%201.1h-.3c-1.5-.9-3.3-1.1-4.7-1.1-.8%200-1.4.1-1.4.1h-.2v9.1l.4-.1s.6-.1%201.4-.1c1.2%200%203%20.2%204.3%201v.1h.7l.1-.1c1.4-.8%203-1%204.3-1%20.9%200%201.4.1%201.4.1l.4.1v-9.1h-.2c-.2%200-.7-.1-1.5-.1zM-344.7-107.3l-.5-.2-.6.2v-4.1h1.1z%22/%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M-336.4-76.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm5.3%201.7c0-3-3-5.4-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3Ccircle%20fill%3D%22%236A80A4%22%20cx%3D%22-343.6%22%20cy%3D%22-41%22%20r%3D%224.4%22/%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M-336.4-40.7c0-3-3.2-5.4-7.2-5.4s-7.2%202.4-7.2%205.4c0%201.8%201.1%203.4%203%204.3l-1.5%202.6%204.4-1.7c.5.1.9.1%201.3.1%204%20.1%207.2-2.3%207.2-5.3zm-4%201.9c.1.2.1.3%200%20.5l-.8.8c-.1.2-.4.2-.5%200l-2.1-2.1-2.1%202.1c-.1.2-.4.2-.5%200l-.8-.8c-.1-.2-.1-.3%200-.5l2.1-2.1-2.1-2.1c-.1-.2-.1-.3%200-.5l.8-.8c.1-.2.4-.2.5%200l2.1%202.1%202.1-2.1c.1-.2.4-.2.5%200l.8.8c.1.2.1.3%200%20.5l-2.1%202.1%202.1%202.1zM-331.1-39c0-3-3-5.3-6.4-5.4%204.8%204.7-.8%209.8-5.4%209.8%200%200%20.5%201.1%204.5%201.1.5%200%20.9-.1%201.3-.1l4.4%201.7-1.5-2.6c2-1.1%203.1-2.7%203.1-4.5z%22/%3E%3C/g%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  content: \"\";\n  width: 30px;\n  height: 20px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.libanswers-button:before {\n  background-position: 0 -8px;\n}\n.libanswers-button:hover {\n  text-decoration: none;\n}\n.libchat-button {\n  text-align: center;\n  width: 100%;\n}\n.libapps-buttons .libchat_online,\n.libapps-buttons .libchat_offline {\n  color: #ffffff !important;\n  display: inline-block !important;\n  padding: 0 15px !important;\n  text-align: center !important;\n}\n.libapps-buttons .libchat_online:hover,\n.libapps-buttons .libchat_offline:hover {\n  cursor: pointer !important;\n  background-color: #4f5f7a !important;\n}\n.libapps-buttons .libchat_online:focus,\n.libapps-buttons .libchat_offline:focus {\n  outline: 0;\n  box-shadow: none;\n}\n.libapps-buttons .libchat_online::before {\n  background-position: 0 -45px;\n}\n.libapps-buttons .libchat_offline::before {\n  background-position: 0 -81px;\n}\n.ual-footer-inner {\n  font-size: 1.25em;\n  padding: 15px;\n  background-color: #eeeeee;\n}\n.ual-footer-inner a {\n  color: #5376b6;\n}\n.ual-footer-inner ul {\n  list-style-type: none;\n  margin-left: 0;\n  padding-left: 0;\n  text-align: center;\n}\n@media (min-width: 500px) {\n  .ual-footer-inner ul {\n    text-align: left;\n  }\n}\n.ual-footer-inner li {\n  display: block;\n  padding-right: 8px;\n  margin-right: 8px;\n}\n@media (min-width: 500px) {\n  .ual-footer-inner li {\n    display: inline-block;\n  }\n}\n@media (min-width: 500px) {\n  .ual-footer-inner ul:first-child li {\n    border-right: 1px solid #cccccc;\n  }\n}\n.ual-footer-inner ul:first-child li:last-child {\n  border: none;\n}\n/* The colors tell you which rooms are available vs booked etc. */\n/* Colors for the time legend */\n#eq-time-grid-legend {\n  text-align: center;\n  margin: 1em 0;\n}\n@media (min-width: 500px) {\n  #eq-time-grid-legend {\n    text-align: right;\n  }\n}\n#eq-time-grid-legend .label {\n  line-height: 1.8em;\n  font-weight: normal;\n}\n#eq-time-grid-legend .label.label-eq-avail {\n  background-color: #58C189 !important;\n}\n#eq-time-grid-legend .label.label-eq-pending {\n  background-color: #2483bb !important;\n}\n#eq-time-grid-legend .label.label-eq-unavailable {\n  background-color: #E5E5E5 !important;\n  color: #333333;\n}\n@media (min-width: 500px) {\n  #eq-time-grid-legend .label {\n    display: inline-block;\n    padding: .25em 1em;\n    font-size: 1em;\n  }\n}\n#eq-time-grid-legend .label.label-eq-filtered {\n  display: none;\n}\n/* Colors for the time calendar */\n#eq-time-grid .s-lc-eq-avail {\n  background-color: #67D199 !important;\n  border: none !important;\n}\n#eq-time-grid .s-lc-eq-pending {\n  background-color: #2483bb !important;\n  border: none !important;\n}\n#eq-time-grid .s-lc-eq-unavailable,\n#eq-time-grid .s-lc-eq-checkout {\n  background-color: #E5E5E5 !important;\n  border: none !important;\n}\n.pa0 { padding: 0; }\n.pa1 { padding: .25em; }\n.pa2 { padding: .5em; }\n.pa3 { padding: 1em; }\n.pa4 { padding: 2em; }\n.pa5 { padding: 4em; }\n.pa6 { padding: 8em; }\n.pa7 { padding: 16em; }\n.pl0 { padding-left: 0; }\n.pl1 { padding-left: .25em; }\n.pl2 { padding-left: .5em; }\n.pl3 { padding-left: 1em; }\n.pl4 { padding-left: 2em; }\n.pl5 { padding-left: 4em; }\n.pl6 { padding-left: 8em; }\n.pl7 { padding-left: 16em; }\n.pr0 { padding-right: 0; }\n.pr1 { padding-right: .25em; }\n.pr2 { padding-right: .5em; }\n.pr3 { padding-right: 1em; }\n.pr4 { padding-right: 2em; }\n.pr5 { padding-right: 4em; }\n.pr6 { padding-right: 8em; }\n.pr7 { padding-right: 16em; }\n.pb0 { padding-bottom: 0; }\n.pb1 { padding-bottom: .25em; }\n.pb2 { padding-bottom: .5em; }\n.pb3 { padding-bottom: 1em; }\n.pb4 { padding-bottom: 2em; }\n.pb5 { padding-bottom: 4em; }\n.pb6 { padding-bottom: 8em; }\n.pb7 { padding-bottom: 16em; }\n.pt0 { padding-top: 0; }\n.pt1 { padding-top: .25em; }\n.pt2 { padding-top: .5em; }\n.pt3 { padding-top: 1em; }\n.pt4 { padding-top: 2em; }\n.pt5 { padding-top: 4em; }\n.pt6 { padding-top: 8em; }\n.pt7 { padding-top: 16em; }\n.pv0 {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.pv1 {\n  padding-top: .25em;\n  padding-bottom: .25em;\n}\n.pv2 {\n  padding-top: .5em;\n  padding-bottom: .5em;\n}\n.pv3 {\n  padding-top: 1em;\n  padding-bottom: 1em;\n}\n.pv4 {\n  padding-top: 2em;\n  padding-bottom: 2em;\n}\n.pv5 {\n  padding-top: 4em;\n  padding-bottom: 4em;\n}\n.pv6 {\n  padding-top: 8em;\n  padding-bottom: 8em;\n}\n.pv7 {\n  padding-top: 16em;\n  padding-bottom: 16em;\n}\n.ph0 {\n  padding-left: 0;\n  padding-right: 0;\n}\n.ph1 {\n  padding-left: .25em;\n  padding-right: .25em;\n}\n.ph2 {\n  padding-left: .5em;\n  padding-right: .5em;\n}\n.ph3 {\n  padding-left: 1em;\n  padding-right: 1em;\n}\n.ph4 {\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.ph5 {\n  padding-left: 4em;\n  padding-right: 4em;\n}\n.ph6 {\n  padding-left: 8em;\n  padding-right: 8em;\n}\n.ph7 {\n  padding-left: 16em;\n  padding-right: 16em;\n}\n.ma0  {  margin: 0; }\n.ma1 {  margin: .25em; }\n.ma2  {  margin: .5em; }\n.ma3  {  margin: 1em; }\n.ma4  {  margin: 2em; }\n.ma5  {  margin: 4em; }\n.ma6 {  margin: 8em; }\n.ma7 { margin: 16em; }\n.ml0  {  margin-left: 0; }\n.ml1 {  margin-left: .25em; }\n.ml2  {  margin-left: .5em; }\n.ml3  {  margin-left: 1em; }\n.ml4  {  margin-left: 2em; }\n.ml5  {  margin-left: 4em; }\n.ml6 {  margin-left: 8em; }\n.ml7 { margin-left: 16em; }\n.mr0  {  margin-right: 0; }\n.mr1 {  margin-right: .25em; }\n.mr2  {  margin-right: .5em; }\n.mr3  {  margin-right: 1em; }\n.mr4  {  margin-right: 2em; }\n.mr5  {  margin-right: 4em; }\n.mr6 {  margin-right: 8em; }\n.mr7 { margin-right: 16em; }\n.mb0  {  margin-bottom: 0; }\n.mb1 {  margin-bottom: .25em; }\n.mb2  {  margin-bottom: .5em; }\n.mb3  {  margin-bottom: 1em; }\n.mb4  {  margin-bottom: 2em; }\n.mb5  {  margin-bottom: 4em; }\n.mb6 {  margin-bottom: 8em; }\n.mb7 { margin-bottom: 16em; }\n.mt0  {  margin-top: 0; }\n.mt1 {  margin-top: .25em; }\n.mt2  {  margin-top: .5em; }\n.mt3  {  margin-top: 1em; }\n.mt4  {  margin-top: 2em; }\n.mt5  {  margin-top: 4em; }\n.mt6 {  margin-top: 8em; }\n.mt7 { margin-top: 16em; }\n.mv0   {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n.mv1  {\n  margin-top: .25em;\n  margin-bottom: .25em;\n}\n.mv2   {\n  margin-top: .5em;\n  margin-bottom: .5em;\n}\n.mv3   {\n  margin-top: 1em;\n  margin-bottom: 1em;\n}\n.mv4   {\n  margin-top: 2em;\n  margin-bottom: 2em;\n}\n.mv5   {\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n.mv6  {\n  margin-top: 8em;\n  margin-bottom: 8em;\n}\n.mv7  {\n  margin-top: 16em;\n  margin-bottom: 16em;\n}\n.mh0   {\n  margin-left: 0;\n  margin-right: 0;\n}\n.mh1   {\n  margin-left: .25em;\n  margin-right: .25em;\n}\n.mh2   {\n  margin-left: .5em;\n  margin-right: .5em;\n}\n.mh3   {\n  margin-left: 1em;\n  margin-right: 1em;\n}\n.mh4   {\n  margin-left: 2em;\n  margin-right: 2em;\n}\n.mh5   {\n  margin-left: 4em;\n  margin-right: 4em;\n}\n.mh6  {\n  margin-left: 8em;\n  margin-right: 8em;\n}\n.mh7  {\n  margin-left: 16em;\n  margin-right: 16em;\n}\n.bn { border-style: none; border-width: 0; }\n.white {\n  color: #ffffff;\n}\n.bg-gray {\n  background-color: #eeeeee;\n}\n.bg-blue {\n  background-color: #2483bb;\n}\n/* Max Width Percentages */\n.mw-100  { max-width: 100%; }\n/* Max Width Scale */\n.mw1  {  max-width: 1em; }\n.mw2  {  max-width: 2em; }\n.mw3  {  max-width: 4em; }\n.mw4  {  max-width: 8em; }\n.mw5  {  max-width: 16em; }\n.mw6  {  max-width: 32em; }\n.mw7  {  max-width: 48em; }\n.mw8  {  max-width: 64em; }\n.mw9  {  max-width: 96em; }\nbody {\n  background-color: #cccccc;\n}\n.container {\n  position: relative;\n  max-width: 1170px;\n  margin: 0 auto;\n  padding: 0;\n  overflow: hidden;\n  background-color: #ffffff;\n}\n/*\n * Hide visually and from screen readers\n */\n.hidden {\n  display: none !important;\n}\n/*\n * Hide only visually, but have it available for screen readers:\n * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility\n *\n * 1. For long content, line feeds are not interpreted as spaces and small width\n *    causes content to wrap 1 word per line:\n *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe\n */\n.visuallyhidden {\n  border: 0;\n  clip: rect(0 0 0 0);\n  -webkit-clip-path: inset(50%);\n  clip-path: inset(50%);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n  white-space: nowrap; /* 1 */\n}\n/*\n * Extends the .visuallyhidden class to allow the element\n * to be focusable when navigated to via the keyboard:\n * https://www.drupal.org/node/897638\n */\n.visuallyhidden.focusable:active,\n.visuallyhidden.focusable:focus {\n  clip: auto;\n  -webkit-clip-path: none;\n  clip-path: none;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n  white-space: inherit;\n}\n/*\n * Hide visually and from screen readers, but maintain layout\n */\n.invisible {\n  visibility: hidden;\n}\n/*\n * Clearfix: contain floats\n *\n * For modern browsers\n * 1. The space content is one way to avoid an Opera bug when the\n *    `contenteditable` attribute is included anywhere else in the document.\n *    Otherwise it causes space to appear at the top and bottom of elements\n *    that receive the `clearfix` class.\n * 2. The use of `table` rather than `block` is only necessary if using\n *    `:before` to contain the top-margins of child elements.\n */\n.clearfix:before,\n.clearfix:after {\n  content: \" \"; /* 1 */\n  display: table; /* 2 */\n}\n.clearfix:after {\n  clear: both;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "assets/ua-libraries-logo.svg";
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(selector) {
+		if (typeof memo[selector] === "undefined") {
+			memo[selector] = fn.call(this, selector);
+		}
+
+		return memo[selector]
+	};
+})(function (target) {
+	return document.querySelector(target)
+});
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(7);
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton) options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+	if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	options.attrs.type = "text/css";
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = options.transform(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
@@ -17918,12 +17926,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.calendarClipHeight = calendarClipHeight;
+
+var _lodash = __webpack_require__(0);
+
 function calendarClipHeight(height) {
   if (window.innerWidth > 700) {
     return;
   }
 
-  document.querySelectorAll('.fc-body .fc-scroller-clip .fc-scroller').forEach(function (element) {
+  (0, _lodash.forEach)(document.querySelectorAll('.fc-body .fc-scroller-clip .fc-scroller'), function (element) {
     element.style.height = height;
   });
 }
@@ -17938,7 +17949,9 @@ function calendarClipHeight(height) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-/* global MutationObserver */
+exports.roomInfoButtonStyle = exports.roomInfoModal = undefined;
+
+var _lodash = __webpack_require__(0);
 
 // Sets width of 'Room info' dialog modals
 function setWidth(nodes) {
@@ -17969,13 +17982,13 @@ function setWidth(nodes) {
     rightColumn.classList.remove('col-md-8');
     rightColumn.classList.add('col-md-7');
   }, 1000);
-}
+} /* global MutationObserver */
 
 function roomInfoModal() {
   var target = document.querySelector('body');
 
   var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
+    (0, _lodash.forEach)(mutations, function (mutation) {
       if (mutation.type === 'childList') {
         setWidth(mutation.addedNodes);
       }
@@ -17997,7 +18010,7 @@ function roomInfoButtonStyle() {
   if (document.getElementById('eq-time-grid')) {
     var elements = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr');
 
-    elements.forEach(function (element) {
+    (0, _lodash.forEach)(elements, function (element) {
       if (element.childNodes[0].classList.contains('fc-widget-content')) {
         var infoLink = element.childNodes[0].querySelectorAll('.fc-cell-content a')[0];
         var icon = element.childNodes[0].querySelectorAll('.fc-cell-content i.fa')[0];
@@ -18026,15 +18039,12 @@ function roomInfoButtonStyle() {
       subtree: true
 
       // OK, here we go...
-    };var rows = [];
-    var target = document.getElementById('s-lc-space-nick-tb');
+    };var target = document.getElementById('s-lc-space-nick-tb');
     var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
+      (0, _lodash.forEach)(mutations, function (mutation) {
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-          rows = mutation.addedNodes;
-
-          mutation.addedNodes.forEach(function (element) {
-            if (element.nodeType == 1 && element.querySelector('i.fa')) {
+          (0, _lodash.forEach)(mutation.addedNodes, function (element) {
+            if (element.nodeType === 1 && element.querySelector('i.fa')) {
               var infoLink = element.children[3].querySelector('a');
               var icon = element.children[3].querySelector('i.fa');
 
@@ -18176,6 +18186,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.setMiscStyles = setMiscStyles;
+
+var _lodash = __webpack_require__(0);
+
 function calendarStyles() {
   if (!document.querySelector('#time_grid_cont')) {
     return;
@@ -18191,7 +18204,8 @@ function calendarStyles() {
 
   // Styles for calendar toolbar buttons
   document.querySelector('#eq-time-grid .fc-header-toolbar .fc-goToDate-button').classList.add('white', 'bg-blue', 'bn');
-  document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button').forEach(function (element) {
+
+  (0, _lodash.forEach)(document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button'), function (element) {
     element.classList.add('white', 'bg-blue', 'bn');
   });
 

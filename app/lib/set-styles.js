@@ -1,3 +1,5 @@
+import {forEach} from 'lodash'
+
 function calendarStyles () {
   if (!document.querySelector('#time_grid_cont')) {
     return
@@ -14,10 +16,10 @@ function calendarStyles () {
   // Styles for calendar toolbar buttons
   document.querySelector('#eq-time-grid .fc-header-toolbar .fc-goToDate-button')
     .classList.add('white', 'bg-blue', 'bn')
-  document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button')
-    .forEach((element) => {
-      element.classList.add('white', 'bg-blue', 'bn')
-    })
+
+  forEach(document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button'), (element) => {
+    element.classList.add('white', 'bg-blue', 'bn')
+  })
 
   // Styles for calendar
   document.querySelector('#eq-time-grid .fc-view-container').classList.add('ph4')

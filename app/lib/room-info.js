@@ -1,5 +1,7 @@
 /* global MutationObserver */
 
+import {forEach} from 'lodash'
+
 // Sets width of 'Room info' dialog modals
 function setWidth (nodes) {
   if (!nodes.length) {
@@ -35,7 +37,7 @@ function roomInfoModal () {
   let target = document.querySelector('body')
 
   let observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
+    forEach(mutations, (mutation) => {
       if (mutation.type === 'childList') {
         setWidth(mutation.addedNodes)
       }
@@ -57,7 +59,7 @@ function roomInfoButtonStyle () {
   if (document.getElementById('eq-time-grid')) {
     let elements = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr')
 
-    elements.forEach((element) => {
+    forEach(elements, (element) => {
       if (element.childNodes[0].classList.contains('fc-widget-content')) {
         let infoLink = element.childNodes[0].querySelectorAll('.fc-cell-content a')[0]
         let icon = element.childNodes[0].querySelectorAll('.fc-cell-content i.fa')[0]
@@ -89,9 +91,9 @@ function roomInfoButtonStyle () {
     // OK, here we go...
     let target = document.getElementById('s-lc-space-nick-tb')
     let observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
+      forEach(mutations, (mutation) => {
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-          mutation.addedNodes.forEach((element) => {
+          forEach(mutation.addedNodes, (element) => {
             if (element.nodeType === 1 && element.querySelector('i.fa')) {
               let infoLink = element.children[3].querySelector('a')
               let icon = element.children[3].querySelector('i.fa')

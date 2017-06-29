@@ -1,10 +1,11 @@
+import {forEach} from 'lodash'
+
 export function calendarClipHeight (height) {
   if (window.innerWidth > 700) {
     return
   }
 
-  document.querySelectorAll('.fc-body .fc-scroller-clip .fc-scroller')
-    .forEach((element) => {
-      element.style.height = height
-    })
+  forEach(document.querySelectorAll('.fc-body .fc-scroller-clip .fc-scroller'), (element) => {
+    element.style.height = height
+  })
 }

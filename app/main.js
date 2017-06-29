@@ -9,6 +9,14 @@ import {setMiscStyles} from './lib/set-styles'
 import {bookingConfirmationBackButton} from './lib/booking-confirmation-back-button'
 import {a11y} from './lib/a11y'
 
+if (!('remove' in Element.prototype)) {
+  Element.prototype.remove = function() {
+    if (this.parentNode) {
+      this.parentNode.removeChild(this);
+    }
+  };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   hideCapacity()
   showHeader()
