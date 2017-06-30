@@ -9,6 +9,7 @@ import {showHeader, showFooter, hideTinyFooter} from './lib/template'
 import {setMiscStyles} from './lib/set-styles'
 import {bookingConfirmationBackButton} from './lib/booking-confirmation-back-button'
 import {a11y} from './lib/a11y'
+import {makeNewReservationBtn} from './lib/make-new-reservation'
 
 // Polyfill for IE11
 if (!('remove' in Element.prototype)) {
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setMiscStyles()
   bookingConfirmationBackButton()
   a11y()
+  makeNewReservationBtn()
 })
 
 window.addEventListener('resize', debounce(() => {
