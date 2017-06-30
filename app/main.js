@@ -1,3 +1,4 @@
+/* global Element */
 import './styles/main.css'
 import {debounce} from 'lodash'
 import {hideCapacity} from './lib/hide-capacity'
@@ -9,12 +10,13 @@ import {setMiscStyles} from './lib/set-styles'
 import {bookingConfirmationBackButton} from './lib/booking-confirmation-back-button'
 import {a11y} from './lib/a11y'
 
+// Polyfill for IE11
 if (!('remove' in Element.prototype)) {
-  Element.prototype.remove = function() {
+  Element.prototype.remove = function () {
     if (this.parentNode) {
-      this.parentNode.removeChild(this);
+      this.parentNode.removeChild(this)
     }
-  };
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

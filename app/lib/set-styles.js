@@ -7,18 +7,17 @@ function calendarStyles () {
 
   // Styles for calendar header/toolbar
   document.querySelector('#time_grid_cont').removeAttribute('style')
-  document.querySelector('#eq-time-grid .fc-header-toolbar').classList.add('ph4', 'pv3')
+  document.querySelector('#eq-time-grid .fc-header-toolbar').className += ' ph4 pv3'
   // Move the calendar title into the left column,
   let calendarHeader = document.querySelector('#eq-time-grid .fc-header-toolbar .fc-center h2')
   document.querySelector('#eq-time-grid .fc-header-toolbar .fc-left').appendChild(calendarHeader)
   calendarHeader.classList.add('pt2')
 
   // Styles for calendar toolbar buttons
-  document.querySelector('#eq-time-grid .fc-header-toolbar .fc-goToDate-button')
-    .classList.add('white', 'bg-blue', 'btn')
+  document.querySelector('#eq-time-grid .fc-header-toolbar .fc-goToDate-button').className += ' white bg-blue btn'
 
   forEach(document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button'), (element) => {
-    element.classList.add('white', 'bg-blue', 'btn')
+    element.className += ' white bg-blue btn'
   })
 
   // Styles for calendar
@@ -45,7 +44,7 @@ function filterBarStyles () {
     return
   }
 
-  element.classList.add('pa4', 'bg-gray')
+  element.className += ' pa4 bg-gray'
 }
 
 function bookingPageTitleStyles () {
