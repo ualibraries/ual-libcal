@@ -10,7 +10,7 @@ module.exports = function (shipit) {
       repositoryUrl: 'https://github.com/ualibraries/ual-libcal.git',
       ignores: ['.git', 'node_modules'],
       rsync: ['--del'],
-      keepReleases: 2,
+      keepReleases: 8,
       // key: '/path/to/key',
       shallowClone: true
     },
