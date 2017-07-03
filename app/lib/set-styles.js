@@ -71,7 +71,6 @@ export function setMiscStyles () {
   filterBarStyles()
   calendarStyles()
   reservationDetailStyles()
-  bookingPageTitleStyles()
   cancelBookingTitleStyles()
   roomReservationsTableStyles()
 }
