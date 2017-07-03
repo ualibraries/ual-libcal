@@ -23,6 +23,11 @@ or for development (from the `develop` branch) by running `npm run deploy:dev`.
 This project uses [JavaScript Standard Style](https://standardjs.com/).
 Test it by running `npm test`.
 
+### Deploying with a specific username
+
+By default, Shipit uses your current OS username for connecting to the remote server.
+To override that, use the `--user` parameter. Example: `shipit prod deploy --user=YOUR_USERNAME`
+
 ## LibCal settings
 
 In the LibCal dashboard, go to 'Admin' -> 'Look & Feel'.

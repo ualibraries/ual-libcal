@@ -1,4 +1,12 @@
-const user = require('os').userInfo().username
+const osUser = require('os').userInfo().username
+const argv = require('yargs').argv
+let user
+
+if (argv.user) {
+  user = argv.user
+} else {
+  user = osUser
+}
 
 module.exports = function (shipit) {
   require('shipit-deploy')(shipit)
