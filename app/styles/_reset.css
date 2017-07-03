@@ -56,6 +56,14 @@
   font-size: 1.25em;
 }
 
+#s-lc-public-nick-h1 {
+  padding: 1em;
+}
+
+#s-lc-public-title {
+  padding: 1em;
+}
+
 #s-lc-eq-form-box {
   padding: 2em;
   background-color: color(var(--gray) tint(35%));

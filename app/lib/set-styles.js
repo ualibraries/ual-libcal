@@ -47,17 +47,6 @@ function filterBarStyles () {
   element.className += ' pa4 bg-gray'
 }
 
-function bookingPageTitleStyles () {
-  // Styles for the booking confirmation page title
-  let element = document.getElementById('s-lc-public-nick-h1')
-
-  if (!element) {
-    return
-  }
-
-  element.classList.add('pa2')
-}
-
 function cancelBookingTitleStyles () {
   if (!document.getElementById('cancel_eqb_php')) {
     return
