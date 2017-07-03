@@ -65,10 +65,14 @@ function roomInfoButtonStyle () {
         let icon = element.childNodes[0].querySelectorAll('.fc-cell-content i.fa')[0]
 
         // Hide fa icon
-        icon.style.display = 'none'
+        if (icon) {
+          icon.style.display = 'none'
+        }
 
         // Add info bubble
-        infoLink.innerHTML += `<span class="info-bubble">Info</span>`
+        if (infoLink) {
+          infoLink.innerHTML += `<span class="info-bubble">Info</span>`
+        }
 
         // Hide empty cell text
         element.childNodes[0].querySelectorAll('.fc-cell-content .fc-cell-text')[0].style.display = 'none'
