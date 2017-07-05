@@ -36,7 +36,6 @@ Paste the following code into 'Code Customizations' field.
 
 ```
 <script type="text/javascript" src="http://www.library.arizona.edu/vendor-support/libcal/current/dist/bundle.js"></script>
-<script src="//v2.libanswers.com/load_chat.php?hash=07713bc057f66ebcdccd4dd1b4a2be3e"></script>
 ```
 
 ## Local testing
@@ -52,4 +51,5 @@ The `bundle.js` file will be served from your local disk.
 * [Webpack](https://webpack.js.org/)
 * [JavaScript Standard Style](https://standardjs.com/)
 * [Shipit](https://github.com/shipitjs/shipit)
+* [AVA](https://github.com/avajs/ava)
 * [Travis CI](https://travis-ci.org/)
