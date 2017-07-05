@@ -20,6 +20,18 @@ if (!('remove' in Element.prototype)) {
   }
 }
 
+function addWebComponents () {
+  let e = document.createElement('script')
+  e.src = 'https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.1/webcomponents-lite.js'
+  document.body.appendChild(e)
+}
+
+function addLibChat () {
+  let e = document.createElement('script')
+  e.src = '//v2.libanswers.com/load_chat.php?hash=07713bc057f66ebcdccd4dd1b4a2be3e'
+  document.body.appendChild(e)
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   hideCapacity()
   showHeader()
@@ -33,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
   bookingConfirmationBackButton()
   a11y()
   makeNewReservationBtn()
+  addLibChat()
+  addWebComponents()
 })
 
 window.addEventListener('resize', debounce(() => {
