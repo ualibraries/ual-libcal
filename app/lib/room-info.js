@@ -34,6 +34,10 @@ function setWidth (nodes) {
 }
 
 function roomInfoModal () {
+  if (!window.MutationObserver) {
+    return
+  }
+
   let target = document.querySelector('body')
 
   let observer = new MutationObserver((mutations) => {
@@ -55,6 +59,10 @@ function roomInfoModal () {
 
 // Changes styles of room info buttons
 function roomInfoButtonStyle () {
+  if (!window.MutationObserver) {
+    return
+  }
+
   // For the main calendar page
   if (document.getElementById('eq-time-grid')) {
     let elements = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr')
