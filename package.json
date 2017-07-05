@@ -57,5 +57,8 @@
     "require": [
       "./test/helpers/setup-browser-env.js"
     ]
+  },
+  "engines": {
+    "node": "v6.11.0"
   }
 }
