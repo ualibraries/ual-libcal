@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ualibraries/ual-libcal.svg?branch=master)](https://travis-ci.org/ualibraries/ual-libcal)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Dependencies](https://img.shields.io/ualibraries/ual-libcal.svg?style=flat-square)](https://david-dm.org/ualibraries/ual-libcal)
 
 ![Screenshot](screenshot.png)
 
