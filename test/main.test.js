@@ -51,7 +51,6 @@ test('Experimental test', async t => {
   })
 
   winston.log('info', source.innerHTML)
-  console.log(source.innerHTML)
 
   t.pass(`Hooray! The test passed!`)
 })

@@ -34,6 +34,7 @@ function setWidth (nodes) {
 }
 
 function roomInfoModal () {
+  // Early return if browser doesn't support mutation observers
   if (!window.MutationObserver) {
     return
   }
