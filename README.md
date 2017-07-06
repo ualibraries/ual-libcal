@@ -4,7 +4,6 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Dependencies](https://david-dm.org/ualibraries/ual-libcal.svg)](https://david-dm.org/ualibraries/ual-libcal)
 
-
 ![Screenshot](screenshot.png)
 
 ## Getting started
