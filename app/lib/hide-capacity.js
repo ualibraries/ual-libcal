@@ -8,7 +8,6 @@ export function hideCapacity () {
   document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content .fc-widget-header')[1].remove()
   document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[1].remove()
   document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[0].style.width = '35px'
-  document.querySelectorAll('.fc-resource-area.fc-widget-header .fc-content colgroup col')[1].style.width = '100%'
 
   let rows = document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content tr')
 
@@ -20,7 +19,6 @@ export function hideCapacity () {
 
   document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[1].remove()
   document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[0].style.width = '35px'
-  document.querySelectorAll('.fc-resource-area.fc-widget-content .fc-content colgroup col')[1].style.width = '100%'
 
   // Hide the 'Capacity' filter
   document.querySelectorAll('#s-lc-eq-navform .form-inline .form-group')[2].remove()

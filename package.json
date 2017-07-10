@@ -5,11 +5,12 @@
   "main": "dist/bundle.js",
   "scripts": {
     "build:dev": "node_modules/webpack/bin/webpack.js -w --verbose",
-    "build:prod": "npm test && node_modules/webpack/bin/webpack.js -p",
+    "build:prod": "npm run lint && node_modules/webpack/bin/webpack.js -p",
     "deploy:dev": "node_modules/shipit-cli/bin/shipit dev deploy",
-    "deploy:prod": "npm test && node_modules/shipit-cli/bin/shipit prod deploy",
+    "deploy:prod": "npm run lint && node_modules/shipit-cli/bin/shipit prod deploy",
     "serve": "node ./static-server.js",
-    "test": "node_modules/standard/bin/cmd.js && node_modules/stylelint/bin/stylelint.js \"app/styles/*.css\" && mocha app/**/*.test.js --timeout=120000"
+    "lint": "node_modules/standard/bin/cmd.js && node_modules/stylelint/bin/stylelint.js \"app/styles/*.css\"",
+    "test": "npm run lint && mocha app/**/*.test.js --timeout=120000"
   },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "github:webcomponents/webcomponentsjs",
