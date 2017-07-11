@@ -25,13 +25,13 @@
   margin-top: 0;
 }
 
-.fc-toolbar.fc-header-toolbar {
+/*.fc-toolbar.fc-header-toolbar {
   margin-bottom: 0;
 }
 
 .fc .fc-toolbar>*>:first-child {
   margin-left: 0 !important;
-}
+}*/
 
 @media (max-width: 500px) {
   .fc-header-toolbar .fc-left,
@@ -40,6 +40,7 @@
     float: none;
     display: block;
     clear: both;
+    font-size: 12px;
   }
 }
 
