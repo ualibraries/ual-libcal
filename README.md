@@ -54,5 +54,5 @@ The `bundle.js` file will be served from your local disk.
 * [Webpack](https://webpack.js.org/)
 * [JavaScript Standard Style](https://standardjs.com/)
 * [Shipit](https://github.com/shipitjs/shipit)
-* [AVA](https://github.com/avajs/ava)
+* [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/)
 * [Travis CI](https://travis-ci.org/)
