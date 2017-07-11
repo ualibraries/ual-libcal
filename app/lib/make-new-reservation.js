@@ -13,7 +13,9 @@ export function makeNewReservationBtn () {
     buttonHtml()
   }
 
-  document.getElementById('btn-cancel').addEventListener('click', () => {
-    buttonHtml()
-  })
+  if (document.getElementById('btn-cancel')) {
+    document.getElementById('btn-cancel').addEventListener('click', () => {
+      buttonHtml()
+    })
+  }
 }

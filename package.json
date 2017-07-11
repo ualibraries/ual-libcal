@@ -13,7 +13,6 @@
     "test": "npm run lint && mocha app/**/*.test.js --timeout=120000"
   },
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "github:webcomponents/webcomponentsjs",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",

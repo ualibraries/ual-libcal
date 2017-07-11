@@ -162,3 +162,16 @@
 .fc-resource-area col {
   min-width: 35px !important;
 }
+
+/* The space checkout container */
+#s-lc-eq-formcont {
+  padding: 0 1em;
+}
+
+#s-lc-eq-formcont .container {
+  width: auto;
+}
+
+#s-lc-eq-n-navform > .form-inline {
+  padding: 0 1em;
+}

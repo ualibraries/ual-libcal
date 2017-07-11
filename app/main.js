@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setMiscStyles()
   bookingConfirmationBackButton()
   a11y()
-  makeNewReservationBtn()
   addLibChat()
+  makeNewReservationBtn()
 })
 
 window.addEventListener('resize', debounce(() => {
