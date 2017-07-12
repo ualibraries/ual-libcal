@@ -4,7 +4,7 @@ const config = require('../test/config.js')
 const loadDocument = require('../test/loadDocument.js').loadDocument
 
 describe('Customization script', function () {
-  it('needs to load', function () {
+  it('must load', function () {
     return loadDocument().then(
       function (dom) {
         let loadedCustomScriptURL = dom.window.document.querySelectorAll('head script')[2].src
