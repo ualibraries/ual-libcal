@@ -1,3 +1,37 @@
+@import "../../lib/properties.css";
+
+.ua-web-branding-banner {
+  background-color: var(--dark-gray);
+}
+
+.ual-branding-wrapper {
+  border-bottom: 3px solid var(--darker-blue);
+}
+
+.ual-branding {
+  background-color: var(--blue);
+  height: 100px;
+  width: 100%;
+  padding: 20px 0 0 20px;
+}
+
+.ual-branding-image {
+  display: block;
+  width: 350px;
+  height: 50px;
+  background-image: url("./ua-libraries-logo.svg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
+
+@media (min-width: 575px) {
+  .ual-branding-image {
+    height: 60px;
+    background-size: contain;
+  }
+}
+
 /* Ask Us - Chat */
 html #libchat_07713bc057f66ebcdccd4dd1b4a2be3e button {
   display: inline;

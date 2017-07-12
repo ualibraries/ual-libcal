@@ -1,4 +1,5 @@
 import * as Handlebars from 'handlebars'
+import './header.css'
 
 // Load LibChat script
 function addLibChatScript () {

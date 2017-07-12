@@ -1,4 +1,6 @@
 /* global MutationObserver */
+
+import './roominfo.css'
 import {forEach} from 'lodash'
 
 // Sets width of 'Room info' dialog modals

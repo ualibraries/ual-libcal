@@ -1,0 +1,121 @@
+@import "lib/properties.css";
+@import "tachyons";
+
+/* Prevents zooming on iOS when selecting form controls */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px !important;
+  }
+}
+
+body {
+  background-color: var(--light-gray);
+}
+
+.container {
+  position: relative;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+/* General resets */
+.s-lc-public-main {
+  padding: 0;
+}
+
+#s-lc-eq-navform {
+  margin-top: 0;
+  padding-bottom: 2em;
+}
+
+#s-lc-public-nick-h1 {
+  padding: 1em;
+}
+
+#s-lc-public-title {
+  padding: 1em;
+}
+
+#s-lc-eq-form-box {
+  padding: 2em;
+  background-color: color(var(--gray) tint(35%));
+}
+
+#s-lc-eq-bwell {
+  outline: none;
+}
+
+#s-lc-eq-bwell .btn.btn-default {
+  margin-left: .5em !important;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 4px !important;
+  border: 0;
+}
+
+/* Hide add equipment to cart button */
+#eq_cart {
+  display: none !important;
+}
+
+#s-lc-eq-bform legend {
+  border-bottom: 0;
+}
+
+/* Makes 'Cancel your Equipment Booking' question responsive */
+#canceleq {
+  width: 100% !important;
+  border: none !important;
+  margin: 20px 0 !important;
+  padding: 0 !important;
+}
+
+/* Add margin around bootstrap alerts */
+.alert {
+  margin-right: 1em !important;
+  margin-left: 1em !important;
+}
+
+/* Add margin around bootstrap panels */
+.panel {
+  margin-right: 1em !important;
+  margin-left: 1em !important;
+}
+
+/* Prevent the 'View all room reservations' button from floating on small screens */
+@media (max-width: 1000px) {
+  .pull-right {
+    float: none !important;
+  }
+}
+
+/* The space checkout container */
+#s-lc-eq-formcont {
+  padding: 0 1em;
+}
+
+#s-lc-eq-formcont .container {
+  width: auto;
+}
+
+#s-lc-eq-n-navform > .form-inline {
+  padding: 0 1em;
+}
+
+/* Colors */
+.white {
+  color: var(--white);
+}
+
+.bg-gray {
+  background-color: var(--gray);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}

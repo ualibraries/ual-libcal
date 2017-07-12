@@ -1,4 +1,5 @@
 import * as Handlebars from 'handlebars'
+import './footer.css'
 
 function insertAfter (newNode, referenceNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling)

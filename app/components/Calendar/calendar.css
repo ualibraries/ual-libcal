@@ -1,3 +1,5 @@
+@import "../../lib/properties.css";
+
 /* The colors tell you which rooms are available vs booked etc. */
 :root {
   --status-avail-color: #67D199;
@@ -5,6 +7,36 @@
   --status-pending-color: #2483bb;
   --status-unavailable-color: #E5E5E5;
   --status-unavailable-color-in-legend: #E5E5E5;
+}
+
+/* Calendar toolbar buttons */
+@media (max-width: 500px) {
+  .fc-header-toolbar .fc-left,
+  .fc-header-toolbar .fc-right,
+  .fc-header-toolbar .fc-center {
+    float: none;
+    display: block;
+    clear: both;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  #eq-time-grid .fc-toolbar h2 {
+    margin-bottom: .25em;
+  }
+}
+
+.fc button {
+  height: auto;
+  margin-left: .5em !important;
+  padding: .75em !important;
+  font-size: 1.25em;
+}
+
+#time_grid_cont {
+  padding-top: 0;
+  margin-top: 0;
 }
 
 /* Colors for the time legend */
@@ -64,4 +96,16 @@
 #eq-time-grid .s-lc-eq-checkout {
   background-color: var(--status-unavailable-color) !important;
   border: none !important;
+}
+
+// Don't show translucent overlays on hour chooser cells
+.fc-timeline-event .fc-bg {
+  opacity: 0 !important;
+}
+
+/* Make the cells in the datepicker table larger */
+.datepicker td,
+.datepicker th {
+  width: 40px !important;
+  height: 40px !important;
 }

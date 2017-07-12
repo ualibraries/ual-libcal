@@ -1,3 +1,4 @@
+import './calendar.css'
 import {forEach} from 'lodash'
 
 const breakpoint = 768

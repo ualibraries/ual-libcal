@@ -1,5 +1,4 @@
-/* global Element */
-import './styles/main.css'
+import './app.css'
 import './lib/polyfill.js'
 import {debounce} from 'lodash'
 import {header} from './components/Header'

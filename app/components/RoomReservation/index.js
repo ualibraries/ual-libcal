@@ -1,3 +1,5 @@
+import './roomreservation.css';
+
 // Adds a 'Back' button to the 'Search for a room reservaiton' page
 function backBtn () {
   if (!document.getElementById('equip_nick')) {
@@ -24,12 +26,12 @@ function makeNewReservationBtn () {
   let reservationButton = `<div class="tc mh2 mb4"><a href="${window.location.protocol}//${window.location.hostname}/spaces" class="btn btn-default">Make a new reservation</a></div>`
 
   if (!document.getElementById('btn-cancel')) {
-    buttonHtml()
+    container.innerHTML += reservationButton
   }
 
   if (document.getElementById('btn-cancel')) {
     document.getElementById('btn-cancel').addEventListener('click', () => {
-      buttonHtml()
+      container.innerHTML += reservationButton
     })
   }
 }
