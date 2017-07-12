@@ -1,8 +1,8 @@
-// Starts a static server on ./dist, exposes a world-accessible domain with localtunnel (https://localtunnel.github.io/www/)
+// Starts a static server on ./build, exposes a world-accessible domain with localtunnel (https://localtunnel.github.io/www/)
 const server = require('node-static')
 const localtunnel = require('localtunnel')
 const moment = require('moment')
-const fileServer = new server.Server('./dist')
+const fileServer = new server.Server('./build')
 
 require('http').createServer(function (request, response) {
   request.addListener('end', function () {
