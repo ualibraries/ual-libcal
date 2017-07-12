@@ -4,21 +4,21 @@ module.exports = {
   // click on the name of the option to get to the detailed documentation
   // click on the items with arrows to show more examples / advanced options
 
-  entry: './app/main.js', // string | object | array
+  entry: './app/app.js', // string | object | array
   // Here the application starts executing
   // and webpack starts bundling
 
   output: {
     // options related to how webpack emits results
 
-    path: path.resolve(__dirname, 'dist'), // string
+    path: path.resolve(__dirname, 'build'), // string
     // the target directory for all output files
     // must be an absolute path (use the Node.js path module)
 
     filename: 'bundle.js', // string
     // the filename template for entry chunks
 
-    publicPath: 'http://www.library.arizona.edu/vendor-support/libcal/current/dist/', // string
+    publicPath: 'http://www.library.arizona.edu/vendor-support/libcal/current/build/', // string
     // the url to the output directory resolved relative to the HTML page
 
     library: 'ual-libcal', // string,
@@ -136,7 +136,7 @@ module.exports = {
     proxy: { // proxy URLs to backend development server
       '/api': 'http://localhost:3000'
     },
-    contentBase: path.join(__dirname, 'dist'), // boolean | string | array, static file location
+    contentBase: path.join(__dirname, 'build'), // boolean | string | array, static file location
     compress: true, // enable gzip compression
     historyApiFallback: true, // true for index.html upon 404, object for multiple paths
     hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin

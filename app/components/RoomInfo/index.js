@@ -1,5 +1,4 @@
 /* global MutationObserver */
-
 import {forEach} from 'lodash'
 
 // Sets width of 'Room info' dialog modals
@@ -33,7 +32,7 @@ function setWidth (nodes) {
   }, 1000)
 }
 
-function roomInfoModal () {
+function setRoomInfoModalStyle () {
   // Early return if browser doesn't support mutation observers
   if (!window.MutationObserver) {
     return
@@ -59,7 +58,7 @@ function roomInfoModal () {
 }
 
 // Changes styles of room info buttons
-function roomInfoButtonStyle () {
+function setRoomInfoButtonStyle () {
   if (!window.MutationObserver) {
     return
   }
@@ -134,4 +133,4 @@ function roomInfoButtonStyle () {
   }
 }
 
-export {roomInfoModal, roomInfoButtonStyle}
+export {setRoomInfoModalStyle, setRoomInfoButtonStyle}

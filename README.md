@@ -38,7 +38,7 @@ In the LibCal dashboard, go to 'Admin' -> 'Look & Feel'.
 Paste the following code into 'Code Customizations' field.
 
 ```
-<script type="text/javascript" src="http://www.library.arizona.edu/vendor-support/libcal/current/dist/bundle.js"></script>
+<script type="text/javascript" src="http://www.library.arizona.edu/vendor-support/libcal/current/build/bundle.js"></script>
 ```
 
 ## Local testing
