@@ -1,4 +1,4 @@
-import './roomreservation.css';
+import './roomreservation.css'
 
 // Adds a 'Back' button to the 'Search for a room reservaiton' page
 function backBtn () {

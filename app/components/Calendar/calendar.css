@@ -98,7 +98,7 @@
   border: none !important;
 }
 
-// Don't show translucent overlays on hour chooser cells
+/* Don't show translucent overlays on hour chooser cells */
 .fc-timeline-event .fc-bg {
   opacity: 0 !important;
 }
