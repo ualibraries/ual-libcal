@@ -104,9 +104,7 @@ function setCalendarStyle () {
   document.querySelector('#eq-time-grid-legend').classList.add('ph4')
 
   setReservationDetailStyles()
-  setFilterBarStyles()
   buttonScreenReaderText()
-  hideCapacity()
 }
 
-export {setCalendarHeight, setCalendarStyle}
+export {setCalendarHeight, setCalendarStyle, hideCapacity, setFilterBarStyles}

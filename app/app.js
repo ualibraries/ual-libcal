@@ -1,22 +1,25 @@
 import './app.css'
 import './lib/polyfill.js'
-import {debounce} from 'lodash'
+// import {debounce} from 'lodash'
 import {header} from './components/Header'
 import {footer} from './components/Footer'
-import {setCalendarStyle, setCalendarHeight} from './components/Calendar'
-import {setRoomInfoModalStyle, setRoomInfoButtonStyle} from './components/RoomInfo'
-import {setRoomReservationStyle} from './components/RoomReservation'
+// import {setCalendarStyle, setCalendarHeight, hideCapacity, setFilterBarStyles} from './components/Calendar'
+import {hideCapacity, setFilterBarStyles} from './components/Calendar'
+// import {setRoomInfoModalStyle, setRoomInfoButtonStyle} from './components/RoomInfo'
+// import {setRoomReservationStyle} from './components/RoomReservation'
 
 document.addEventListener('DOMContentLoaded', () => {
   header()
   footer()
-  setCalendarHeight('250px')
-  setCalendarStyle()
-  setRoomInfoModalStyle()
-  setRoomInfoButtonStyle()
-  setRoomReservationStyle()
+  // setCalendarHeight('250px')
+  // setCalendarStyle()
+  hideCapacity()
+  setFilterBarStyles()
+  // setRoomInfoModalStyle()
+  // setRoomInfoButtonStyle()
+  // setRoomReservationStyle()
 })
 
-window.addEventListener('resize', debounce(() => {
-  setCalendarHeight('250px')
-}, 500))
+// window.addEventListener('resize', debounce(() => {
+//   setCalendarHeight('250px')
+// }, 500))
