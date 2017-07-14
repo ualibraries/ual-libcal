@@ -4,7 +4,7 @@ import './lib/polyfill.js'
 import {header} from './components/Header'
 import {footer} from './components/Footer'
 // import {setCalendarStyle, setCalendarHeight, hideCapacity, setFilterBarStyles} from './components/Calendar'
-import {hideCapacity, setFilterBarStyles} from './components/Calendar'
+import {hideCapacity, setFilterBarStyles, setCalendarInfoTextStyles} from './components/Calendar'
 // import {setRoomInfoModalStyle, setRoomInfoButtonStyle} from './components/RoomInfo'
 // import {setRoomReservationStyle} from './components/RoomReservation'
 
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // setCalendarStyle()
   hideCapacity()
   setFilterBarStyles()
+  setCalendarInfoTextStyles()
   // setRoomInfoModalStyle()
   // setRoomInfoButtonStyle()
   // setRoomReservationStyle()

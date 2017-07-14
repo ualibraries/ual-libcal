@@ -75,6 +75,13 @@ function setFilterBarStyles () {
   element.className += ' pa4 bg-gray'
 }
 
+// Styles for info text above calendar
+function setCalendarInfoTextStyles () {
+  if (document.getElementById('group-description')) {
+    document.getElementById('group-description').classList.add('ph4')
+  }
+}
+
 // Set all calendar styles
 function setCalendarStyle () {
   // Early return if the calendar doesn't exist
@@ -107,4 +114,10 @@ function setCalendarStyle () {
   buttonScreenReaderText()
 }
 
-export {setCalendarHeight, setCalendarStyle, hideCapacity, setFilterBarStyles}
+export {
+  setCalendarHeight,
+  setCalendarStyle,
+  hideCapacity,
+  setFilterBarStyles,
+  setCalendarInfoTextStyles
+}
