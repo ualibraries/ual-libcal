@@ -7,6 +7,7 @@ import {footer} from './components/Footer'
 import {hideCapacity, setFilterBarStyles, setCalendarInfoTextStyles} from './components/Calendar'
 // import {setRoomInfoModalStyle, setRoomInfoButtonStyle} from './components/RoomInfo'
 // import {setRoomReservationStyle} from './components/RoomReservation'
+import {googleAnalytics} from './components/Analytics'
 
 document.addEventListener('DOMContentLoaded', () => {
   header()
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // setRoomInfoModalStyle()
   // setRoomInfoButtonStyle()
   // setRoomReservationStyle()
+  googleAnalytics()
 })
 
 // window.addEventListener('resize', debounce(() => {
