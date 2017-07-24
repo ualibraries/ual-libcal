@@ -25,6 +25,18 @@ function setFilterBarStyles () {
   element.className += ' pa4 bg-gray'
 }
 
+// Removes the 'Capacity' filter
+function hideCapacityFilter () {
+  let element = document.querySelectorAll('#s-lc-eq-navform .form-inline .form-group')[2]
+
+  if (!element) {
+    return
+  }
+
+  // ZAP!!!
+  element.remove()
+}
+
 // Styles for info text above calendar
 function setCalendarInfoTextStyles () {
   let element = document.getElementById('s-lc-group-description')
@@ -64,5 +76,6 @@ function setCalendarStyle () {
 export {
   setFilterBarStyles,
   setCalendarInfoTextStyles,
-  setCalendarStyle
+  setCalendarStyle,
+  hideCapacityFilter
 }
