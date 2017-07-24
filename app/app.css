@@ -107,6 +107,11 @@ body {
   padding: 0 1em;
 }
 
+/* Room preview thumbnails */
+.img-thumbnail {
+  border: 0;
+}
+
 /* Colors */
 .white {
   color: var(--white);
