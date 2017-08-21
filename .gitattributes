@@ -1,2 +1,2 @@
-dist/bundle.js -diff
-dist/bundle.js.map -diff
+build/bundle.js -diff
+build/bundle.js.map -diff
