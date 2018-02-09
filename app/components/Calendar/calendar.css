@@ -56,15 +56,18 @@
   font-weight: normal;
 }
 
-#eq-time-grid-legend .label.label-eq-avail {
+#eq-time-grid-legend .label.label-eq-avail,
+#s-lc-time-grid-legend-top .label.label-eq-avail {
   background-color: var(--status-avail-color-in-legend) !important;
 }
 
-#eq-time-grid-legend .label.label-eq-pending {
+#eq-time-grid-legend .label.label-eq-pending,
+#s-lc-time-grid-legend-top .label.label-eq-pending {
   background-color: var(--status-pending-color) !important;
 }
 
-#eq-time-grid-legend .label.label-eq-unavailable {
+#eq-time-grid-legend .label.label-eq-unavailable,
+#s-lc-time-grid-legend-top .label.label-eq-unavailable {
   background-color: var(--status-unavailable-color-in-legend) !important;
   color: var(--med-gray);
 }
