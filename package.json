@@ -4,12 +4,12 @@
   "description": "The University of Arizona Libraries LibCal customizations",
   "main": "dist/bundle.js",
   "scripts": {
-    "build:dev": "node_modules/webpack/bin/webpack.js -w --verbose",
-    "build:prod": "npm run lint && node_modules/webpack/bin/webpack.js -p",
-    "deploy:dev": "node_modules/shipit-cli/bin/shipit dev deploy",
-    "deploy:prod": "npm run lint && node_modules/shipit-cli/bin/shipit prod deploy",
+    "build:dev": "webpack -w --verbose",
+    "build:prod": "webpack -p",
+    "deploy:dev": "shipit dev deploy",
+    "deploy:prod": "shipit prod deploy",
     "serve": "node ./static-server.js",
-    "lint": "node_modules/standard/bin/cmd.js && node_modules/stylelint/bin/stylelint.js \"app/**/*.css\"",
+    "lint": "standard && stylelint \"app/**/*.css\"",
     "test": "mocha app/**/*.test.js --timeout=120000"
   },
   "dependencies": {
@@ -32,6 +32,7 @@
     "request-promise-native": "^1.0.4",
     "style-loader": "^0.18.2",
     "stylelint": "^7.12.0",
+    "standard": "^10.0.2",
     "tachyons": "^4.7.4",
     "url-loader": "^0.5.9",
     "webpack": "^3.0.0"
@@ -44,7 +45,6 @@
     "node-static": "^0.7.9",
     "shipit-cli": "^3.0.0",
     "shipit-deploy": "^2.5.1",
-    "standard": "^10.0.2",
     "winston": "^2.3.1",
     "yargs": "^8.0.2"
   },
