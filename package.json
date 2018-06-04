@@ -10,7 +10,7 @@
     "deploy:prod": "npm run lint && node_modules/shipit-cli/bin/shipit prod deploy",
     "serve": "node ./static-server.js",
     "lint": "node_modules/standard/bin/cmd.js && node_modules/stylelint/bin/stylelint.js \"app/**/*.css\"",
-    "test": "npm run lint && mocha app/**/*.test.js --timeout=120000"
+    "test": "mocha app/**/*.test.js --timeout=120000"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
