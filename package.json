@@ -60,5 +60,9 @@
   "homepage": "https://github.com/ualibraries/ual-libcal#readme",
   "engines": {
     "node": "v6.11.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }

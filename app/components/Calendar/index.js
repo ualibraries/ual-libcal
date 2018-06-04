@@ -1,9 +1,9 @@
 import './calendar.css'
-import {forEach} from 'lodash'
+import { forEach } from 'lodash'
 
 // Styles for 'Reservation details'
 // (what you see after you click on an hour cell)
-function setReservationDetailStyles () {
+function setReservationDetailStyles() {
   let element = document.getElementById('s-lc-eq-bwell')
 
   if (!element) {
@@ -14,7 +14,7 @@ function setReservationDetailStyles () {
 }
 
 // Styles for filter bar
-function setFilterBarStyles () {
+function setFilterBarStyles() {
   let element = document.getElementById('s-lc-eq-navform')
 
   if (!element) {
@@ -26,8 +26,10 @@ function setFilterBarStyles () {
 }
 
 // Removes the 'Capacity' filter
-function hideCapacityFilter () {
-  let element = document.querySelectorAll('#s-lc-eq-navform .form-inline .form-group')[2]
+function hideCapacityFilter() {
+  let element = document.querySelectorAll(
+    '#s-lc-eq-navform .form-inline .form-group'
+  )[2]
 
   if (!element) {
     return
@@ -38,7 +40,7 @@ function hideCapacityFilter () {
 }
 
 // Styles for info text above calendar
-function setCalendarInfoTextStyles () {
+function setCalendarInfoTextStyles() {
   let element = document.getElementById('s-lc-group-description')
 
   if (!element) {
@@ -49,26 +51,36 @@ function setCalendarInfoTextStyles () {
 }
 
 // Set all calendar styles
-function setCalendarStyle () {
-  // Early return if the calendar doesn't exist
-  if (!document.querySelector('#time_grid_cont')) {
-    return
+function setCalendarStyle() {
+  if (document.querySelector('#time_grid_cont')) {
+    // Add padding around calendar
+    document
+      .querySelector('#eq-time-grid .fc-view-container')
+      .classList.add('ph4')
+
+    // Styles for calendar legend
+    document.querySelector('#eq-time-grid-legend').classList.add('ph4')
   }
 
-  // Styles for calendar header/toolbar
-  document.querySelector('#eq-time-grid .fc-header-toolbar').className += ' ph4 pv3'
+  if (document.querySelector('#eq-time-grid .fc-header-toolbar')) {
+    // Styles for calendar header/toolbar
+    document.querySelector('#eq-time-grid .fc-header-toolbar').className +=
+      ' ph4 pv3'
 
-  // Styles for calendar toolbar buttons
-  document.querySelector('#eq-time-grid .fc-header-toolbar .fc-goToDate-button').className += ' white bg-blue btn'
-  forEach(document.querySelectorAll('#eq-time-grid .fc-header-toolbar .fc-button-group button'), (element) => {
-    element.className += ' white bg-blue btn'
-  })
-
-  // Add padding around calendar
-  document.querySelector('#eq-time-grid .fc-view-container').classList.add('ph4')
-
-  // Styles for calendar legend
-  document.querySelector('#eq-time-grid-legend').classList.add('ph4')
+    // Styles for calendar toolbar buttons
+    document.querySelector(
+      '#eq-time-grid .fc-header-toolbar .fc-goToDate-button'
+    ).className +=
+      ' white bg-blue btn'
+    forEach(
+      document.querySelectorAll(
+        '#eq-time-grid .fc-header-toolbar .fc-button-group button'
+      ),
+      element => {
+        element.className += ' white bg-blue btn'
+      }
+    )
+  }
 
   setReservationDetailStyles()
 }

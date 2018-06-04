@@ -7,7 +7,7 @@ describe('Customization script', function () {
   it('must load', function () {
     return loadDocument().then(
       function (dom) {
-        let loadedCustomScriptURL = dom.window.document.querySelectorAll('head script')[2].src
+        let loadedCustomScriptURL = dom.window.document.querySelectorAll('head script')[3].src
         expect(loadedCustomScriptURL).to.be.equal(config.customScriptURL)
       },
       function (err) {
