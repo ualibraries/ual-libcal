@@ -8,7 +8,7 @@
     "build:prod": "webpack -p",
     "serve": "node ./static-server.js",
     "lint": "standard && stylelint \"app/**/*.css\"",
-    "test": "mocha app/**/*.test.js --timeout=120000",
+    "test": "mocha app/**/*.test.js --timeout=50000 --exit",
     "deploy": "aws s3 sync build s3://ualibr-libcal-assets --delete"
   },
   "dependencies": {
@@ -31,14 +31,14 @@
     "request-promise-native": "^1.0.5",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
-    "stylelint": "^9.3.0",
+    "stylelint": "^9.4.0",
     "tachyons": "^4.11.1",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.16.2"
+    "url-loader": "^1.1.0",
+    "webpack": "^4.16.5"
   },
   "devDependencies": {
     "browser-env": "^3.2.5",
-    "jsdom": "^11.11.0",
+    "jsdom": "^11.12.0",
     "localtunnel": "^1.9.0",
     "moment": "^2.22.2",
     "node-static": "^0.7.10",
