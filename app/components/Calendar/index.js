@@ -3,7 +3,7 @@ import { forEach } from 'lodash'
 
 // Styles for 'Reservation details'
 // (what you see after you click on an hour cell)
-function setReservationDetailStyles() {
+function setReservationDetailStyles () {
   let element = document.getElementById('s-lc-eq-bwell')
 
   if (!element) {
@@ -14,7 +14,7 @@ function setReservationDetailStyles() {
 }
 
 // Styles for filter bar
-function setFilterBarStyles() {
+function setFilterBarStyles () {
   let element = document.getElementById('s-lc-eq-navform')
 
   if (!element) {
@@ -26,7 +26,7 @@ function setFilterBarStyles() {
 }
 
 // Removes the 'Capacity' filter
-function hideCapacityFilter() {
+function hideCapacityFilter () {
   let element = document.querySelectorAll(
     '#s-lc-eq-navform .form-inline .form-group'
   )[2]
@@ -40,7 +40,7 @@ function hideCapacityFilter() {
 }
 
 // Styles for info text above calendar
-function setCalendarInfoTextStyles() {
+function setCalendarInfoTextStyles () {
   let element = document.getElementById('s-lc-group-description')
 
   if (!element) {
@@ -51,7 +51,7 @@ function setCalendarInfoTextStyles() {
 }
 
 // Set all calendar styles
-function setCalendarStyle() {
+function setCalendarStyle () {
   if (document.querySelector('#time_grid_cont')) {
     // Add padding around calendar
     document
