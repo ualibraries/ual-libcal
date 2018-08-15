@@ -1,21 +1,15 @@
 import * as Handlebars from 'handlebars'
 import './footer.css'
 
-function insertAfter (newNode, referenceNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling)
-}
-
 export function footer () {
   const source = require('./footer.hbs')
   const template = Handlebars.compile(source)
-  const widgetElement = document.querySelector('body > .container')
+  const vendorFooter = document.getElementById('s-lc-public-footer')
 
   let footerElement = document.createElement('footer')
 
   footerElement.setAttribute('class', 'ual-footer')
   footerElement.innerHTML = template()
-  insertAfter(footerElement, widgetElement)
 
-  // Hide the tiny footer
-  document.getElementById('s-lc-public-footer').remove()
+  vendorFooter.parentNode.insertBefore(footerElement, vendorFooter)
 }
