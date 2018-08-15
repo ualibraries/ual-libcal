@@ -67,6 +67,11 @@ body {
   border-bottom: 0;
 }
 
+/* Hides capacity filter */
+#s-lc-eq-navform .form-inline .form-group:nth-child(5) {
+  display: none;
+}
+
 /* Makes 'Cancel your Equipment Booking' question responsive */
 #canceleq {
   width: 100% !important;
@@ -105,6 +110,16 @@ body {
 
 #s-lc-eq-n-navform > .form-inline {
   padding: 0 1em;
+}
+
+/* Add space around calendar */
+#eq-time-grid {
+  padding: 0 2em;
+}
+
+/* Add spacing around group description */
+#s-lc-group-description {
+  padding: 0 2rem;
 }
 
 /* Room preview thumbnails */

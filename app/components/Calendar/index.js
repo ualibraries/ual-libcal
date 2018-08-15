@@ -25,39 +25,9 @@ function setFilterBarStyles () {
   element.className += ' pa4 bg-gray'
 }
 
-// Removes the 'Capacity' filter
-function hideCapacityFilter () {
-  let element = document.querySelectorAll(
-    '#s-lc-eq-navform .form-inline .form-group'
-  )[2]
-
-  if (!element) {
-    return
-  }
-
-  // ZAP!!!
-  element.remove()
-}
-
-// Styles for info text above calendar
-function setCalendarInfoTextStyles () {
-  let element = document.getElementById('s-lc-group-description')
-
-  if (!element) {
-    return
-  }
-
-  element.classList.add('ph4')
-}
-
 // Set all calendar styles
 function setCalendarStyle () {
   if (document.querySelector('#time_grid_cont')) {
-    // Add padding around calendar
-    document
-      .querySelector('#eq-time-grid .fc-view-container')
-      .classList.add('ph4')
-
     // Styles for calendar legend
     document.querySelector('#eq-time-grid-legend').classList.add('ph4')
   }
@@ -87,7 +57,5 @@ function setCalendarStyle () {
 
 export {
   setFilterBarStyles,
-  setCalendarInfoTextStyles,
-  setCalendarStyle,
-  hideCapacityFilter
+  setCalendarStyle
 }
