@@ -6,11 +6,10 @@
   "scripts": {
     "build:dev": "webpack -w --verbose",
     "build:prod": "webpack -p",
-    "deploy:dev": "shipit dev deploy",
-    "deploy:prod": "shipit prod deploy",
     "serve": "node ./static-server.js",
     "lint": "standard && stylelint \"app/**/*.css\"",
-    "test": "mocha app/**/*.test.js --timeout=120000"
+    "test": "mocha app/**/*.test.js --timeout=120000",
+    "deploy": "aws s3 sync build s3://ualibr-libcal-assets --delete"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -43,8 +42,6 @@
     "localtunnel": "^1.9.0",
     "moment": "^2.22.2",
     "node-static": "^0.7.10",
-    "shipit-cli": "^4.1.1",
-    "shipit-deploy": "^4.1.1",
     "webpack-cli": "^3.1.0",
     "winston": "^2.4.3",
     "yargs": "^8.0.2"
