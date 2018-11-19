@@ -9,7 +9,7 @@ describe('Customization script', function () {
       function (dom) {
         let loadedCustomScriptURL = dom.window.document.querySelectorAll(
           'head script'
-        )[3].src
+        )[4].src
         expect(loadedCustomScriptURL).to.be.equal(config.customScriptURL)
       },
       function (err) {
