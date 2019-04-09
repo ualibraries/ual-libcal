@@ -3,6 +3,7 @@
 /* The colors tell you which rooms are available vs booked etc. */
 :root {
   --status-avail-color: #67D199;
+  --status-avail-hover-color: #2E5E45;
   --status-avail-color-in-legend: #58C189;
   --status-pending-color: #2483bb;
   --status-unavailable-color: #E5E5E5;
@@ -40,38 +41,26 @@
 }
 
 /* Colors for the time legend */
+/* TODO: check ID */
 #eq-time-grid-legend {
   text-align: center;
   margin: 1em 0;
 }
 
+/* TODO: check ID */
 @media (min-width: 500px) {
   #eq-time-grid-legend {
     text-align: right;
   }
 }
 
+/* TODO: check ID */
 #eq-time-grid-legend .label {
   line-height: 1.8em;
   font-weight: normal;
 }
 
-#eq-time-grid-legend .label.label-eq-avail,
-#s-lc-time-grid-legend-top .label.label-eq-avail {
-  background-color: var(--status-avail-color-in-legend) !important;
-}
-
-#eq-time-grid-legend .label.label-eq-pending,
-#s-lc-time-grid-legend-top .label.label-eq-pending {
-  background-color: var(--status-pending-color) !important;
-}
-
-#eq-time-grid-legend .label.label-eq-unavailable,
-#s-lc-time-grid-legend-top .label.label-eq-unavailable {
-  background-color: var(--status-unavailable-color-in-legend) !important;
-  color: var(--med-gray);
-}
-
+/* TODO: check ID */
 @media (min-width: 500px) {
   #eq-time-grid-legend .label {
     display: inline-block;
@@ -80,23 +69,41 @@
   }
 }
 
+.label.label-eq-avail {
+  background-color: var(--status-avail-color-in-legend) !important;
+}
+
+.label.label-eq-pending {
+  background-color: var(--status-pending-color) !important;
+}
+
+.label.label-eq-unavailable {
+  background-color: var(--status-unavailable-color-in-legend) !important;
+  color: var(--med-gray);
+}
+
+/* TODO: check ID */
 #eq-time-grid-legend .label.label-eq-filtered {
   display: none;
 }
 
 /* Colors for the time calendar */
-#eq-time-grid .s-lc-eq-avail {
+.s-lc-eq-avail {
   background-color: var(--status-avail-color) !important;
   border: none !important;
 }
 
-#eq-time-grid .s-lc-eq-pending {
+.s-lc-eq-avail:hover {
+  background-color: var(--status-avail-hover-color) !important;
+}
+
+.s-lc-eq-pending {
   background-color: var(--status-pending-color) !important;
   border: none !important;
 }
 
-#eq-time-grid .s-lc-eq-unavailable,
-#eq-time-grid .s-lc-eq-checkout {
+.s-lc-eq-unavailable,
+.s-lc-eq-checkout {
   background-color: var(--status-unavailable-color) !important;
   border: none !important;
 }
