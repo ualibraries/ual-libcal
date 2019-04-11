@@ -29,7 +29,7 @@ function setFilterBarStyles () {
 function setCalendarStyle () {
   if (document.querySelector('#time_grid_cont')) {
     // Styles for calendar legend
-    document.querySelector('#eq-time-grid-legend').classList.add('ph4')
+    document.querySelector('.s-lc-time-grid-legend').classList.add('ph4')
   }
 
   if (document.querySelector('#eq-time-grid .fc-header-toolbar')) {

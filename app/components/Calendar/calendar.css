@@ -42,27 +42,27 @@
 
 /* Colors for the time legend */
 /* TODO: check ID */
-#eq-time-grid-legend {
+.s-lc-time-grid-legend {
   text-align: center;
   margin: 1em 0;
 }
 
 /* TODO: check ID */
 @media (min-width: 500px) {
-  #eq-time-grid-legend {
+  .s-lc-time-grid-legend {
     text-align: right;
   }
 }
 
 /* TODO: check ID */
-#eq-time-grid-legend .label {
+.s-lc-time-grid-legend .label {
   line-height: 1.8em;
   font-weight: normal;
 }
 
 /* TODO: check ID */
 @media (min-width: 500px) {
-  #eq-time-grid-legend .label {
+  .s-lc-time-grid-legend .label {
     display: inline-block;
     padding: .25em 1em;
     font-size: 1em;
@@ -83,7 +83,7 @@
 }
 
 /* TODO: check ID */
-#eq-time-grid-legend .label.label-eq-filtered {
+.s-lc-time-grid-legend .label.label-eq-filtered {
   display: none;
 }
 
