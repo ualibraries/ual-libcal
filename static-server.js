@@ -18,7 +18,7 @@ const tunnel = localtunnel(8000, function (err, tunnel) {
   }
 
   console.log(`Static server running at ${tunnel.url}\n`)
-  console.log(`Go to this url: http://arizona.beta.libcal.com/admin_look.php?action=0`)
+  console.log(`Go to this url: http://libcal.library.arizona.edu/admin_look.php?action=0`)
   console.log(`Paste script into LibCal > Admin > Look & Feel > Code Customizations`)
   console.log(`<script type="text/javascript" src="${tunnel.url}/bundle.js"></script>\n`)
 })
