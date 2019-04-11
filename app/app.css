@@ -113,7 +113,7 @@ body {
 }
 
 /* Add space around calendar */
-#eq-time-grid {
+#time_grid_cont {
   padding: 0 2em;
 }
 
