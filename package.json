@@ -23,7 +23,7 @@
     "file-loader": "^1.0",
     "handlebars": "^4.5.3",
     "html-loader": "^0.4.5",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash.template": "^4.5.0",
     "mem": "^4.3.0",
     "mocha": "^5.2.0",
