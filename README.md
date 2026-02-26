@@ -52,3 +52,6 @@ The `bundle.js` file will be served from your local disk.
 * [Shipit](https://github.com/shipitjs/shipit)
 * [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/)
 * [Travis CI](https://travis-ci.org/)
+
+## Archived status
+This repository was archived in February 2026 due to no longer being in use for LibApps.
