@@ -46,7 +46,7 @@
     "localtunnel": "^1.9.2",
     "moment": "^2.24.0",
     "node-static": "^0.7.11",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "winston": "^2.4.4",
     "yargs": "^8.0.2"
   },
